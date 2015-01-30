@@ -1,0 +1,12 @@
+smbclient //ws1234/dirname
+smbclient //ws1234/dirname -U roydsd
+smbclient //ws1234/dirname -A ~/.smbpasswd
+smbclient //ws1234/dirname -c ls
+smbclient //ws1234/dirname -c 'prompt; cd "HollyGolightly"; mget "*.mp3"; mget "*.jpg"'
+                                          Run the smbclient (ftp-like) application on the specified server
+                                          Forward/back slashes don't matter
+                                             -A    Take user name and password from the named credentials file
+                                                   (which is owned by root, so you'll need to use sudo)
+                                             -c    Run the following ; separated smbclient commands:
+                                                      prompt   Toggle off prompting for each matched file
+                                                      mget     Get files matching the following pattern (mask)

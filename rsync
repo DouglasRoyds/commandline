@@ -1,0 +1,32 @@
+rsync --daemon                      Start the rsync daemon on this machine (need root rights)
+rsync 172.25.206.14::               List the available modules on the remote machine
+
+rsync -avC --del here there         Send all changes from here to there, when owners and permissions are compatible.
+rsync -rtvC --del --modify-window=2 here there
+rsync -rtvz --del --modify-window=2 here 172.25.111.222::there
+                                    Send all changes from here to there, when there is a FAT or Samba file-system
+                                    involved.
+                                       --del             Delete any that have gone away
+                                       --modify-window=2 Compare times with only 2-second accuracy, as FAT32 uses a
+                                                         lower time resolution than GNU/Linux filesystems
+                                       -C                Use normal CVS ignore filter, plus ignores from ~/.cvsignore
+                                       -a                Archive mode: Recurse, preserve symlinks, permissions, times,
+                                                         group and owner, recreate devices, fifos, and sockets
+                                       -r                Can't use -a when all the file owners aren't in synch with a
+                                                         FAT32 drive or a Samba share, so we have to specify recursion
+                                                         explicitly
+                                       -t                Preserve timestamps (when we can't use -a)
+                                       -v                Verbose
+                                       -z                Compress for transport (the remote rsyncd.conf file will say
+                                                         which files shouldn't be compressed, eg. *.jpg)
+                                       host::module      The double colon means "use rsync protocol to a remote daemon"
+                                       user@host:src     Use an SSH shell for transport
+
+cd ~/Documents
+rsync -rtvC --del --modify-window=2 Admin Animals Art Email "Friends and family" Games Health House Humour \
+                                    Organisations Philosophy Reference Shopping Sport Technology World \
+                                    /media/Port-Docs/Documents
+
+!!!! BEWARE !!!!
+Using the --del option can wreak havoc if you haven't specified the correct directories. Be specific. Be accurate.
+

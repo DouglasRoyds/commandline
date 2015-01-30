@@ -1,0 +1,5 @@
+Cmnd_Alias SHUTDOWN_CMDS = /sbin/shutdown, /sbin/halt, /sbin/reboot
+douglas ALL=(ALL) NOPASSWD: SHUTDOWN_CMDS                            Must come after any other sudoers lines that apply to this user
+
+douglas ALL=(ALL) NOPASSWD: /sbin/shutdown -r +10                    Command-line parameters can optionally be included
+

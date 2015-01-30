@@ -1,0 +1,14 @@
+red=$(tput setaf 1)                       See man terminfo for the capnames
+echo "${red}Here we go"
+
+bold=$(tput smso)
+boldoff=$(tput rmso)
+echo "${bold}Type your name:${boldoff} "
+
+tmux
+tmux list-sessions
+tmux attach -t0
+
+tmux new -s douglas
+tmux attach -t douglas
+

@@ -1,0 +1,58 @@
+mplayer dvd://1 -dumpstream -dumpfile filename.vob
+                                    Drop the first VOB file from the DVD into filename.vob
+mencoder input.mpg -ovc lavc -oac copy -vf rotate=1 -o output.mpg
+mencoder input.mpg -ovc lavc -oac copy -vf rotate=2 -o output.mpg
+                                    Rotate 90 degrees clockwise/anticlockwise, using default codecs
+mencoder input.mpg -ovc lavc -lavcopts vcodec=mpeg4:vpass=1 -oac copy -o /dev/null
+mencoder input.mpg -ovc lavc -lavcopts vcodec=mpeg4:mbd=2:trell:vpass=2 -oac copy -o output.avi
+                                    Transcode into mpeg4 (in two passes), keeping original audio track
+
+ffmpeg -i inputfile                 Tell me everything you know about this video file
+ffmpeg -i input.avi -vcodec mpeg4 -s 176x144 -r 15 -b 200k -bt 50k -acodec aac -ac 1 -ar 32000 -ab 32000 -f mp4 output.mp4
+                                    Sony K750i
+ffmpeg -i input.avi -vcodec mpeg4 -s 320x240 -r 15 -b 200k -bt 50k -acodec aac -strict experimental -ac 1 -ar 32000 -ab 32000 -f mp4 output.mp4
+                                    Ideos
+ffmpeg -i input.avi -vcodec mpeg4 -r 25 -sameq  -acodec aac -ab 64000  -f mov output.mov
+ffmpeg -i input.flv -vcodec mpeg4 -r 25 -b 700k -acodec aac -ab 128000 -f mov output.mov
+                                    Quicktime
+ffmpeg -i input.avi -vcodec libtheora -b 700k -acodec vorbis -ab 128000 output.ogg
+                                    Vorbis
+ffmpeg -i input.wmv -vcodec flv -s 320x240 -r 15 -b 200k -acodec mp3 -ac 1 -ar 44100 -ab 32000 -f flv output.flv
+                                    Facebook
+                                       -bt         Video bitrate tolerance
+                                       -ac 1       Audio channels = 1, ie. mono
+                                       -ab         Audio bitrate (not in kb/s - the man page is in error)
+                                       -sameq      Works it out for itself. Converts the MJPEG from our Canon into about
+                                                   2700kbps mpeg4
+                                       -ar 22050   Optionally specify a sample rate
+
+ffmpeg -i input.avi -pass 1 -passlogfile logfile -vcodec mpeg4 -r 25 -b 64 -an output.mp4
+rm output.mp4
+ffmpeg -i input.avi -pass 2 -passlogfile logfile -vcodec mpeg4 -r 25 -b 64 -acodec aac -ac 1 -ar 24000 -ab 32 output.mp4
+                                    Two-pass encoding using ffmpeg
+
+ffmpeg -i input -r 6 -ss 13 -vframes 16 name-%02d.jpg
+                                    Animated stills at 6 fps
+                                       -ss 13         Start at 13s (or specify hh:mm:ss)
+                                       -vframes 16    16 frames total
+                                       %02d           Number with 2 digits, with leading zeroes
+
+ffmpeg -i input -ss 00:00:00 -t 00:40:00 -vcodec copy -acodec copy output-01
+ffmpeg -i input -ss 00:40:00             -vcodec copy -acodec copy output-02
+                                    Split a video file into smaller chunks
+                                    Munged the sound for me, regrettably
+
+ffmpeg -i input -acodec copy output.mp3
+                                    Extract only the audio
+
+gst-launch-1.0 filesrc location=$inputmp4 ! decodebin ! audioconvert ! lamemp3enc target=bitrate bitrate=128 ! id3v2mux ! filesink location=$outputmp3
+
+avconv -f x11grab -r 15 -s 1024x768 -i $DISPLAY output.mp4
+avconv -f x11grab -show_region 1 -r 15 -s 1024x768 -i $DISPLAY+1921,0 output.mp4
+avconv -f pulse -i default -f x11grab -show_region 1 -r 15 -s 1024x768 -i $DISPLAY -strict experimental output.mp4
+                                    Screencast
+                                       -show_region 1          Displays an outline of the captured region, useful if it's less than full-screen
+                                       $DISPLAY+1921,0         Offset the capture region, in this case onto the second monitor
+                                       -f pulse                Capture sound as well
+                                       -strict experimental    AAC support is still experimental
+

@@ -1,0 +1,32 @@
+ps                                  Just processes from this terminal session
+ps -u roydsd                        All processes for user roydsd
+ps -u roydsd -o pid,nice,cmd        List process ID, niceness, and command with args
+ps -Hu roydsd                       Tree-form
+ps -A                               The lot (all users)
+ps -Af                              Full listing, showing entire command for each process
+ps aux                              Full listing, showing entire command for each process
+ps -C firefox,thunderbird           Just the named exectubles
+pstree                              Nice graphical tree
+pstree 12345                        Just for process 12345 and it's children
+pstree 12345 -al                    Will all args (long-form)
+
+top                                 View them live
+htop                                With PgUp/PgDn
+                                       q     Quit
+                                       <,>   Sort column left, right
+                                       r     Reverse the sort order
+top -b -n1 | head                   One-hit top
+                                       -b    Batch mode. No screen formatting
+                                       -n1   Just one run
+
+vmstat                              Memory/processor load, one-shot
+vmstat 5                            Live, updated every 5 sec
+vmstat 1 2                          2 reports only, spaced one second apart
+                                    First is totals since start-up, 2nd is the last second
+
+wait                                Without any parameter waits for all jobs in this shell to exit
+sleep 2 & wait %1; do-something     Wait for a jobspec, then do something
+(while date; do sleep 2; done) & long-running-process; kill %1
+                                    Drop time-stamps into the output of a long-running process
+(while date; do sleep 2; done) & PID=$!; long-running-process; kill $PID
+                                    Same again, but using the PID

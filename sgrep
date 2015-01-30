@@ -1,0 +1,6 @@
+sgrep '"expression"' filename                   Display region expression hits, without intervening newlines
+sgrep -o%r\\n '"expression"' filename           Display region expression hits, following each region with a newline
+                                                This is grep-ish behaviour
+
+sgrep '"{".."}" not containing "fred"' filename       All {..} blocks not referring to fred
+sgrep '("/*".."*/") containing "fred"' *.c            All C style comments containing fred

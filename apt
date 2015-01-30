@@ -1,0 +1,74 @@
+aptoncd                             GUI tool to create a CD from the contents of /var/cache/apt/archives
+apt-cdrom add                       *Add a new CD-ROM to the source.list
+
+apt-cache search pattern1 pattern2  List packages matching regular expression in names or descriptions
+                                       --names-only   Search package names, not descriptions
+apt-cache show package              Description
+apt-cache depends package           List all package dependencies, recommendations, and conflicts
+apt-cache rdepends package          Reverse dependencies only
+apt-cache showpkg package           List all package dependencies, forward and reverse
+
+apt-rdepends package | less
+apt-rdepends -d package | dot -Tpng > pipe & firefox pipe &
+                                    List package dependencies recursively/View in Firefox
+                                       -r      Reverse dependencies, ie. upwards
+                                       pipe    A pipe previously created using 'mkfifo pipe'
+
+wget http://packages.medibuntu.org/medibuntu-key.gpg
+apt-key add medibuntu-key.gpg
+                                    *Download and add a public key
+gpg --keyserver subkeys.pgp.net --recv-keys CE49EC21
+gpg --export --armor CE49EC21 | sudo apt-key add -
+                                    *Download and add a public key using gpg
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68980A0EA10B4DE8
+                                    *Download and add a public key using the apt-key convenience one-liner,
+                                     where the public key ID is that given by apt-get update when it fails.
+                                     Requires the proxy environment variable to be white-listed in sudoers,
+                                     otherwise use sudo -E
+                                       adv      Pass advanced options in to gpg
+
+apt-get update                      *Download the latest repository information
+                                       --show-upgraded       Lists the files that will be upgraded
+apt-get dist-upgrade                *Download and install all upgradeable packages
+                                       --download-only       To /var/cache/apt/archive
+                                       --no-download         I've already got them there
+apt-get install package             *Download and install
+apt-get remove package              *Well, duh
+                                       autoremove            Remove dependent libraries as well
+                                       --purge               And take your little config files with you
+apt-get clean                       *Clear /var/cache/apt/archives, or autoclean to only clear
+                                     out the damaged or incomplete ones
+
+dpkg -l pattern                     List known packages matching regular expression
+dpkg -l | grep ^ii                  Installed packages only, same packages but more information than --get-selections
+dpkg -l 'gnome*' | grep ^ii         Installed (gnome) packages. Beware of shell globbing
+dpkg -s package | less              Description, almost the same as apt-cache show
+dpkg -i packagefile.deb             Install a package that's already in the archive
+dpkg -L package                     List files installed by package
+dpkg -S filename_pattern            Search for the package that contributed the named file
+
+deborphan -an
+dpkg -l $(deborphan -an --no-show-section) | less
+                                    List all orphaned libraries (that I didn't --purge), and use dpkg to provide a
+                                    description of each one
+                                       -a                   List all packages (not just libraries)
+                                       -n                   List the lot, even if they are recommended
+                                       --no-show-section    Only the package name, thanks
+
+dpkg --get-selections > file        Drop a list of all known packages and their desired status into a file
+dpkg --set-selections < file        Set the desired status of all the named packages
+apt-get dselect-upgrade             Do it - download, install, or remove packages as necessary
+
+                                    * These commands need root rights
+
+tar -czvf lists.tar.gz /var/lib/apt/lists/*gutsy*
+                                    Create a tarball of the source lists
+
+rm /var/lib/apt/lists/*_{Packages,Release}*
+                                    *Nuke the lot to defeat Hash Sum mismatch errors
+
+apt-file update                     Prepare apt-file cache
+apt-file list pattern               List contents of packages containing the string pattern, without downloading them
+apt-file list -F packagename        List contents of (fixed) package
+apt-file list -x regex              Regular expression
+

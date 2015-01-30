@@ -1,0 +1,6 @@
+lpr file                      Print file to the default CUPS printer
+                              The default printer is specified in /etc/cups/printers.conf
+lpr -#3 file                  3 copies
+
+lpq                           List the print queue
+cancel 68                     Cancel print job 68

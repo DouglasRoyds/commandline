@@ -1,0 +1,6 @@
+vboxmanage list vms
+vboxmanage list runningvms
+
+vboxheadless -s vmname
+nohub vboxheadless -s vmname &      stdin from /dev/null, stdout >nohup.out, and cut it loose
+

@@ -1,0 +1,29 @@
+sudo lshw
+sudo lshw -short
+sudo lshw -short -class volume                        Lots of information about the hardware
+                                                         -short               One-liners
+                                                         -class disk          Disks only
+                                                         -class volume        Formatted volumes
+
+lsusb
+
+sudo blkid                                            List UUID, label, type of all partitions
+sudo fdisk -l                                         List partition tables of all drives
+
+sudo parted /dev/sdc mklabel msdos                    Create a partition table
+sudo parted /dev/sdc mkpart primary ext3 0 250000     Create an ext3 partition, using the space from 0 to 250Gb
+sudo mkfs.ext3 -m0 -L label /dev/sdc1                 Format a partition as ext3
+sudo tune2fs -m0 /dev/sdc1                            Tweak an existing ext3 filesystem
+                                                         -m0         Remove the super-user reserved space
+                                                         -L label    Volume label up to 16 characters
+
+sudo mlabel -i /dev/sdd1 ::vol-label                  Label a FAT partition on a removable device,
+                                                      and it will mount at /media/vol-label
+
+df -h | grep ^/dev                                    List all partitions with remaining space
+df -h | grep ^/dev | sort                             In /dev order
+                                                         -h       Human readable sizes (eg. 250G)
+
+cat /proc/meminfo                                     Memory info
+free                                                  Summary of memory status
+                                                         -m    In Megabytes (1024kB)

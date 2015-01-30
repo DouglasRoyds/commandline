@@ -1,0 +1,107 @@
+find . -type f -print0 | xargs -0 md5sum > ~/md5sums
+                                             Create an md5sums file in the home directory, suitable for burning to CD.
+                                             Copy it into the CD/DVD source directory when done.
+                                                -type f     Files only (md5sum doesn't want directories)
+
+mkisofs -rJ -V Volume_name -o filename.iso source_path/ ~/md5sums
+mkisofs -rJ -V Volume_name -o filename.iso source_path1/ source_path2/ file3 file4
+mkisofs -rJ -V Volume_name -o filename.iso -graft-points Acoustic/=Documents/Music/Acoustic/  source_path2/ file3
+mkisofs -dvd-video -V Volume_name -o filename.iso source_directory_path/
+                                             Create an ISO file (for CD or DVD)
+                                                -r             Rock Ridge extensions for file permissions and long file
+                                                               names, but make everything public
+                                                -J             Joliet extensions as well, for maximum MS-Win
+                                                               compatibility
+                                                -V             Volume name up to 32 characters
+                                                source_path/   The contents of source path will be put at the root of
+                                                               the ISO
+                                                -graft-points Acoustic/=Documents/Music/Acoustic/
+                                                -graft-points dir/=sourcedir/
+                                                -graft-points dir/=sourcefile
+                                                -graft-points file=sourcefile
+                                                               Optionally specify where the named files or directories
+                                                               are to be put within the ISO. In this example, the
+                                                               contents of the Acoustic directory will be put in the
+                                                               directory Acoustic/. Doesn't like the ~/Documents
+                                                               notation
+                                                -dvd-video     Create a video DVD (UDF filesystem) ISO file. The source
+                                                               directory must contain a VIDEO_TS directory with authored
+                                                               VOB, IFO, and BUP files, capitalized
+
+sudo mount filename.iso /mnt/iso -o loop     Mount it to take a look
+totem filename.iso
+mplayer dvd://1 -dvd-device filename.iso
+xine dvd://home/user/filename.iso            Check that it plays OK
+
+cdparanoia -B                                Rip an audio CD into the current directory
+                                                -B          Batch-rip files into track##.cdda.wav
+
+cdrecord --scanbus                           Where's the burner?
+cdrecord blank=fast                          Blank a CD-RW before burning
+cdrecord data.iso
+cdrecord -eject data.iso
+cdrecord -v -eject dev=/dev/cdrw data.iso
+cdrecord -pad *.wav
+cdrecord -v -eject dev=/dev/cdrw -audio -pad *.wav
+                                             Burn a CD-ROM from an ISO file, or an audio CD from ripped .wav files (must
+                                             be 44100bps, stereo, 16 bit)
+                                                dev=/dev/cdrw        Not necessary if there is only one CD drive
+                                                -v                   Verbose
+                                                -eject               Well, duh
+                                                -audio               Not actually necessary - cdrecord works this out for itself
+                                                -pad                 Pads the tracks out to full block lengths (1/75th sec)
+
+mkisofs -rJV Volume_name sources/ ~/md5sums | cdrecord -eject -
+cd sources/ &&
+   find -name md5sums -o -type f -exec md5sum '{}' + > md5sums &&
+   mkisofs -rJV Volume_name . |
+   cdrecord -eject -
+                                             One-hit ISO + burn
+
+cdrecord -v -eject dev=/dev/cdrw -data data.iso -audio -pad *.wav
+                                                -data data.iso       Put this data session first. This is a mixed mode
+                                                                     CD, but our CD player doesn't like it
+
+cdrecord -v dev=/dev/cdrw -multi -audio -pad *.wav
+cdrecord -v dev=/dev/cdrw -multi data1.iso
+cdrecord -msinfo
+cdrecord -v dev=/dev/cdrw -msinfo
+mkisofs -rJ -V Volume_name -o data.iso -C `cdrecord -msinfo` souce_path/
+mkisofs -rJ -V Volume_name -o data2.iso -C `cdrecord -msinfo` -M /dev/cdrw souce_path/
+                                             Create a CD-Extra or multi-session CD
+                                                -multi            Fixate in a way that allows additional sessions later
+                                                -msinfo           Retrieve multi session info
+                                                0,22222           Start and end sector numbers
+                                                -C                CDextra or image of a higher level session
+                                                -M                Continuation of the previous session for multi-session
+                                                                  data CD. Omit for CD-Extra, as mkisofs doesn't need to
+                                                                  read the CD for ToC information
+
+growisofs -dvd-compat -Z /dev/burner=filename.iso
+growisofs -dvd-compat -Z /dev/burner -dvd-video -V Volume_name source_directory_path/
+                                             Burn a DVD
+                                                -dvd-compat       Make it as widely video-DVD compatible as possible
+                                                -Z                Close it. Required for video-DVD
+                                                -M                Merge in another session, though multi-session DVD+/-R is
+                                                                  not widely supported by readers. Best for +/-RW
+                                                filename.iso      ISO file created by mkisofs. Doesn't seem to like a path
+                                                -dvd-video  ...   growisofs can also launch mkisofs itself, saving the
+                                                                  intermediate ISO file
+
+md5sum --check md5sums | grep -v OK$         Check burnt disc, but don't show the files that pass OK
+
+isoinfo -d -i filename.iso                               Info
+isoinfo -d -i /dev/cdrom                                    -d    Descriptor info
+   CD-ROM is in ISO 9660 format                             -i    iso_image
+   ...
+   Logical block size is: 2048
+   Volume size is: 195167
+
+dd if=/dev/cdrom bs=2048 count=195167 | md5sum           Calculate an md5sum from a CD
+                                                            bs=2048        All isos must be multiples of 2048 bytes
+                                                                           We could use bs=1, but it's slower
+                                                                           Default bs=512
+                                                            count=195167   Either from isoinfo, or from ls -l thingy.iso / 2048
+
+dd if=/dev/cdrom of=filename.iso bs=2048 count=195167    Rip a data CD as an ISO
+

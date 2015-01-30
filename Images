@@ -1,0 +1,50 @@
+convert -resize 800x800 -quality 60 input.jpg output.jpg
+convert -resize 800x800 -quality 60 *.jpg output.jpg
+                                    Crunch images to about 70kB for email. With the wild-card, it will append -0, -1, -2
+                                    to the filenames, eg. output-0.jpg
+                                       -resize 800x800   By default, the width and height are maximum values.
+                                                         The aspect ratio of the image is maintained.
+
+exiftran -d input.jpg               Dump all the exif tags to stdout
+exiftran -ai *.jpg
+                                    Automatically rotate all jpg files in-place, leaving the orientation set to Top Left
+exiftran -anig input.jpg -o output.jpg
+                                    Set the exif orientation tag to Top Left without rotating the picture
+                                       -a    Automatic (leaves the orientation as Top Left)
+                                       -ni   Don't touch the image
+                                       -g    Recreate the exif thumbnail
+exiftran -9ig input.jpg             Rotate files in-place
+                                       -9    90 degrees
+                                       -1    180 degrees
+                                       -2    270 degrees
+                                       -i    In-place
+                                       -g    Recreate the exif thumbnail
+
+identify input.jpg                              Image info
+identify -verbose input.jpg
+convert input.jpg output.png
+convert input.jpg -resize 800x800 output.jpg    Largest dimension 800px
+
+convert  \( input.jpg -resize 800x800 \) \
+         \( -size 600x -background None -undercolor '#00000040' -fill white -font Helvetica-Bold -pointsize 24 \
+            -gravity Center caption:'Text' \) \
+         -gravity south \
+         -composite output.jpg
+                                    Overlay captions onto a photograph.
+                                    Puts two images on the image stack, as enclosed by the (shell escaped) '(' and ')'
+                                    characters
+                                    -resize 800x800         Largest dimension 800px
+                                    -size 600x              Fit caption in a box 600px wide
+                                    -backgroun None         Background of the box is transparent
+                                    -undercolor '#00000040' Background of the text itself is 25% opaque black
+                                    -fill white             Font is coloured white
+                                    -font Helvetica-Bold    Well, duh
+                                    -pointsize 24           In points, assuming some pixel density (72 dpi perhaps?); it
+                                                            would probably be better to specify the font size in pixels
+                                    -gravity Center         Text is centered in the box
+                                     caption:'xxx'          Caption is different from text:, -draw, -annotate, etc in
+                                                            that it can do line-wrapping
+                                    -gravity South          Second image on the stack (the caption) will be placed at
+                                                            the bottom of the image
+                                    -composite              Overlay the second image on the first
+

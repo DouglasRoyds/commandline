@@ -1,0 +1,49 @@
+gsettings list-schemas | sort | less
+gsettings list-schemas | grep screenshot           There are lots of them
+gsettings list-keys org.gnome.gnome-screenshot
+gsettings list-recursively org.gnome.gnome-screenshot
+gsettings get org.gnome.gnome-screenshot last-save-directory
+
+# dconf provides a backend to GSettings on platforms that don't already have configuration storage systems.
+# dconf is only the GSettings backend on Unix - on Windows things actually end up in the registry.
+dconf help
+dconf help list
+
+dconf list /
+dconf list /org/gnome/gnome-screenshot/                                                Note the leading and trailing slashes
+dconf read /org/gnome/gnome-screenshot/last-save-directory                             No trailing slash
+
+dconf write /org/gnome/gnome-screenshot/include-pointer false
+dconf write /org/gnome/gnome-screenshot/last-save-directory "'file:///home/douglas'"   String types require the ''
+
+ls -lh /usr/share/glib-2.0/schemas/org.gnome.gnome-screenshot.gschema.xml
+
+gnome-session-save --logout                        Log out
+
+# gdm settings are stored under the user gdm.
+sudo su gdm -s /bin/bash
+gsettings get org.gnome.desktop.background picture-uri
+gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/gnome/Waves.jpg'
+
+# gconf is now largely redundant.
+# Gnome has been moving over to GSettings, with the dconf back-end.
+# See https://wiki.gnome.org/Initiatives/GnomeGoals/GSettingsMigration for progress.
+gconftool --all-dirs /
+gconftool --all-dirs /apps/metacity
+                                                   List subdirectories of the named directory
+
+gconftool -R /apps/metacity
+gconftool -R /apps/metacity | egrep 'command|keybinding'
+gconftool -a /apps/metacity/global_keybindings | sort
+gconftool -a /apps/metacity/global_keybindings | grep mod4
+
+                                                   List keys under the named directory
+                                                      -R    Recursively (useful for grepping)
+                                                      -a    --all-entries
+                                                      mod4  The Windows key
+
+gconftool -g /apps/metacity/global_keybindings/run_command_terminal
+gconftool -s /apps/metacity/global_keybindings/run_command_terminal -t string "<mod4>T"
+
+gconftool -R /desktop/gnome/keybindings
+gconftool -R /desktop/gnome/keybindings | grep -A3 custom

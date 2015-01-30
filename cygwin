@@ -1,0 +1,3 @@
+xwin -multiwindow -clipboard &         Start an X server in the background
+                                          -silent-dup-error    Don't complain so noisily if there's already one running
+

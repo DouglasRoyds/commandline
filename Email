@@ -1,0 +1,30 @@
+sendmail user@host.com
+Subject: Hello world
+Sent from the command line
+Ctrl-D
+
+echo "Hello world" | sendmail user@host.com
+                                                      No subject line, undisclosed recipients
+echo "Subject: Hello world
+   Sent from the command line" | sendmail user@host.com
+                                                      Undisclosed recipients
+(echo   "Subject: Hello world";
+   echo "To: user@host.com";
+   echo "content-type: text/html";
+   cat  file.html)             | sendmail -t
+
+mpack -s "Picture"                    IMG_0109.JPG user@host.com
+mpack -s "Picture" -d message.txt     IMG_0109.JPG user@host.com
+mpack -s "Picture" -c application/pdf document.pdf user@host.com
+
+                                                      Send a file using MIME encoding.
+                                                      Automatically selects type application, audio, video, or image
+                                                         -s    Subject
+                                                         -d    Description (ie. body text)
+                                                         -c    MIME type
+                                                                  application/pdf, excel, msword, postscript,
+                                                                              vnd.oasis.opendocument.text, x-bzip2, x-gtar, x-visio
+                                                                  audio/mpeg, wav
+                                                                  image/bmp, gif, jpeg, png, tiff
+                                                                  video/avi, mpeg, quicktime, x-ms-wma, x-ms-wmv
+

@@ -1,0 +1,65 @@
+host www.google.com                    Perform a DNS lookup, returning IP addresses for the named server
+dig www.google.com                     Full DNS records (including the above)
+
+arp                                    Display this machines arp table of known Ethernet addresses
+arp -n                                 Don't display hostnames, use IP addresses instead
+route -n                               Display current gateway and netmask
+
+exportfs -ra                           Reexport all entries in the /etc/exports file, for NFS mounts
+mount 172.25.206.14:/home/roydsd /mnt/ws1788/home/roydsd
+mount ws2024.local:/opt          /mnt/ws2024/opt
+                                       Mount an NFS share from some other machine
+                                          ws2024.local         Find the IP address using avahi/zeroconf
+
+wget         http://mutt.blackfish.org.uk/
+wget -rkl1   http://mutt.blackfish.org.uk/
+wget -P dir/ http://mutt.blackfish.org.uk/
+                                       Download a web-page to the local disk. In the single-page case, it will be saved
+                                       as index.html, or whatever the server serves up.
+                                          -r          Recursive, ie. follow links.
+                                                      The whole lot will be downloaded into a directory named mutt.blackfish.org.uk
+                                                      By default, wget will not navigate off the named host
+                                          -k          Convert links to make them work off the local disk
+                                          -l1         Levels to recurse through, in this case just 1
+                                          -P dir/     Save into dir/, rather than the CWD
+
+uname -n
+hostname                               What is this machine named?
+hostname fred                          Change the hostname
+sudo vim /etc/hostname                 ... permanently
+sudo vim /etc/hosts                    ... and don't forget this one
+
+nslookup                               Query nameservers interactively
+   > server                            Who's my current nameserver?
+   > host.com                          Look up a host
+   > set type=mx                       Who's the mail exchange host for ...
+   > host.com
+   > set type=ns                       Who's the nameserver for ...
+   > host.com
+   > nz
+   > set type=a                        Authoritative
+   > server alien.xtra.co.nz           Use this nameserver for now
+   > host.com                          Where does alien.xtra.co.nz think host.com is?
+
+ifconfig
+sudo ifconfig eth0 down                Need to do this after editing /etc/network/interfaces
+sudo ifconfig eth0 up
+
+/etc/ldap/ldap.conf:
+   URI      ldap://ldaphost.host.com:389
+   BASE     dc=host,dc=com
+   BINDDN   uid=addressbook,ou=people,dc=host,dc=com
+
+ldapsearch -xLLL cn=*douglas* uid cn
+ldapsearch -xLLL cn=*royds* uid cn
+ldapsearch -xLLL uid=roydsd memberOf
+ldapsearch -xLLL cn="This Software Team" uniqueMember
+                                       -x    Simple authentication, no SASL
+                                       -LLL  LDIF format, no version, no cruft
+
+for uid in $(ldapsearch -xLLL cn='This Software Team' uniqueMember |
+             grep ^unique |
+             gawk -F'[ ,=]' '{print $3}'); do
+   ldapsearch -xLLL uid=$uid cn
+done | grep ^cn
+                                       Full names of group members

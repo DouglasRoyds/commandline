@@ -1,0 +1,61 @@
+svn checkout URL                       Checkout into the current directory, creating a new subdirectory
+svn checkout URL path/                 Checkout files into path/. No new subdirectory will be created - the files and
+                                       directories under URL will all be put directly into path/
+
+svn log -v                             Name modified, deleted, and added files in the current directory
+svn log -l1 filename                   Latest comment only
+svn log --stop-on-copy                 Show only the changes made on this branch
+svn log -vr 4830                       Check-in comment and M,D,A files in revision 4830
+svn diff -c 4830 $SVN                  What actually changed
+
+svn log | gawk '/roydsd/{print "-" $1}' | xargs -r svn log
+                                       My commits only. svn log can take multiple -r11111 options
+                                          -r    Don't run the log if there is no input to xargs
+svn log | egrep -v '^---|^r[0-9]|^$'   Comments only (eliminating the ---- lines, the r12345 lines, and blank lines
+svn log | grep -B5 searchstring        Search the log for some particular filename or check-in comment, and print the revision line.
+
+svn log -v $SVN | gawk '/^r/{rev=$0} /^   [M].*(\/tag\/|\/vendor\/)/{if (rev != "") {print rev; print}; rev=""}'
+                                       Anyone modified any tags or vendor tags?
+for rev in $(svn log -l5 | gawk '/^r/{sub("r","",$1); print $1}'); do svn log -vr$rev; svn diff -c$rev ; done
+                                       Log with diffs in-line
+
+svn copy $SVN/thing/trunk $SVN/thing/tags/1.03 -m "Description of tag"
+svn copy $SVN/thing/trunk $SVN/thing/branches/TIMS00011111 -m "Description of branch"
+                                       The 1.03/ or TIMS00011111/ directory shoud not exist
+                                          --parents      Creates intermediate directories, useful if there isn't already
+                                                         a tags/ or branches/ directory
+svn copy here/ there/                  Two different outcomes:
+                                          there/ does not exist, it puts contents of here into there
+                                          there/ already exists, it puts here INTO there
+                                       These are the same semantics as cp -r
+
+svn move this that                     Renames this to that
+svn move here/ there/                  If there/ already exists, here/ is put inside there/, otherwise renamed to there/
+svn move here/* there/                 there/ must already exist.
+svn move $SVN/from/here $SVN/target/there -m "Message"
+                                       Move semantics are the same as the bash mv command,
+                                          --parents      Creates intermediate directories
+
+svnadmin create ~/repository
+svn import path/ file:///home/roydsd/repository/project/trunk -m "Initial import"
+svn list -R file:///home/roydsd/repository/project/trunk
+mkdir ~/project; cd ~/project
+svn checkout file:///home/roydsd/repository/project/trunk
+                                       Create a new Subversion repository in the directory "repository"
+                                       Copy all the files in path/ into the project/trunk path of the repository
+                                       Take a look
+                                          -R    Recursive
+                                       Check out a local working copy
+
+svn list -vR | sort -nr | head         Latest repository versions of this source (need to update first)
+
+svn proplist filename
+svn propedit svn:ignore directory      Edit the ignores list for a directory
+svn propget  svn:mime-type filename
+svn propedit svn:mime-type filename    Set the mime-type for a file:
+                                          text/html; charset=UTF-8
+                                          text/plain; charset=UTF-8
+
+svn commit --username roydsd --no-auth-cache filename
+                                       Make a commit under my name without wrecking someone else's password
+

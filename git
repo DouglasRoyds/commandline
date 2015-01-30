@@ -1,0 +1,87 @@
+git config -l                                         List: it's all in .git/config and ~/.gitconfig
+git config user.name
+git config user.email                                 Display, just for this repository
+git config --global user.email                        From ~/.gitconfig, rather than the repository .git/config
+git config --global user.email username@server.fake   Write into ~/.gitconfig
+git config --unset user.email                         Remove the repository-local setting (from .git/config)
+
+git clone URL
+git clone URL directory/
+git pull                                  Update from remote repository (ie. fetch and merge)
+git remote -v                             List all remote repositories, complete with URLs
+git remote show origin                    Even more detail
+git remote add origin URL                 Hooks this local git repository to the remote repository at URL
+git remote add shortname URL              Shortname stands in for the URL in later fetches
+git remote rename thisname thatname
+git remote rm somename
+git fetch shortname                       Pull into local repository without merging
+git push                                  Push committed changes to the default remote server
+git push origin master                    Push committed changes to the origin remote server, on branch master
+
+git log -1
+git log -n1 filename                      Limit the number of log entries listed
+git log --name-status                     List affected files as well
+git log --stat                            Git-style stats (files, lines changed)
+git log --oneline                         One line per commit
+git log --oneline --decorate              With branch markers as well
+git log -p                                With diffs
+git log commitsum -- filename             Starting with the given log entry (short object name)
+git log here..there filename              Just between the two commits
+git log master..branch                    Commits made only on this branch
+git log master..                          If we are on the branch
+git log --diff-filter=D --summary         When was a file deleted?
+
+git status
+git add filename                          Stage changes to this file
+git add -p                                Interactively select which hunks are to be staged
+git diff filename                         Unstaged mods only
+git diff --cached                         Which changes are already staged?
+git commit                                Commit staged changes
+git commit -v                             Show diffs in the commit editor
+git commit filename -m"Comment"           Commit changes to this file, whether they are staged or not
+git rm filename                           Delete
+git rm --cached filename                  Delete from staging, but keep the working copy
+
+git reset HEAD filename                   Unstage a file
+git reset --hard HEAD                     Revert everything to the most recent commit, undoing all working copy changes
+git reset --hard HEAD~1                   Delete the last commit completely, undoing all working copy changes
+git reset --hard commitsum                Delete a commit
+git push origin HEAD --force              Force the deletion up if you'd already pushed it, however,
+                                          if others have pulled it, they will pushed it back up again. Better to use ...
+git revert HEAD                           Generates the reverse commit
+
+git checkout -- filename                  Revert local mods
+git checkout commitsum filename           Roll file back to this commit
+git checkout HEAD^ filename               Roll file back to the parent of the HEAD: roll back by one
+git checkout HEAD^2 filename              Roll file back by two
+git checkout HEAD^^ filename              Roll file back by two
+git checkout HEAD~2 filename              Roll file back by two: only different to HEAD^^ when a commit has multiple parents
+git checkout master filename              Roll file forward to the HEAD of this branch
+git checkout master^ filename             Roll file back to the parent of the HEAD of this branch
+                                             --    Everything after this is a filename,
+                                                   just in case there's a branch with this name
+
+git branch branchname                           Creates the branch without switching to it
+git checkout branchname                         Note the potential ambiguity with filenames
+                                                   -f    Force: throw away local changes
+git checkout -b newbranch                       Create and switch to the new branch in one go
+git checkout --track remote/branchname          Makes this the default pull branch
+git branch                                      List local branches
+git branch -a
+git branch --list pattern                       Pattern is a shell glob
+git branch --list -r remote/pattern                -r    Remote branches
+                                                   -a    Both local and remote
+git rebase master                               Rebase the current branch off the head of the master branch
+git branch -m oldname newname                   Rename (move)
+git branch -m newname                           If you're already on the old branch
+git branch -d branchname                        Delete (locally)
+git push origin --delete branchname             Delete (remote)
+
+git tag                                   List all tags
+git tag -l                                (Synonym)
+
+cd repository1
+git log --pretty=email --patch-with-stat --reverse --full-index --binary -- pathname > ~/history.patch
+cd repository2
+git am < ~/history.patch                  Copy named files from repository1 into repository2, complete with history
+

@@ -1,0 +1,66 @@
+ctrl-shift-U 1234          1234 = Unicode (hex)
+
+      Hex  HTML      Vim digraph
+   £  a3              Pd
+   ©  a9              Co
+   °  b0              DG
+   ±  b1              +-
+   ¹  b9              1S (1-Super)
+   ²  b2              2S (etc.)
+   ³  b3              3S
+   µ  b5              My (not Mu, regrettably)
+   ·  b7              .M (dot-Middle)
+   ÷  f7              -:
+   ∑  2211            +Z
+   ∙  2219            Sb (Solid bullet)
+   √  221A            RT (RooT)
+   ≅  2245            ?= (approx. equal)
+   ≡  2261            =3 (identical to)
+   ≤  2264            =<
+   ≥  2265            >=
+   ≪  226A            <*
+   ≫  226B            *>
+   ≮  226E            !<
+   ≯  226F            !>
+
+   ¼  bc              14 (one quarter)
+   ½  bd              12
+   ¾  be              34
+   ⅓  2153            13
+
+   ç  e7              c,
+   è  e8              e!
+   é  e9              e'
+   ë  eb              e:
+   ô  d4              o^
+
+   Α  0391            A*
+   Β  0392            B*
+   Γ  0393            G*
+   Δ  0394            D*
+   Ε  0395            E*
+   α  03B1            a*
+   β  03B2            b*
+   γ  03B3            g*
+   δ  03B4            d*
+   ε  03B5            e*
+
+   ☑  2611
+   ☒  2612
+   ✓  2713            OK
+   ✔  2714
+   ✕  2715
+   ✗  2717            XX
+   ✘  2718
+   †  2020 &dagger;   /-
+   ‡  2021 &Dagger;   /=
+
+   ←  2190 &larr;     <-
+   ↑  2191 &uarr;     -!
+   →  2192 &rarr;     ->
+   ↓  2193 &darr;     -v
+
+
+
+
+

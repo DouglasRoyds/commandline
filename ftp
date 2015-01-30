@@ -1,0 +1,10 @@
+lftp host.com
+> ls
+> cd contributed/ubuntu/8.04/             Change remote directory (with tab completion)
+> lcd ~/temp                              Change local directory (with tab completion)
+> put ubuntu-8.04-alternate-i386.iso
+> get ubuntu-8.04-desktop-i386.iso
+> exit
+
+lftp -c 'open host.com && cd contributed/ubuntu/8.04 && ls'
+                                          Execute the given sequence of commands, only if each command succeeds

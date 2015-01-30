@@ -1,0 +1,11 @@
+gcc main.c
+gcc main.cc
+gcc main.c -o executable
+                                       Compile main.c
+                                          -o executable     Otherwise defaults to a.out
+                                          -l libname        Use this library (as well as libstdc)
+                                          -L libpath        Add this path to the library search path
+                                          -Wall             All warnings
+
+gcc -print-search-dirs                 Where is it going to look for libraries?
+

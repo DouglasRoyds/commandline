@@ -1,0 +1,49 @@
+df                                  How much space remaining?
+
+du -h | grep -v '/.*/'
+du -cs *
+                                    Disk usage, summary for top-level directories only
+du -cs * | sort -n
+du -k | grep -v '/.*/' | sort -nr   Summary, sorted with largest directories at the top
+                                       -k    kilobytes
+                                       -n    numeric sort
+                                       -r    reverse order
+                                       -x    Stay on this filesystem
+ls -lhRS | less                     So where'd it really go?
+                                       -R    Recursive
+                                       -S    Size sort
+du -ak | grep -i '\.mov\|\.avi\|\.mpg' | sort -nr | head
+                                    Where are the biggest video files?
+                                       -a    All files, not just directories
+
+sudo parted -l
+sudo fdisk -l                       Partitions, and what they are used for
+                                       -l    List partition table
+file -Ls /dev/hda1                  What file system is on this partition?
+                                       -L    Dereference symlinks
+                                       -s    Special files too
+sudo blkid                          What partitions, what UUIDs?
+
+sudo parted /dev/sdb
+(parted) print                      What's there?
+(parted) mklabel msdos              Create a new partition table
+(parted) mkpart primary ext4 1 -1   New primary partition taking in the entire available space
+(parted) quit                       Done
+sudo mkfs.ext4 /dev/sdb1            Format it
+
+tree -aFCL 4 | less -R              Display the file and directory tree
+                                       -a       All files, including hidden ones
+                                       -I .svn  Ignore .svn/ directories
+                                       -F       Put / or * on the end of each line, as per ls -F
+                                       -C       Output colour codes to the pipe
+                                       -L 4     Only go down 4 levels
+                                       -R       Respect ANSI colour codes
+
+file filename                       Display the file type
+
+rename 's/\.bak$//' *.bak           Strip extension from multiple files
+rename 's/ //' *                    Strip spaces
+rename 'y/A-Z/a-z/' *               Change multiple filenames to lower case (y/// is the Perl "transliterate" command)
+
+cat /proc/swaps
+swapon -a                           Make swap devices from /etc/fstab available

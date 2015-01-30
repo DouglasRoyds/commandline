@@ -1,0 +1,38 @@
+ar tv archive                       Table of contents
+                                       t     Table of contents
+                                       v     Verbose, including sizes and permissions
+ar p archive member                 Print the specified member of the archive to stdout
+                                       v     Verbose - list the member name(s) as you go
+
+tar -cvf foo.tar *                  Tar everything in the current path
+tar -Avf foo.tar *                  Append files to the tarball
+tar -cvf foo.tar foo/               Tar foo/*
+tar -czvf foo.tar.gz foo/           gzip
+tar -cjvf foo.tar.bz2 foo/          bzip2
+tar -tvzf tarball                   Table of contents
+tar -xvzf tarball                   Extract into cwd
+tar -xvzf tarball -C target/        Extract into target
+tar -xvzOf tarball member
+                                       -z          bzipped
+                                       -O          To stdout (without this, it all gets dropped in the cwd)
+                                       member      Just the named member
+
+zip zipfile files                    Adds the named files to the (existing or not) archive
+zip -d zipfile files                 Deletes the named files from the archive
+zip -r zipfile directory/
+zip -r zipfile directory/ -i patterns
+                                       -r          Recursively under directory/, directory2/, ...
+                                       -i patterns Include only files matching patterns
+unzip -l zipfile                    Table of contents
+unzip zipfile                       Unzip the lot
+unzip zipfile -d directory          Into target directory
+unzip zipfile member                Named member only
+unzip zipfile dirname/member           Relative to top of zipfile and cwd
+unzip zipfile 'dirname/*'              Extract entire subdirectory
+unzip -p zipfile member                To stdout
+
+bzip2 file                          Zips file into file.bz2, deleting original file
+bunzip2 file.bz2
+bzip2 -kd file.bz2                  Unzip
+                                       -d          Decompress
+                                       -k          Keep, don't delete original file/archive

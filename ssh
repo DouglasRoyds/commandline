@@ -1,0 +1,26 @@
+ssh-keygen
+ssh-keygen -f ~/.ssh/username-on-hostname Generate a public/private key pair
+                                          They are normally put into ~/.ssh/id_rsa & id_rsa.pub
+                                             -f       Put the key-pair in this file (and filename.pub)
+                                                      I have created an extra key-pair without a pass-phrase
+ssh-copy-id user@remote.box
+ssh-copy-id -i publickeyfile user@remote.box
+                                          Copy the public key to the target server,
+                                          and append it to the ~/.ssh/authorized_keys file.
+                                             -i       This public key file, instead of the default ~/.ssh/id_rsa.pub
+
+apt-get install openssh-server            The target server must be runing openssh-server
+                                          The first time the ssh server runs, it generates a host key in /etc/ssh/ssh_host_rsa_key
+
+ssh username@172.25.206.14                Login over ssh
+ssh username@hostname.local                   If both machines are running avahi
+ssh -X username@hostname.local
+ssh -Xf username@hostname.local firefox
+ssh -Xf username@hostname.local -i ~/.ssh/username-on-hostname firefox
+                                             -X       Enable X11 forwarding
+                                             -f       Put ssh into the background after asking for a passphrase,
+                                                      but before running the remote command
+                                             -i       Use this particular key-pair (which won't ask for a passphrase)
+
+ssh-keygen -R hostname.com                Remove the named host from my known_hosts file
+

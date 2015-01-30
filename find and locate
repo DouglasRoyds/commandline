@@ -1,0 +1,27 @@
+find . -name '*.c'                           Lists all C files below the current directory
+find . -type d -empty -print0 | xargs --null rmdir -p
+                                             Delete all empty directories below this one, where:
+                                                -type d = Directories only
+                                                -empty  = Well, duh
+                                                -print0 = Null-terminate each line of output, so that filenames can contain spaces
+                                                --null  = Accept null-terminated filenames
+                                                -p      = Delete full directory path, where parent directories are empty. When
+                                                         find passes in the last child directory, its parent will go as well
+
+find . -name .svn -prune -o -print           Exclude directories named .svn from the search
+find . -type d -name fred -print -prune      Find all directories named fred, but don't push into them
+find . -maxdepth 2 -name fred                Depth 1 = current directory (or the named directory)
+                                                   2 = child directories as well, ...
+
+find . -type f   -perm -200                  Writeable by the owner
+find . -type f   -perm -220                  Writeable by the owner AND group
+find . -type f   -perm /220                  Writeable by the owner OR group
+find . -type f ! -perm -200                  Not writeable by the owner
+find . -type f   -perm  664                  Exact permissions
+
+find . -type f -printf "%TY-%Tm-%Td %TT %p\n" | sort -r | head
+                                             Newest files
+                                                %Ta      Day of week as well
+
+find . \( -exec somecommand {} \; -o -exec sh -c "echo Failed: {} >> error.log" \; \)
+                                             Log failures

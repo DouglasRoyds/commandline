@@ -1,0 +1,24 @@
+mplayer inputfile -ao pcm
+mplayer inputfile -ao pcm:fast:file=outputfile
+ffmpeg -i inputfile outputfile.wav
+                                    Dump the input file as a wav file (PCM). Default filename is audiodump.wav
+ffmpeg -i input.wav -acodec vorbis -ab 128 -f ogg output.ogg
+                                    Encode it as an ogg
+lame -V5 input.wav output.mp3
+                                    -V2      About 200kbps
+                                    -V5      About 130kbps
+sox input.mp3 output.ogg trim 0 3:54.6
+                                    Trim an audio file to 3:54.6 seconds. sox doesn't encode mp3
+id3v2 -l file.mp3                   List all ID3 tags
+
+gst-launch-0.10 uridecodebin uri=mms://202.7.7.90/rnz-cfm ! alsasink
+                                    Play the concert FM and national radio streams
+gst-launch-0.10 uridecodebin uri=mms://202.7.7.90/rnz-cfm ! wavenc ! filesink location=cfm.wav
+                                    Save the concert FM and national radio streams as WAV
+gst-launch-0.10 uridecodebin uri=mms:202.7.7.90/rnz-cfm \
+   ! audioconvert ! audioresample ! vorbisenc quality=0.5 ! oggmux ! filesink location=cfm.ogg
+                                    Or as ogg/vorbis
+
+mp3splt -t 20.0 file.mp3            Split an mp3 file into 20 minute files. The seconds are required
+mp3splt -t 20.0 -d outputdir/ file.mp3
+avconv -f pulse -i default output.mp3
