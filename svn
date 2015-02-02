@@ -11,17 +11,10 @@ svn diff -c 4830 $SVN                  What actually changed
 svn log | gawk '/roydsd/{print "-" $1}' | xargs -r svn log
                                        My commits only. svn log can take multiple -r11111 options
                                           -r    Don't run the log if there is no input to xargs
-svn log | egrep -v '^---|^r[0-9]|^$'   Comments only (eliminating the ---- lines, the r12345 lines, and blank lines
-svn log | grep -B5 searchstring        Search the log for some particular filename or check-in comment, and print the revision line.
 
-svn log -v $SVN | gawk '/^r/{rev=$0} /^   [M].*(\/tag\/|\/vendor\/)/{if (rev != "") {print rev; print}; rev=""}'
-                                       Anyone modified any tags or vendor tags?
-for rev in $(svn log -l5 | gawk '/^r/{sub("r","",$1); print $1}'); do svn log -vr$rev; svn diff -c$rev ; done
-                                       Log with diffs in-line
-
-svn copy $SVN/thing/trunk $SVN/thing/tags/1.03 -m "Description of tag"
-svn copy $SVN/thing/trunk $SVN/thing/branches/TIMS00011111 -m "Description of branch"
-                                       The 1.03/ or TIMS00011111/ directory shoud not exist
+svn copy $SVN/thing/trunk $SVN/thing/tags/tagname -m "Description of tag"
+svn copy $SVN/thing/trunk $SVN/thing/branches/branchname -m "Description of branch"
+                                       The tagname/ or branchname/ directory shoud not exist
                                           --parents      Creates intermediate directories, useful if there isn't already
                                                          a tags/ or branches/ directory
 svn copy here/ there/                  Two different outcomes:
