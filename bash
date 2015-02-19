@@ -47,7 +47,9 @@ bg                                  Background the currently stopped process
 fg                                  Bring it back again
 wait %4 && echo All done            %4 specifies a job number
 wait $(pidof somecommand)
-somecommand & wait $(pidof somecommand) && notify-send "All done"
+somecommand & wait $! && notify-send "All done"
+somecommand & pid=$!
+trap "kill $pid" INT TERM EXIT      Ensure that a background process exits when the parent script does.
 
 cat <<EOF >textfile                 Create a text file from stdin (keyboard). Enter EOF<CR> to finish
 program >logfile 2>&1               Pipe both stderr and stdout to a logfile
