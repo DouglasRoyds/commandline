@@ -32,7 +32,8 @@ ctrl-shift-U 1234          1234 = Unicode (hex)
    è  e8              e!
    é  e9              e'
    ë  eb              e:
-   ô  d4              o^
+   ô  f4              o^
+   ü  fc              u:
 
    Α  0391            A*
    Β  0392            B*
