@@ -1,5 +1,6 @@
-red=$(tput setaf 1)                       See man terminfo for the capnames
-echo "${red}Here we go"
+red=$(tput setaf 1)                       # See man terminfo for the capnames and colours
+attriboff=$(tput sgr0)
+echo "${red}Here we go${attriboff}"
 
 bold=$(tput smso)
 boldoff=$(tput rmso)
