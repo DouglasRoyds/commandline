@@ -43,7 +43,7 @@ sudo docker commit -m="Message" -a="Authorname" container username/imagename:tag
 sudo docker tag imageid username/imagename:tag              Tag an image after the fact
 
 sudo docker build dirname|Dockerfile
-sudo docker build -t="username/imagename:tag" dirname
+sudo docker build -t="username/imagename:tag" dirname          -t    Repository name and optional tag
 
 sudo docker rm container                                    Delete it (once it's stopped)
                                                                -f    Stop it and delete it
