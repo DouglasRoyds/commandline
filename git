@@ -5,6 +5,7 @@ git config --global user.email                        From ~/.gitconfig, rather 
 git config --global user.email username@server.fake   Write into ~/.gitconfig
 git config --unset user.email                         Remove the repository-local setting (from .git/config)
 
+git init                                  Create a local git repository
 git clone URL
 git clone URL directory/
 git pull                                  Update from remote repository (ie. fetch and merge)
