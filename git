@@ -40,6 +40,10 @@ git diff --cached                         Which changes are already staged?
 git commit                                Commit staged changes
 git commit -v                             Show diffs in the commit editor
 git commit filename -m"Comment"           Commit changes to this file, whether they are staged or not
+
+git -c user.name='Douglas Royds' -c user.email='douglas.royds@taitradio.net' commit filename -m"Comment"
+                                          All git commands can take -c before the verb to set configuration data
+
 git rm filename                           Delete
 git rm --cached filename                  Delete from staging, but keep the working copy
 
