@@ -52,3 +52,5 @@ sudo docker rmi imagename                                   Delete an image from
 sudo docker rmi $(sudo docker images | gawk '/^<none>/{print $3}')
                                                             Delete all unnamed images
 
+sudo docker top container                                      -Af      Accepts a subset of the top options
+
