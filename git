@@ -89,3 +89,7 @@ git log --pretty=email --patch-with-stat --reverse --full-index --binary -- path
 cd repository2
 git am < ~/history.patch                  Copy named files from repository1 into repository2, complete with history
 
+git format-patch commitsum                Generate patch files for *every* commit from here up to the head
+                                             -1    Just the one, thanks
+git apply patchfile
+
