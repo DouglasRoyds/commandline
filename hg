@@ -1,0 +1,11 @@
+hg clone http://rhodecode.taitradio.net/rhodecode
+hg pull --branch next http://rhodecode.taitradio.net/rhodecode
+hg branch
+hg branches
+hg log | less
+hg log -v | less
+
+hg diff -c4492:5a799644b5c5
+hg diff -c4492                         The revision is unique only within the local repository
+hg diff -c5a799644b5c5                 The hashsum is globally unique
+
