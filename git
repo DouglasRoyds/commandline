@@ -72,10 +72,9 @@ git checkout branchname                         Note the potential ambiguity wit
 git checkout -b newbranch                       Create and switch to the new branch in one go
 git checkout --track remote/branchname          Makes this the default pull branch
 git branch                                      List local branches
-git branch -a
+git branch -a                                      -a    Both local and remote
 git branch --list pattern                       Pattern is a shell glob
 git branch --list -r remote/pattern                -r    Remote branches
-                                                   -a    Both local and remote
 git rebase master                               Rebase the current branch off the head of the master branch
 git branch -m oldname newname                   Rename (move)
 git branch -m newname                           If you're already on the old branch
