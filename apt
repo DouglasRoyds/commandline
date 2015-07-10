@@ -72,3 +72,24 @@ apt-file list pattern               List contents of packages containing the str
 apt-file list -F packagename        List contents of (fixed) package
 apt-file list -x regex              Regular expression
 
+ar -tv package.deb                   List top-level contents of .deb file
+                                       t     Table of contents
+                                       v     Verbose, including sizes and permissions
+ar -p package.deb debian-binary      debian-binary contains the version number
+
+ar -p package.deb control.tar.gz | tar -zvt
+ar -p package.deb control.tar.gz | tar -zvx
+ar -p package.deb control.tar.gz | tar -zvxO
+ar -p package.deb control.tar.gz | tar -zvxO ./control
+                                    List the package data
+                                       -z          bzipped
+                                       -t          Table of contents only
+                                       -x          Extract it all
+                                       -O          To stdout (without this, it all gets dropped in the cwd)
+                                       ./control   Just the package description, same as dpkg -s package
+
+ar -p package.deb data.tar.gz | tar -zvt
+ar -p package.deb data.tar.gz | tar -zvx
+                                    List the package files
+                                       -t          Table of contents, same as dpkg -S package
+                                       -x          Expand the files into the current directory
