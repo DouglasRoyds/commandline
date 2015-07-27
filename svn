@@ -48,6 +48,7 @@ svn propget  svn:mime-type filename
 svn propedit svn:mime-type filename    Set the mime-type for a file:
                                           text/html; charset=UTF-8
                                           text/plain; charset=UTF-8
+svn propedit svn:log --revprop -r111   Edit the commit message for the given revision
 
 svn commit --username roydsd --no-auth-cache filename
                                        Make a commit under my name without wrecking someone else's password
