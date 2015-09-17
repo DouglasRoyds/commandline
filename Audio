@@ -21,4 +21,6 @@ gst-launch-0.10 uridecodebin uri=mms:202.7.7.90/rnz-cfm \
 
 mp3splt -t 20.0 file.mp3            Split an mp3 file into 20 minute files. The seconds are required
 mp3splt -t 20.0 -d outputdir/ file.mp3
+
 avconv -f pulse -i default output.mp3
+
