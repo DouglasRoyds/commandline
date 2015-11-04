@@ -21,9 +21,12 @@ ls -lh /usr/share/glib-2.0/schemas/org.gnome.gnome-screenshot.gschema.xml
 gnome-session-save --logout                        Log out
 
 # gdm settings are stored under the user gdm.
+# Although it doesn't use a gui, gsettings needs access to the X display server
+xhost +
 sudo su gdm -s /bin/bash
 gsettings get org.gnome.desktop.background picture-uri
 gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/gnome/Waves.jpg'
+xhost -
 
 # gconf is now largely redundant.
 # Gnome has been moving over to GSettings, with the dconf back-end.
