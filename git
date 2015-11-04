@@ -53,8 +53,8 @@ git reset HEAD filename                   Unstage a file
 git reset --hard HEAD                     Revert everything to the most recent commit, undoing all working copy changes
 git reset --hard HEAD~1                   Delete the last commit completely, undoing all working copy changes
 git reset --hard commitsum                Delete a commit
-git push origin HEAD --force              Force the deletion up if you'd already pushed it, however,
-                                          if others have pulled it, they will pushed it back up again. Better to use ...
+git push --force                          Force the deletion up if you'd already pushed it, however,
+                                          if others have pulled it, they will push it back up again. Better to use ...
 git revert HEAD                           Generates the reverse commit
 
 git checkout -- filename                  Revert local mods
