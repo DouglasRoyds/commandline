@@ -78,6 +78,7 @@ git branch -a                                      -a    Both local and remote
 git branch --list pattern                       Pattern is a shell glob
 git branch --list -r remote/pattern                -r    Remote branches
 git rebase master                               Rebase the current branch off the head of the master branch
+                                                   Need to git push --force after a rebase
 git branch -m oldname newname                   Rename (move)
 git branch -m newname                           If you're already on the old branch
 git branch -d branchname                        Delete (locally)
