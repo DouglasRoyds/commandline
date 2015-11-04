@@ -56,6 +56,8 @@ git reset --hard commitsum                Delete a commit
 git push --force                          Force the deletion up if you'd already pushed it, however,
                                           if others have pulled it, they will push it back up again. Better to use ...
 git revert HEAD                           Generates the reverse commit
+git show commitsum:filename               Cat to stdout
+git show branchname:filename
 
 git checkout -- filename                  Revert local mods
 git checkout commitsum filename           Roll file back to this commit
