@@ -5,9 +5,8 @@ docker run -it ubuntu:14.04 /bin/bash                          -i    Keep stdin 
                                                                --rm  Automatically remove the container when it exits
 docker run -d ubuntu:14.04 longrunningcommand                  -d    Daemonize
 docker run -dP image                                        If the Dockerfile specified a default CMD
-                                                               -P    Publish all exposed container ports as host interfaces
-                                                               -p 8080:5000
-                                                                     Publish on this host port: this container port
+                                                               -P             Publish all exposed container ports as host interfaces
+                                                               -p 8080:5000   Publish on this host port: this container port
 docker port container 5000                                  Which host port is container port 5000 mapped to?
 
 docker ps                                                   List running containers
@@ -15,7 +14,7 @@ docker ps                                                   List running contain
                                                                -a    All, even stopped ones
 docker images                                               List images stored on this host (/var/lib/docker/)
                                                                -f dangling=true  Only no-longer used old layers
-                                                               -a    All, including intermediate build layers
+                                                               -a                All, including intermediate build layers
 
 docker logs container                                       By container ID or name
                                                                -f    Follow
