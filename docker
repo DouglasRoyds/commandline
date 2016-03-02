@@ -1,56 +1,56 @@
-sudo docker run image:tag command                           Default tag is "latest"
-sudo docker run ubuntu:14.04 /bin/echo 'Hello world'        One-off command
-sudo docker run -it ubuntu:14.04 /bin/bash                     -i    Keep stdin open
+docker run image:tag command                                Default tag is "latest"
+docker run ubuntu:14.04 /bin/echo 'Hello world'             One-off command
+docker run -it ubuntu:14.04 /bin/bash                          -i    Keep stdin open
                                                                -t    Attach a tty to stdin
                                                                --rm  Automatically remove the container when it exits
-sudo docker run -d ubuntu:14.04 longrunningcommand             -d    Daemonize
-sudo docker run -dP image                                   If the Dockerfile specified a default CMD
+docker run -d ubuntu:14.04 longrunningcommand                  -d    Daemonize
+docker run -dP image                                        If the Dockerfile specified a default CMD
                                                                -P    Publish all exposed container ports as host interfaces
                                                                -p 8080:5000
                                                                      Publish on this host port: this container port
-sudo docker port container 5000                             Which host port is container port 5000 mapped to?
+docker port container 5000                                  Which host port is container port 5000 mapped to?
 
-sudo docker ps                                              List running containers
+docker ps                                                   List running containers
                                                                -l    Just the last one
                                                                -a    All, even stopped ones
-sudo docker images                                          List images stored on this host (/var/lib/docker/)
+docker images                                               List images stored on this host (/var/lib/docker/)
                                                                -f dangling=true  Only no-longer used old layers
                                                                -a    All, including intermediate build layers
 
-sudo docker logs container                                  By container ID or name
+docker logs container                                       By container ID or name
                                                                -f    Follow
-sudo docker top container                                   Processes running inside the container
-sudo docker inspect container
-sudo docker inspect -f '{{ .NetworkSettings.IPAddress }}' container
+docker top container                                        Processes running inside the container
+docker inspect container
+docker inspect -f '{{ .NetworkSettings.IPAddress }}' container
                                                             Low-level JSON information about the container
                                                                -f    Just this bit (Go template)
 
-sudo docker stop container
-sudo docker start container                                 Start it again
-sudo docker restart container                               Stop and restart it
+docker stop container
+docker start container                                      Start it again
+docker restart container                                    Stop and restart it
 
-sudo docker search string                                   Searches Docker Hub
-sudo docker pull ubuntu                                     Pre-fetch it
-sudo docker pull username/imagename                         Defaults to "latest"
-sudo docker pull username/imagename:tag
-sudo docker pull hostname.domain:port/imagename             From a private repository.
+docker search string                                        Searches Docker Hub
+docker pull ubuntu                                          Pre-fetch it
+docker pull username/imagename                              Defaults to "latest"
+docker pull username/imagename:tag
+docker pull hostname.domain:port/imagename                  From a private repository.
                                                             Must have the dot or the : to distinguish the URL from a username
-sudo docker push username/imagename                         To Docker Hub at https://registry.hub.docker.com
-sudo docker push hostname.domain:port/imagename             To a private repository.
+docker push username/imagename                              To Docker Hub at https://registry.hub.docker.com
+docker push hostname.domain:port/imagename                  To a private repository.
 
-sudo docker commit -m="Message" -a="Authorname" container username/imagename:tag
+docker commit -m="Message" -a="Authorname" container username/imagename:tag
                                                             Creates a new image from the container's changes.
                                                             The container will be paused (if necessary) during the commit.
-sudo docker tag imageid username/imagename:tag              Tag an image after the fact
+docker tag imageid username/imagename:tag                   Tag an image after the fact
 
-sudo docker build dirname|Dockerfile                           --no-cache  Allow apt-get update to achieve something
-sudo docker build -t="username/imagename:tag" dirname          -t          Repository name and optional tag
+docker build dirname|Dockerfile                                --no-cache  Allow apt-get update to achieve something
+docker build -t="username/imagename:tag" dirname               -t          Repository name and optional tag
 
-sudo docker rm container                                    Delete it (once it's stopped)
+docker rm container                                         Delete it (once it's stopped)
                                                                -f    Stop it and delete it
-sudo docker rm $(sudo docker ps -aq)                        Delete the lot
-sudo docker rmi imagename                                   Delete an image from this host (as opposed to a container)
-sudo docker rmi $(sudo docker images -f dangling=true -q)   Delete no-longer used images
+docker rm $(docker ps -aq)                                  Delete the lot
+docker rmi imagename                                        Delete an image from this host (as opposed to a container)
+docker rmi $(docker images -f dangling=true -q)             Delete no-longer used images
 
-sudo docker top container                                      -Af      Accepts a subset of the top options
+docker top container                                           -Af      Accepts a subset of the top options
 
