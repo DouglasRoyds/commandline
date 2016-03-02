@@ -19,6 +19,7 @@ docker images                                               List images stored o
 docker logs container                                       By container ID or name
                                                                -f    Follow
 docker top container                                        Processes running inside the container
+docker stats                                                Live stats on running containers (memory, CPU)
 docker inspect container
 docker inspect -f '{{ .NetworkSettings.IPAddress }}' container
                                                             Low-level JSON information about the container
