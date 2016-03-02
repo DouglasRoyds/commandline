@@ -14,6 +14,7 @@ sudo docker ps                                              List running contain
                                                                -l    Just the last one
                                                                -a    All, even stopped ones
 sudo docker images                                          List images stored on this host (/var/lib/docker/)
+                                                               -f dangling=true  Only no-longer used old layers
                                                                -a    All, including intermediate build layers
 
 sudo docker logs container                                  By container ID or name
@@ -49,8 +50,7 @@ sudo docker rm container                                    Delete it (once it's
                                                                -f    Stop it and delete it
 sudo docker rm $(sudo docker ps -aq)                        Delete the lot
 sudo docker rmi imagename                                   Delete an image from this host (as opposed to a container)
-sudo docker rmi $(sudo docker images | gawk '/^<none>/{print $3}')
-                                                            Delete all unnamed images
+sudo docker rmi $(sudo docker images -f dangling=true -q)   Delete no-longer used images
 
 sudo docker top container                                      -Af      Accepts a subset of the top options
 
