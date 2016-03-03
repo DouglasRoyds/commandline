@@ -20,7 +20,7 @@ apt-key add medibuntu-key.gpg
 gpg --keyserver subkeys.pgp.net --recv-keys CE49EC21
 gpg --export --armor CE49EC21 | sudo apt-key add -
                                     *Download and add a public key using gpg
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68980A0EA10B4DE8
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68980A0EA10B4DE8
                                     *Download and add a public key using the apt-key convenience one-liner,
                                      where the public key ID is that given by apt-get update when it fails.
                                      Requires the proxy environment variable to be white-listed in sudoers,
