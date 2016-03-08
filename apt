@@ -6,6 +6,7 @@ apt-cache search pattern1 pattern2  List packages matching regular expression in
 apt-cache show package              Description
 apt-cache depends package           List all package dependencies, recommendations, and conflicts
 apt-cache rdepends package          Reverse dependencies only
+                                       --installed    Restrict to installed rdepends only, showing why this package is installed.
 apt-cache showpkg package           List all package dependencies, forward and reverse
 
 apt-rdepends package | less
