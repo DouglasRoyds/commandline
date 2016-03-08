@@ -13,3 +13,5 @@ tmux attach -t0
 tmux new -s douglas
 tmux attach -t douglas
 
+sudo -s                                   # Root shell
+
