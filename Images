@@ -1,6 +1,6 @@
-convert -resize 800x800 -quality 60 input.jpg output.jpg
-convert -resize 800x800 -quality 60 *.jpg output.jpg
-                                    Crunch images to about 70kB for email. With the wild-card, it will append -0, -1, -2
+convert -resize 800x800 -quality 90 input.jpg output.jpg
+convert -resize 800x800 -quality 90 *.jpg output.jpg
+                                    Crunch images to about 100kB for email. With the wild-card, it will append -0, -1, -2
                                     to the filenames, eg. output-0.jpg
                                        -resize 800x800   By default, the width and height are maximum values.
                                                          The aspect ratio of the image is maintained.
