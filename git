@@ -80,12 +80,18 @@ git branch                                      List local branches
                                                    -v    With the commit sum and line for each branch as well
 git branch --list pattern                       Pattern is a shell glob
 git branch --list -r remote/pattern                -r    Remote branches
-git rebase master                               Rebase the current branch off the head of the master branch
-                                                   Need to git push --force after a rebase
 git branch -m oldname newname                   Rename (move)
 git branch -m newname                           If you're already on the old branch
 git branch -d branchname                        Delete (locally)
 git push origin --delete branchname             Delete (remote)
+
+git rebase branchname                           Rebase the current branch off the head of the named branch
+git rebase -i commitsum                         Recommit (ie. rebase) all changes after the given commit
+                                                Need to git push --force after a rebase
+                                                   -i    Interactive, allows us to take an action on each commit as we go:
+                                                            reword   Opens the editor to correct the commit message
+                                                            edit     Drops back to the shell to change the files
+                                                                     See https://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History
 
 git tag                                   List all tags
 git tag -l                                (Synonym)
