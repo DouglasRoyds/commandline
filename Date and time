@@ -1,4 +1,5 @@
 cal               Print a calendar for this month
+cal -A1           ... and next month as well
 cal -B2           ... and the 2 months before that as well.
 cal -3            3 months, being last month, this month, and next month
 cal -3B2          ... and the 2 months before that as well.
