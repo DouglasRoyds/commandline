@@ -78,6 +78,7 @@ git checkout --track remote/branchname          Makes this the default pull bran
 git branch                                      List local branches
                                                    -a    Both local and remote
                                                    -v    With the commit sum and line for each branch as well
+                                                   -vv   With remote tracking branch, and ahead/behind
 git branch --list pattern                       Pattern is a shell glob
 git branch --list -r remote/pattern                -r    Remote branches
 git branch -m oldname newname                   Rename (move)
