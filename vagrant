@@ -1,0 +1,21 @@
+cd dirname
+vagrant init                                       Create a skeletal Vagrantfile
+vagrant init ubuntu/trusty64                       ... based on this VM image from https://atlas.hashicorp.com/boxes/search
+vagrant box add ubuntu/trusty64                    Download and store a box locally (for the current user)
+vagrant box list                                   Locally stored boxes
+vagrant box remove namespace/boxname
+
+vagrant up
+vagrant ssh                                        Using public key authentication
+vagrant suspend                                    To host machine's disk
+vagrant halt                                       Shut down, but keep disk resources
+vagrant destroy                                    Terminate and free resources.
+                                                   Restart will copy from the base VM again.
+
+vagrant reload --provision                         Restart a running VM from an updated Vagrantfile
+
+vagrant global-status                              View all running VMs and their ids (hashcodes)
+vagrant ssh hashcode                               From any directory
+vagrant halt hashcode
+vagrant up hashcode                                But only if it is halted or suspended, not destroyed
+
