@@ -4,6 +4,9 @@ git config user.email                                 Display, just for this rep
 git config --global user.email                        From ~/.gitconfig, rather than the repository .git/config
 git config --global user.email username@server.fake   Write into ~/.gitconfig
 git config --unset user.email                         Remove the repository-local setting (from .git/config)
+                                                      All git commands can take -c before the verb
+                                                          -c user.name='Douglas Royds'
+                                                          -c user.email='douglas.royds@taitradio.net'
 
 git init                                  Create a local git repository
 git clone URL
@@ -42,9 +45,6 @@ git commit -v                             Show diffs in the commit editor
 git commit filename -m"Comment"           Commit changes to this file, whether they are staged or not
 git commit --amend
 git commit --amend -m"Comment"            Change the commit message of the most recent commit
-
-git -c user.name='Douglas Royds' -c user.email='douglas.royds@taitradio.net' commit filename -m"Comment"
-                                          All git commands can take -c before the verb to set configuration data
 
 git rm filename                           Delete
 git rm --cached filename                  Delete from staging, but keep the working copy
