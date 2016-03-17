@@ -70,6 +70,14 @@ git checkout master^ filename             Roll file back to the parent of the HE
                                              --    Everything after this is a filename,
                                                    just in case there's a branch with this name
 
+git stash                                 All local mods, including any staged files.
+git stash list
+git stash pop                             Reapply
+git stash pop --index                     Restage previously staged files
+git stash pop stash@{2}                   Reapply stash 2
+git stash drop                            Ditch it
+git stash branch branchname               Branch from the original stashpoint, reapply the stash
+
 git branch branchname                           Creates the branch without switching to it
 git checkout branchname                         Note the potential ambiguity with filenames
                                                    -f    Force: throw away local changes
