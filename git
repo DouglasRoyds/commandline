@@ -49,13 +49,13 @@ git commit --amend -m"Comment"               Change the commit message of the mo
 git rm filename                              Delete
 git rm --cached filename                     Delete from staging, but keep the working copy
 
-git reset HEAD filename                      Unstage a file
+git reset --soft commitsum                   Revert to this commit, but leave local changes staged
+git reset --mixed commitsum                  Revert to this commit, remove from staging, but leave working copy intact
+git reset --hard commitsum                   Revert to this commit, remove from staging, and undo working copy changes
+git reset commitsum                             --mixed is the default
+git reset HEAD filename                      Unstage a file, keeping local changes
 git reset --hard HEAD                        Revert everything to the most recent commit, undoing all working copy changes
 git reset --hard HEAD~1                      Delete the last commit completely, undoing all working copy changes
-git reset --soft commitsum                   Revert to this commit, but leave local changes staged
-git reset commitsum                          Revert to this commit, remove from staging, but leave working copy intact
-git reset --mixed commitsum                     --mixed is the default
-git reset --hard commitsum                   Revert to this commit, remove from staging, and undo working copy changes
 git push --force                             Force the deletion up if you'd already pushed it, however,
                                              if others have pulled it, they will push it back up again. Better to use ...
 git revert HEAD                              Generates the reverse commit
