@@ -7,6 +7,8 @@ docker run -d ubuntu:14.04 longrunningcommand                  -d    Daemonize
 docker run -dP image                                        If the Dockerfile specified a default CMD
                                                                -P             Publish all exposed container ports as host interfaces
                                                                -p 8080:5000   Publish on this host port: this container port
+                                                               --restart=unless-stopped
+                                                                              no, on-failure, always, unless-stopped
 docker port container 5000                                  Which host port is container port 5000 mapped to?
 
 docker ps                                                   List running containers
