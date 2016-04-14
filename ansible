@@ -34,3 +34,8 @@ ansible webservers -bm service -a "name=lighhttpd state=started enabled=yes"
 ansible-doc -l                                              List all modules (500 of them)
 ansible-doc modulename
 ansible-doc -s modulename                                   Snippet - a terse, commented summary
+
+ansible-playbook playbook.yml
+ansible-playbook playbook.yml -i hostsfile                  These hosts only
+ansible-playbook playbook.yml -i hostsfile --list-hosts     That it will run on
+ansible-playbook playbook.yml -i hostsfile --list-tasks     Dry run
