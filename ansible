@@ -31,3 +31,6 @@ ansible webservers -bm service -a "name=lighhttpd state=started enabled=yes"
                                                          Started, restarted, or stopped (idempotent, except for restarted)
                                                          Enabled on system restart (yes or no)
 
+ansible-doc -l                                           List all modules (500 of them)
+ansible-doc modulename
+ansible-doc -s modulename                                Snippet - a terse, commented summary
