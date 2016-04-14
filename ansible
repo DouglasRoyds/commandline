@@ -1,0 +1,31 @@
+ansible all -m ping                                      Connect to each host, verify a usable python, return `pong` on success
+ansible group -m ping
+ansible host -m ping
+
+ansible all -m command -a pstree                         Run an ad-hoc command on-target
+ansible all -a pstree                                       -m module         Default is the command module
+ansible all -a 'ls chdir=/etc'                           Pass in optional arguments to the command module
+
+ansible all -m setup                                     Giant spew of a whole lot of info
+ansible all -m setup -a'filter=ansible_default_ipv4'     Just a subset
+
+ansible all -m copy -a "src=/src/file dest=/dest/file"
+ansible all -m copy -a "src=/src/dir dest=/dest/dir"     Recursively copy directory
+ansible all -m copy -a "src=/src/dir/ dest=/dest/dir"    Recursively copy directory contents (similar to rsync)
+ansible all -m copy -a "src=/src/file dest=/dest/file owner=foo group=foo mode=0644"
+
+ansible all -b -m user -a "name=user groups=passwordless"
+ansible all -b -m authorized_key -a 'user=user key={{lookup("file", "/home/user/.ssh/id_rsa.pub")}}'
+
+                                                         Add a new user, with their public key
+                                                            -b --become       Run as root
+
+ansible all -B 1800 -P 60 -f 20 \
+            -a '/usr/bin/long_running_operation'         Poll, and terminate on timeout
+                                                            -B       30*60=1800 seconds
+                                                            -P       Poll for status every 60 seconds
+                                                            -f       In parallel over 20 hosts (default 5)
+
+ansible webservers -m service -a "name=lighhttpd state=started"
+                                                                     started, restarted, or stopped
+
