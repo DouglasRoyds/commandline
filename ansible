@@ -26,6 +26,8 @@ ansible all -B 1800 -P 60 -f 20 \
                                                             -P       Poll for status every 60 seconds
                                                             -f       In parallel over 20 hosts (default 5)
 
-ansible webservers -m service -a "name=lighhttpd state=started"
-                                                                     started, restarted, or stopped
+ansible webservers -bm service -a "name=lighhttpd state=started enabled=yes"
+
+                                                         Started, restarted, or stopped (idempotent, except for restarted)
+                                                         Enabled on system restart (yes or no)
 
