@@ -92,6 +92,8 @@ git branch                                   List local branches
                                                 -vv   With remote tracking branch, and ahead/behind
 git branch --list pattern                    Pattern is a shell glob
 git branch --list -r remote/pattern             -r    Remote branches
+git branch --contains commitsum              Which (local) branch did this commit happen on?
+                                                -r    Remote branches as well
 git branch -m oldname newname                Rename (move)
 git branch -m newname                        If you're already on the old branch
 git branch -d branchname                     Delete (locally)
