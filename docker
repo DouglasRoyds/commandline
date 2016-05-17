@@ -1,8 +1,8 @@
 docker run image:tag command                                Default tag is "latest"
 docker run ubuntu:14.04 /bin/echo 'Hello world'             One-off command
-docker run -it ubuntu:14.04 /bin/bash                          -i    Keep stdin open
+docker run --rm -it ubuntu:14.04 /bin/bash                     --rm  Automatically remove the container when it exits
+                                                               -i    Keep stdin open
                                                                -t    Attach a tty to stdin
-                                                               --rm  Automatically remove the container when it exits
 docker run -d ubuntu:14.04 longrunningcommand                  -d    Daemonize
 docker run -dP image                                        If the Dockerfile specified a default CMD
                                                                -P             Publish all exposed container ports as host interfaces
