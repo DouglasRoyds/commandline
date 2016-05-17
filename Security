@@ -1,0 +1,5 @@
+openssl genrsa -out rsakey.pem 2048                Generate a private key
+openssl rsa -in rsakey.pem -pubout                 Print the public key
+
+openssl x509 -in root.pem -noout -text             Dump a certificate to stdout
+
