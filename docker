@@ -17,6 +17,7 @@ docker ps                                                   List running contain
 docker images                                               List images stored on this host (/var/lib/docker/)
                                                                -f dangling=true  Only no-longer used old layers
                                                                -a                All, including intermediate build layers
+docker inspect imagename                                    Amongst other things, says where the FS layers are
 
 docker logs container                                       By container ID or name
                                                                -f    Follow
