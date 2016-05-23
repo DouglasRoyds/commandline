@@ -35,7 +35,8 @@ ansible-doc -l                                              List all modules (50
 ansible-doc modulename
 ansible-doc -s modulename                                   Snippet - a terse, commented summary
 
-ansible-playbook playbook.yml
-ansible-playbook playbook.yml -i hostsfile                  These hosts only
+ansible-playbook playbook.yml                               Run against hosts listed in my local /etc/ansible/hosts
+ansible-playbook playbook.yml -i hostsfile                  Run against hosts listed in this file
 ansible-playbook playbook.yml -i hostsfile --list-hosts     That it will run on
 ansible-playbook playbook.yml -i hostsfile --list-tasks     Dry run
+ansible-playbook playbook.yml -i hostsfile -l hostpattern   Further limit it to this subset of the hosts
