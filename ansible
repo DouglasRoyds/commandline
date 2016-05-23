@@ -9,7 +9,7 @@ ansible all -a 'ls chdir=/etc'                              Pass in optional arg
 ansible all -m setup                                        Giant spew of a whole lot of info
 ansible all -m setup -a'filter=ansible_default_ipv4'        Just a subset
 
-ansible all -m copy -a "src=/src/file dest=/dest/file"
+ansible all -m copy -a "src=/src/file dest=/dest/file"      Copy file on local host to remote location
 ansible all -m copy -a "src=/src/dir dest=/dest/dir"        Recursively copy directory
 ansible all -m copy -a "src=/src/dir/ dest=/dest/dir"       Recursively copy directory contents (similar to rsync)
 ansible all -m copy -a "src=/src/file dest=/dest/file owner=foo group=foo mode=0644"
