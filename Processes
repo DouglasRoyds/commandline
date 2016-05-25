@@ -1,10 +1,12 @@
 ps                                  Just processes from this terminal session
 ps -u roydsd                        All processes for user roydsd
-ps -u roydsd -o pid,nice,cmd        List process ID, niceness, and command with args
-ps -Hu roydsd                       Tree-form
+ps -u roydsd -o pid,ppid,cmd        List process ID, parent PID, and command with args
+ps -u roydsd -o pid,ppid,comm       List process ID, parent PID, and command without args
 ps -A                               The lot (all users)
-ps -Af                              Full listing, showing entire command for each process
+                                       -f    Full listing, showing entire command for each process
+                                       -H    Tree-form
 ps aux                              Full listing, showing entire command for each process
+                                       f     Tree-form
 ps -C firefox,thunderbird           Just the named exectubles
 pstree                              Nice graphical tree
 pstree 12345                        Just for process 12345 and it's children
