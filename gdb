@@ -20,6 +20,7 @@ r                          Run or restart
 r args                        Program arguments
 c                          continue - To the next breakpoint.
                            When cross-debugging, start here - no need to "run" first (is this true?)
+<Enter>                    Run the last command again
 
 info sharedlibrary         Which shared libs can gdb see?
 
