@@ -11,6 +11,14 @@ b 123                         Line number
 b filename.cpp:123
 b filename.cpp:function
 b Message::sendMessage        c++ methods autocomplete
+
+b thing if var==value      Conditional breakpoint
+                              var==value
+                              strcmp(message,"Fred") == 0
+                              *p == 'F'
+cond 33 if var==value      Add a condition to existing breakpoint 33
+cond 33                    Remove the condition
+
 i b                        info breakpoints - Display watchpoints and breakpoints
 d                          delete - the lot
 d 4                        delete - breakpoint 4
