@@ -6,14 +6,14 @@ set solib-search-path /tmp/tait.dbs/build/tmp/staging/x86_64-tait-linux/   For n
                                                                            that gdb can find the standard libs,
                                                                            but add our sysroot to the shared lib search path.
 
-b main                     Set a breakpoint at this function
+b main                     break - set a breakpoint at this function
 b 123                         Line number
 b filename.cpp:123
 b filename.cpp:function
 b Message::sendMessage        c++ methods autocomplete
 i b                        info breakpoints - Display watchpoints and breakpoints
-d                          Delete the lot
-d 4                        Delete breakpoint 4
+d                          delete - the lot
+d 4                        delete - breakpoint 4
 save breakpoints filename
 
 r                          Run or restart
