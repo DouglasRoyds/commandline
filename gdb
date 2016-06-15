@@ -16,7 +16,7 @@ b thing if var==value      Conditional breakpoint
                               var==value
                               strcmp(message,"Fred") == 0
                               *p == 'F'
-cond 33 if var==value      Add a condition to existing breakpoint 33
+cond 33 var==value         Add a condition to existing breakpoint 33
 cond 33                    Remove the condition
 
 i b                        info breakpoints - Display watchpoints and breakpoints
