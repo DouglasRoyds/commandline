@@ -1,7 +1,7 @@
 target remote 172.16.163.90:10000         For cross-debugging, the target machine and gdbserver port number
-set sysroot ~/workspace/build/tmp/staging/armv5te-tait-linux-gnueabi/
+set sysroot ~/workspace/build/tmp/staging/armv5te-linux-gnueabi/
                                           For cross-debugging, all shared libs will be under this directory.
-set solib-search-path ~/workspace/build/tmp/staging/x86_64-tait-linux/
+set solib-search-path ~/workspace/build/tmp/staging/x86_64-linux/
                                           For native debugging, we leave the sysroot at / so that gdb can find
                                           the standard libs, but add our sysroot to the shared lib search path,
                                           which is used after a sysroot search has failed.
