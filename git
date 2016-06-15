@@ -6,7 +6,7 @@ git config --global user.email username@server.fake   Write into ~/.gitconfig
 git config --unset user.email                         Remove the repository-local setting (from .git/config)
                                                       All git commands can take -c before the verb
                                                           -c user.name='Douglas Royds'
-                                                          -c user.email='douglas.royds@taitradio.net'
+                                                          -c user.email='douglas.royds@emailhost.com'
 
 git init                                     Create a local git repository
 git clone URL
