@@ -26,6 +26,8 @@ save breakpoints filename
 
 r                          Run or restart
 r args                        Program arguments
+set args arg1 arg2            Alternatively
+show args
 c                          continue - To the next breakpoint.
                            When cross-debugging, start here - no need to "run" first (is this true?)
 <Enter>                    Run the last command again
