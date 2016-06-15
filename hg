@@ -1,5 +1,5 @@
-hg clone http://rhodecode.taitradio.net/rhodecode
-hg pull --branch next http://rhodecode.taitradio.net/rhodecode
+hg clone http://git.hostname.com/thing
+hg pull --branch next http://git.hostname.com/thing
 hg branch
 hg branches
 hg log | less
