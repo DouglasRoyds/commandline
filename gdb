@@ -48,7 +48,7 @@ watch var                  Display the value of this variable each time we break
 p var                      Print
 
 bt                         backtrace
-b full                        Also print all local variables for each frame
+bt full                       Also print all local variables for each frame
 frame num                  Select frame in stack
 
 attach pid                 Attach to already-running process
