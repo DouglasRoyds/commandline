@@ -43,6 +43,7 @@ git diff --cached                            Which changes are already staged?
 git commit                                   Commit staged changes
 git commit -v                                Show diffs in the commit editor
 git commit filename -m"Comment"              Commit changes to this file, whether they are staged or not
+git commit -m"Headline" -m"Content line"     Git doesn't see \n characters in the message as new lines
 git commit --amend
 git commit --amend -m"Comment"               Change the commit message of the most recent commit
 
