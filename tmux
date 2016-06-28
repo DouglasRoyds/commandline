@@ -3,6 +3,8 @@ tmux new -s sessionname
 tmux attach                         Attach to the most recently used unattached session
 tmux ls                             List sessions
 tmux attach -t sessionname
+tmux display                        A brief glimpse of the tmux info bar
+   Ctrl-B i                            Same
 
 Ctrl-B ( )                          Switch to the previous/next session
 Ctrl-B d                            Detach
