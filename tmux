@@ -4,6 +4,7 @@ tmux new -s sessionname -c start-directory shell-command
 
 tmux attach                         Attach to the most recently used unattached session
 tmux ls                             List sessions
+   Ctrl-B :ls                          Enter the command mode, and list sessions
 tmux attach -t sessionname
 tmux display                        A brief glimpse of the tmux info bar
    Ctrl-B i                            Same
