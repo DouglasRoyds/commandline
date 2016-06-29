@@ -1,5 +1,7 @@
 tmux                                Create a new unnamed session
 tmux new -s sessionname
+tmux new -s sessionname -c start-directory shell-command
+
 tmux attach                         Attach to the most recently used unattached session
 tmux ls                             List sessions
 tmux attach -t sessionname
