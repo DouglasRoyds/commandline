@@ -10,12 +10,12 @@ tmux display                        A brief glimpse of the tmux info bar
    Ctrl-B i                            Same
 
 Ctrl-B
-       ( )                          Switch to the previous/next session
-       d                            Detach
+         ( )                        Switch to the previous/next session
+         d                          Detach
 
 Ctrl-B
-       PgUp                         Enter copy mode and scroll one page up
-       [                            Enter copy mode
+         PgUp                       Enter copy mode and scroll one page up
+         [                          Enter copy mode
                                        h j k l
                                        ^U ^D ^F ^B^B
                                        0 $ g G f F       Most Vim movement keys apply
@@ -24,7 +24,7 @@ Ctrl-B
                                        Esc               Abandon selection
 
 Ctrl-B
-       ]                            Paste from the most recent paste buffer
-       #                            List all paste buffers
-       =                            Choose a buffer to paste from
+         ]                          Paste from the most recent paste buffer
+         #                          List all paste buffers
+         =                          Choose a buffer to paste from
 
