@@ -1,5 +1,5 @@
 tmux                                Create a new unnamed session
-tmux new -s sessionname
+tmux new -s sessionname             Named session
                                        -c start-directory
 
 tmux attach                         Attach to the most recently used unattached session
@@ -14,10 +14,10 @@ tmux detach
        d
 
 Ctrl-B PgUp                         Enter copy mode and scroll one page up
-       [                            Enter copy mode
+       [                            Just enter copy mode
                                        h j k l
                                        ^U ^D ^F ^B^B
-                                       0 $ g G f F       Most Vim movement keys apply
+                                       0 $ gg G f F      Most Vim movement keys apply
                                        Space             Start selection
                                        Enter             Copy selection into a tmux paste buffer
                                        Esc               Abandon selection
