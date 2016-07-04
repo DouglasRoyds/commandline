@@ -28,3 +28,5 @@ Ctrl-B
          #                          List all paste buffers
          =                          Choose a buffer to paste from
 
+Ctrl-B
+         q                          Briefly show pane numbers
