@@ -5,13 +5,13 @@ tmux new -s sessionname
 tmux attach                         Attach to the most recently used unattached session
                                        -t sessionname
 tmux ls                             List sessions
-   Ctrl-B s                            Select a session interactively
+Ctrl-B s                               Select a session interactively
 tmux display                        A brief glimpse of the tmux info bar
-          i
+       i
 tmux switch -t sessionname
-          ( )                       Previous/next session
+       ( )                          Previous/next session
 tmux detach
-          d
+       d
 
 Ctrl-B PgUp                         Enter copy mode and scroll one page up
        [                            Enter copy mode
@@ -33,7 +33,7 @@ Ctrl-B %                            Split vertically
        z                            Toggle pane full-screen (zoom)
 
 tmux list-windows
-   Ctrl-B w                         Select interactively
-          c                         Create
-          n p l                     Next/previous/alternate
+       w                            Select interactively
+       c                            Create
+       n p l                        Next/previous/alternate
 
