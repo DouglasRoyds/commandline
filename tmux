@@ -32,3 +32,8 @@ Ctrl-B %                            Split vertically
        q 1                             0 1 2 ...      Go to this pane
        z                            Toggle pane full-screen (zoom)
 
+tmux list-windows
+   Ctrl-B w                         Select interactively
+          c                         Create
+          n p l                     Next/previous/alternate
+
