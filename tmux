@@ -32,4 +32,9 @@ Ctrl-B
          =                          Choose a buffer to paste from
 
 Ctrl-B
+         %                          Split vertically
+         "                                horizontally
          q                          Briefly show pane numbers
+         q 1                           0 1 2 ...      Go to this pane
+         z                          Toggle pane full-screen (zoom)
+
