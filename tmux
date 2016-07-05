@@ -4,6 +4,7 @@ tmux new -s sessionname             Named session
 
 tmux attach                         Attach to the most recently used unattached session
                                        -t sessionname
+                                       -d                And detach any other clients
 tmux ls                             List sessions
 Ctrl-B s                               Select a session interactively
 tmux display                        A brief glimpse of the tmux info bar
@@ -12,6 +13,7 @@ tmux switch -t sessionname
        ( )                          Previous/next session
 tmux detach
        d
+       D                            Choose other clients to detach
 
 Ctrl-B PgUp                         Enter copy mode and scroll one page up
        [                            Just enter copy mode
