@@ -1,3 +1,6 @@
+ansible all --list-hosts                                    List hosts in /etc/ansible/hosts
+ansible all --list-hosts -i hostsfile
+
 ansible all -m ping                                         Connect to each host, verify a usable python, return `pong` on success
 ansible group -m ping
 ansible host -m ping
