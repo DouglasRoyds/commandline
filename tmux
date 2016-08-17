@@ -17,7 +17,7 @@ tmux detach
           d
           D                         Choose other clients to detach
 
-Ctrl-B PgUp                         Enter copy mode and scroll one page up
+   Ctrl-B PgUp                      Enter copy mode and scroll one page up
           [                         Just enter copy mode
                                        h j k l
                                        ^U ^D ^F ^B^B
@@ -26,11 +26,11 @@ Ctrl-B PgUp                         Enter copy mode and scroll one page up
                                        Enter             Copy selection into a tmux paste buffer
                                        Esc               Abandon selection
 
-Ctrl-B ]                            Paste from the most recent paste buffer
+   Ctrl-B ]                         Paste from the most recent paste buffer
           #                         List all paste buffers
           =                         Choose a buffer to paste from
 
-Ctrl-B %                            Split vertically
+   Ctrl-B %                         Split vertically
           "                               horizontally
           q                         Briefly show pane numbers
           q 1                          0 1 2 ...      Go to this pane
