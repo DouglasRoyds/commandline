@@ -32,7 +32,8 @@ tmux lsp
           q 1                          0 1 2 ...      Go to this pane
           z                         Toggle pane full-screen (zoom)
 
-   Ctrl-B PgUp                      Enter copy mode and scroll one page up
+tmux copy-mode
+          PgUp                      Enter copy mode and scroll one page up
           [                         Just enter copy mode
                                        h j k l
                                        ^U ^D ^F ^B^B
