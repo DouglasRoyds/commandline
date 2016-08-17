@@ -8,14 +8,14 @@ tmux attach                         Attach to the most recently used unattached 
                                        -t session
                                        -d                And detach any other clients
 tmux display                        A brief glimpse of the tmux info bar
-          i
+   Ctrl-B i
 tmux detach
           d
           D                         Choose other clients to detach
 
 tmux list-sessions
 tmux ls
-   Ctrl-B s                         Select a session interactively
+          s                         Select a session interactively
           ( )                       Previous/next session
 
 tmux list-windows
