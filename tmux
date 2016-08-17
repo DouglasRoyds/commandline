@@ -7,15 +7,30 @@ tmux new -s session -t existing     In the same session group as an existing ses
 tmux attach                         Attach to the most recently used unattached session
                                        -t session
                                        -d                And detach any other clients
-tmux ls                             List sessions
-   Ctrl-B s                         Select a session interactively
 tmux display                        A brief glimpse of the tmux info bar
           i
-tmux switch -t session
-          ( )                       Previous/next session
 tmux detach
           d
           D                         Choose other clients to detach
+
+tmux list-sessions
+tmux ls
+   Ctrl-B s                         Select a session interactively
+          ( )                       Previous/next session
+
+tmux list-windows
+tmux lsw
+          w                         Select interactively
+          c                         Create
+          n p l                     Next/previous/alternate
+
+tmux list-panes
+tmux lsp
+          %                         Split vertically
+          "                               horizontally
+          q                         Briefly show pane numbers
+          q 1                          0 1 2 ...      Go to this pane
+          z                         Toggle pane full-screen (zoom)
 
    Ctrl-B PgUp                      Enter copy mode and scroll one page up
           [                         Just enter copy mode
@@ -29,15 +44,4 @@ tmux detach
    Ctrl-B ]                         Paste from the most recent paste buffer
           #                         List all paste buffers
           =                         Choose a buffer to paste from
-
-   Ctrl-B %                         Split vertically
-          "                               horizontally
-          q                         Briefly show pane numbers
-          q 1                          0 1 2 ...      Go to this pane
-          z                         Toggle pane full-screen (zoom)
-
-tmux list-windows
-          w                         Select interactively
-          c                         Create
-          n p l                     Next/previous/alternate
 
