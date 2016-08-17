@@ -1,15 +1,17 @@
 tmux                                Create a new unnamed session
-tmux new -s sessionname             Named session
+tmux new -s session                 Named session
+tmux new -s session -t existing     In the same session group as an existing session,
+                                    Allows this screen to switch between sessions with Ctrl-B s
                                        -c start-directory
 
 tmux attach                         Attach to the most recently used unattached session
-                                       -t sessionname
+                                       -t session
                                        -d                And detach any other clients
 tmux ls                             List sessions
    Ctrl-B s                         Select a session interactively
 tmux display                        A brief glimpse of the tmux info bar
           i
-tmux switch -t sessionname
+tmux switch -t session
           ( )                       Previous/next session
 tmux detach
           d
