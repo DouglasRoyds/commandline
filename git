@@ -55,7 +55,7 @@ git reset --soft commitsum                   Revert to this commit, but leave lo
 git reset --mixed commitsum                  Revert to this commit, remove from staging, but leave working copy intact
 git reset --hard commitsum                   Revert to this commit, remove from staging, and undo working copy changes
 git reset commitsum                             --mixed is the default
-git reset HEAD filename                      Unstage a file, keeping local changes
+git reset filename                           Unstage a file, keeping local changes (default --mixed)
 git reset --hard HEAD                        Revert everything to the most recent commit, undoing all working copy changes
 git reset --hard HEAD~1                      Delete the last commit completely, undoing all working copy changes
 git push --force                             Force the deletion up if you'd already pushed it, however,
