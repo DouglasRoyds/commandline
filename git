@@ -18,6 +18,8 @@ git remote add origin URL                    Hooks this local git repository to 
 git remote add shortname URL                 Shortname stands in for the URL in later fetches
 git remote rename thisname thatname
 git remote rm somename
+git remote set-url origin URL                Change the URL (as opposed to adding a new one)
+git branch -u origin/master                  Set the upstream branch to push on the new URL
 git fetch shortname                          Pull into local repository without merging
 git push                                     Push committed changes to the default remote server
 git push origin master                       Push committed changes to the origin remote server, on branch master
