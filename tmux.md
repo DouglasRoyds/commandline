@@ -58,7 +58,7 @@ tmux copy-mode      |        |               |
                     |        | ^U ^D ^F ^B   |
                     |        | 0 $ gg G f F  | Most Vim movement keys apply
                     |        | Space         | Start selection
-                    |        | Enter         | Copy selection into a tmux paste buffer
+                    |        | Enter         | Copy selection, exit copy mode
                     |        | Esc           | Abandon selection
 
 
