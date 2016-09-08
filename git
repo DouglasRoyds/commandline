@@ -104,6 +104,13 @@ git branch -m newname                        If you're already on the old branch
 git branch -d branchname                     Delete (locally)
 git push origin --delete branchname          Delete (remote)
 
+                                             Oops, I committed on a detached HEAD
+git checkout -b temp                         Switch to a temporary branch pointing at my unreferenced commit
+git branch -f master temp                    Force reset local master to head of temp
+git checkout master
+git branch -d temp                           Phew.
+git pull -r                                  Rebase my local head on top of the incoming master
+
 git rebase branchname                        Rebase the current branch off the head of the named branch
 git rebase -i commitsum                      Recommit (ie. rebase) all changes after the given commit
                                              Need to git push --force after a rebase
