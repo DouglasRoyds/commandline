@@ -33,9 +33,10 @@ git log --oneline                            One line per commit
 git log --oneline --decorate                 With branch markers as well
 git log -p                                   With diffs
 git log commitsum -- filename                Starting with the given log entry (short object name)
-git log here..there filename                 Just between the two commits
+git log here..there                          Just between the two commits
 git log master..branch                       Commits made only on this branch
 git log master..                             If we are on the branch
+git log origin..                             Commits that are yet to be pushed
 git log --diff-filter=D --summary            When was a file deleted?
 
 git status
