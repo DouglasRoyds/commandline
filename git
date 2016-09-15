@@ -124,6 +124,7 @@ git tag                                      List all tags
 git tag -a tagname -m"Message"                  -a    Annotated tag, ie. one that has a message
                                                       and that is useful to git describe.
 git push origin tagname                      Tags are not pushed by default git push
+git rev-list -n1 tagname                     Which commit does the tag point at?
 
 cd repository1
 git log --pretty=email --patch-with-stat --reverse --full-index --binary -- pathname > ~/history.patch
