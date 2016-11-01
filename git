@@ -109,11 +109,9 @@ git branch --contains HEAD                   When I'm rolled back off the head, 
                                                 -a    Local or remote
 
                                              Oops, I committed on a detached HEAD
-git checkout -b temp                         Switch to a temporary branch pointing at my unreferenced commit
 git rebase master                            Bring my commits up to date
+git branch -f master                         Make my (detached) commits the HEAD of the master, as if I had committed them there
 git checkout master
-git merge temp                               This will fast-forward
-git branch -d temp                           Done.
 
 git rebase branchname                        Rebase the current branch off the head of the named branch
 git rebase -i commitsum                      Recommit (ie. rebase) all changes after the given commit
