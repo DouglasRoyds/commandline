@@ -12,7 +12,9 @@ git init                                     Create a local git repository
 git clone URL
 git clone URL directory/
 git pull                                     Update from remote repository (ie. fetch and merge)
-                                                -r --rebase    Rebase local branch on top of the upstream branch
+git pull origin branchname                   Merge all changes from the remote branch into my current local branch
+                                                -r --rebase    Rebase local branch on top of the remote branch
+
 git remote -v                                List all remote repositories, complete with URLs
 git remote show origin                       Even more detail
 git remote add origin URL                    Hooks this local git repository to the remote repository at URL
