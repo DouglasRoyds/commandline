@@ -13,6 +13,9 @@ git clone URL
 git clone URL directory/
 git pull                                     Update from remote repository (ie. fetch and merge)
 git pull origin branchname                   Merge all changes from the remote branch into my current local branch
+git pull origin remotebranch:localbranch     Pull all changes from the remote branch into the local branch,
+                                             eg. git pull origin master:master, while checked out on some other branch.
+                                             Fast-forward only.
                                                 -r --rebase    Rebase local branch on top of the remote branch
 
 git remote -v                                List all remote repositories, complete with URLs
