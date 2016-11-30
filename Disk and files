@@ -27,6 +27,7 @@ sudo blkid                          What partitions, what UUIDs?
 sudo parted /dev/sdb
 (parted) print                      What's there?
 (parted) mklabel msdos              Create a new partition table
+(parted) unit MB                    Display sizes in MB, as that's what the mkpart command needs
 (parted) mkpart primary ext4 1 -1   New primary partition taking in the entire available space
 (parted) quit                       Done
 sudo mkfs.ext4 /dev/sdb1            Format it
