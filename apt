@@ -39,6 +39,7 @@ apt-get remove package              *Well, duh
                                        --purge               And take your little config files with you
 apt-get clean                       *Clear /var/cache/apt/archives, or autoclean to only clear
                                      out the damaged or incomplete ones
+apt-get download package            Download the package file into the current directory (no root privilege required)
 
 dpkg -l pattern                     List known packages matching regular expression
 dpkg -l | grep ^ii                  Installed packages only, same packages but more information than --get-selections
