@@ -12,5 +12,3 @@ bold=$(tput smso)
 boldoff=$(tput rmso)
 echo "${bold}Type your name:${boldoff} "
 
-sudo -s                                   # Root shell
-
