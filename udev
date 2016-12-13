@@ -1,0 +1,1 @@
+udevadm info -a /dev/sda         Print all sysfs properties in udev rules format
