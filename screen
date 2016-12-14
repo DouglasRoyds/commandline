@@ -1,0 +1,24 @@
+screen                                          Create a new unnamed session
+screen /dev/ttyUSB0 115200                      Connect to serial console on USB0
+
+screen -S session                               Named session
+screen -r                                       Reattach to the only detached session
+       -r pid.tty.host
+       -RR                                      Attach to the most recently used detached session
+
+screen -d
+screen -d pid.tty.host
+                 Ctrl-A d                       Detach
+                        DD                      Detach and log out
+
+screen -ls                                      List sessions
+
+                 Ctrl-A "                       Select window interactively
+                        c                       Create a window
+                        n p                     Next/previous window
+
+                 Ctrl-A [                       Enter copy mode
+                          ]                     Paste into stdin of the current window
+                        {                       Copy a previous command line
+                          }                     Paste it
+
