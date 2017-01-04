@@ -1,4 +1,6 @@
 df                                  How much space remaining?
+df -h / ~                           Only on the partitions containing these directories
+                                       -h    Human-readable
 
 du -h | grep -v '/.*/'
 du -cs *
@@ -49,7 +51,7 @@ rename 'y/A-Z/a-z/' *               Change multiple filenames to lower case (y//
 cat /proc/swaps
 swapon -a                           Make swap devices from /etc/fstab available
 
-pvcreate /dev/sda3                        Initialize the partition for use by LVM, then ...
+pvcreate /dev/sda3                        Initialize a partition for use by LVM, then ...
 shutdown -r now
 vgdisplay                                 Find the existing volume group name
 vgextend VGNAME /dev/sda3                 Add the pysical volume to this volume group
