@@ -25,7 +25,6 @@ git remote add shortname URL                 Shortname stands in for the URL in 
 git remote rename thisname thatname
 git remote rm somename
 git remote set-url origin URL                Change the URL (as opposed to adding a new one)
-git branch -u origin/master                  Set the upstream branch to push/pull for an existing local branch
 git fetch origin                             Pull into local repository without merging
 git fetch origin branch:branch               Pull into local repository and merge (remote) sourcebranch into localbranch.
 git push                                     Push committed changes to the default remote server
@@ -97,7 +96,9 @@ git branch branchname                        Creates the branch without switchin
 git checkout branchname                      Note the potential ambiguity with filenames
                                                 -f    Force: throw away local changes
 git checkout -b newbranch                    Create and switch to the new branch in one go
-git checkout --track remote/branchname       Makes this the default pull branch
+git push -u origin branchname                Push the branch up, and make it the default tracking branch
+git checkout --track remote/branchname       Makes this existing remote branch the default pull branch
+git branch -u origin/master                  Set the existing upstream branch to push/pull for an existing local branch
 git branch                                   List local branches
                                                 -a    Both local and remote
                                                 -v    With the commit sum and line for each branch as well
