@@ -1,1 +1,3 @@
-udevadm info -a /dev/sda         Print all sysfs properties in udev rules format
+udevadm info -q property /dev/ttyUSB0     List all properties
+udevadm info -a /dev/sda                  Print all sysfs properties in udev rules format
+
