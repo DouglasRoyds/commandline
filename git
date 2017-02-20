@@ -30,12 +30,11 @@ git fetch origin branch:branch               Pull into local repository and merg
 git push                                     Push committed changes to the default remote server
 git push origin master                       Push committed changes to the origin remote server, on branch master
 
-git log -1
-git log -n1 filename                         Limit the number of log entries listed
-git log --name-status                        List affected files as well
+git log -5                                   Limit
 git log --stat                               Git-style stats (files, lines changed)
 git log --oneline                            One line per commit
-git log --oneline --decorate                 With branch markers as well
+                                                --decorate     Branch and tag markers
+                                                --graph        Branch/merge graph in the left margin
 git log -p                                   With diffs
 git log commitsum -- filename                Starting with the given log entry (short object name)
 git log here..there                          Just between the two commits
