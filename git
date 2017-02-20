@@ -38,6 +38,8 @@ git log --stat                               Git-style stats (files, lines chang
 git log --stat --full-diff filename          When restricted to just the commits made to one file (or directory) ...
                                                 --full-diff    List all files affected by each commit
 git log -p                                   With diffs
+                                                -D             No diffs for file deletions
+                                                -M             No diffs for renames (moves)
 git log commitsum -- filename                Starting with the given log entry (short object name)
 git log here..there                          Just between the two commits
 git log master..branch                       Commits made only on this branch
