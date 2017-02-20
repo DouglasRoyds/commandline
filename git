@@ -31,10 +31,12 @@ git push                                     Push committed changes to the defau
 git push origin master                       Push committed changes to the origin remote server, on branch master
 
 git log -5                                   Limit
-git log --stat                               Git-style stats (files, lines changed)
 git log --oneline                            One line per commit
                                                 --decorate     Branch and tag markers
                                                 --graph        Branch/merge graph in the left margin
+git log --stat                               Git-style stats (files, lines changed)
+git log --stat --full-diff filename          When restricted to just the commits made to one file (or directory) ...
+                                                --full-diff    List all files affected by each commit
 git log -p                                   With diffs
 git log commitsum -- filename                Starting with the given log entry (short object name)
 git log here..there                          Just between the two commits
