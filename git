@@ -72,7 +72,8 @@ git reset --hard HEAD                        Revert everything to the most recen
 git reset --hard HEAD~1                      Delete the last commit completely, undoing all working copy changes
 git push --force                             Force the deletion up if you'd already pushed it, however,
                                              if others have pulled it, they will push it back up again. Better to use ...
-git revert HEAD                              Generates the reverse commit
+git revert commitsum                         Generates the reverse commit
+                                                -n, --no-commit   Just leaves it as local mods
 git show commitsum:filename                  Cat to stdout
 git show branchname:filename
 
