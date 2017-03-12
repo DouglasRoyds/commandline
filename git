@@ -36,7 +36,7 @@ git log --oneline                            One line per commit
                                                 --decorate     Branch and tag markers
                                                 --graph        Branch/merge graph in the left margin
 git log --stat                               Git-style stats (files, lines changed)
-git log --stat --full-diff filename          When restricted to just the commits made to one file (or directory) ...
+git log --stat filename                      When restricted to just the commits made to one file (or directory) ...
                                                 --full-diff    List all files affected by each commit
 git log -p                                   With diffs
                                                 -D             No diffs for file deletions
