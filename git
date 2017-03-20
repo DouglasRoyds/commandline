@@ -32,8 +32,8 @@ git push                                     Push committed changes to the defau
 git push origin master                       Push committed changes to the origin remote server, on branch master
 
 git log -5                                   Limit
-git log --oneline                            One line per commit
-                                                --decorate     Branch and tag markers
+git log --oneline --decorate                 One line per commit, with branch and tag markers
+                                                --all          All branches, not just the current one
                                                 --graph        Branch/merge graph in the left margin
 git log --stat                               Git-style stats (files, lines changed)
 git log --stat filename                      When restricted to just the commits made to one file (or directory) ...
