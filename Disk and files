@@ -18,6 +18,7 @@ du -ak | grep -i '\.mov\|\.avi\|\.mpg' | sort -nr | head
                                     Where are the biggest video files?
                                        -a    All files, not just directories
 
+lsblk
 sudo parted -l
 sudo fdisk -l                       Partitions, and what they are used for
                                        -l    List partition table
