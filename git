@@ -104,6 +104,7 @@ git checkout -b newbranch                    Create and switch to the new branch
 git push -u origin branchname                Push the branch up, and make it the default tracking branch
 git checkout --track remote/branchname       Makes this existing remote branch the default pull branch
 git branch -u origin/master                  Set the existing upstream branch to push/pull for an existing local branch
+                                                -u    --set-upstream
 git branch                                   List local branches
                                                 -a    Both local and remote
                                                 -v    With the commit sum and line for each branch as well
