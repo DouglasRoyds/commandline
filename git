@@ -142,9 +142,10 @@ git push origin tagname                      Tags are not pushed by default git 
 git rev-list -n1 tagname                     Which commit does the tag point at?
 
 cd repository1
-git log --pretty=email --patch-with-stat --reverse --full-index --binary -- pathname > ~/history.patch
+git log --pretty=email --patch-with-stat --reverse --full-index --binary > ~/history.patch
 cd repository2
-git am < ~/history.patch                     Copy named files from repository1 into repository2, complete with history
+git am < ~/history.patch                     Copy with full history from repository1 into repository2
+                                                -- pathname    Named files only
 
 git format-patch commitsum                   Generate patch files for *every* commit from here up to the head
                                                 -1    Just the one, thanks
