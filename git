@@ -36,6 +36,7 @@ git log
                                                 --stat         Git-style stats (files, lines changed)
                                                 --full-diff    When a file or directory name is specified,
                                                                list all files affected by each commit
+                                                --author=name  Filter by name (or part of name)
 git log -p                                   With diffs
                                                 -D             No diffs for file deletions
                                                 -M             No diffs for renames (moves)
