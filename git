@@ -31,10 +31,11 @@ git fetch origin remotebranch:localbranch    Pull into local repository and fast
 git push                                     Push committed changes to the default remote server
 git push origin master                       Push committed changes to the origin remote server, on branch master
 
-git log -5                                   Limit
-git log --stat                               Git-style stats (files, lines changed)
-git log --stat filename                      When restricted to just the commits made to one file (or directory) ...
-                                                --full-diff    List all files affected by each commit
+git log
+                                                -5             Limit
+                                                --stat         Git-style stats (files, lines changed)
+                                                --full-diff    When a file or directory name is specified,
+                                                               list all files affected by each commit
 git log -p                                   With diffs
                                                 -D             No diffs for file deletions
                                                 -M             No diffs for renames (moves)
