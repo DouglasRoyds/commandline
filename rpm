@@ -1,0 +1,9 @@
+rpm -qlp package.rpm                List package files
+                                       -q --query
+                                       -l --list
+                                       -p --package
+rpm -qip package.rpm                Show package info
+                                       -i --info
+
+rpm -q --scripts -p package.rpm     Show postinstall script and friends
+
