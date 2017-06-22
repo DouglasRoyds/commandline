@@ -22,6 +22,7 @@ docker inspect imagename                                    Amongst other things
 docker logs container                                       By container ID or name
                                                                -f    Follow
 docker top container                                        Processes running inside the container
+                                                               -Af      Accepts a subset of the top options
 docker stats                                                Live stats on running containers (memory, CPU)
 docker inspect container
 docker inspect -f '{{ .NetworkSettings.IPAddress }}' container
@@ -54,6 +55,4 @@ docker rm container                                         Delete it (once it's
 docker rm $(docker ps -aq)                                  Delete the lot
 docker rmi imagename                                        Delete an image from this host (as opposed to a container)
 docker rmi $(docker images -f dangling=true -q)             Delete no-longer used images
-
-docker top container                                           -Af      Accepts a subset of the top options
 
