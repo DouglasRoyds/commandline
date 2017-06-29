@@ -143,6 +143,20 @@ git tag -a tagname -m"Message"                  -a    Annotated tag, ie. one tha
 git push origin tagname                      Tags are not pushed by default git push
 git rev-list -n1 tagname                     Which commit does the tag point at?
 
+git submodule add url
+cd dirname                                   After a normal clone, the submodule will not be populated
+   git submodule init                        
+   git submodule update
+git clone --recursive toplevelurl            Easier to recursively pull in submodules at clone time
+git submodule status                         Oneline status for each submodule
+git submodule foreach 'git remote -v'        Run a shell command on each submodule
+git submodule update --remote                Pull the latest heads of all submodules
+git submodule update --remote dirname        ... or just one
+git diff --submodule                         What changed?
+git config status.submodulesummary 1         git status will always list changes to submodules
+git config diff.submodule log                git diff will always include changes to submodules
+git push --recurse-submodules=check          Check all submodules are pushed properly before pushing the main project
+
 cd repository1
 git log --pretty=email --patch-with-stat --reverse --full-index --binary > ~/history.patch
 cd repository2
