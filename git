@@ -7,6 +7,7 @@ git config --unset user.email                         Remove the repository-loca
                                                       All git commands can take -c before the verb
                                                           -c user.name='Douglas Royds'
                                                           -c user.email='douglas.royds@emailhost.com'
+git config --get-regexp alias                         List all aliases
 
 git init                                     Create a local git repository
 git clone URL
