@@ -151,6 +151,7 @@ git clone --recursive toplevelurl            Easier to recursively pull in submo
 git submodule status                         Oneline status for each submodule
 git submodule foreach 'git remote -v'        Run a shell command on each submodule
 git submodule update --recursive             Fetch and checkout the correct revision of all submodules
+                                             See https://stackoverflow.com/questions/4611512/is-there-a-way-to-make-git-pull-automatically-update-submodules
 git submodule update --remote                Fetch and merge the latest heads of all submodules
 git submodule update --remote dirname        ... or just one
 git diff --submodule                         What changed?
