@@ -27,10 +27,10 @@ git remote rename thisname thatname
 git remote rm somename
 git remote set-url origin URL                Change the URL (as opposed to adding a new one)
 git fetch
-git fetch remotename                         Update local repository without merging
-git merge remotename/remotebrnch             Merge newly-fetched remote changes into current local branch
+git fetch origin                             Update local repository without merging
+git merge origin/remotebranch                Merge newly-fetched remote changes into current local branch
                                                 --ff-only      Only if the changes can be fast-forwarded
-git fetch remotename remotebrnch:localbrnch  Update local repository and fast-forward merge the
+git fetch origin remotebranch:localbranch    Update local repository and fast-forward merge the
                                                 remote sourcebranch into localbranch, in one go.
 git push                                     Push committed changes to the default remote server
 git push origin master                       Push committed changes to the origin remote server, on branch master
