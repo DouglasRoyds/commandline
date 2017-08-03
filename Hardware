@@ -4,6 +4,9 @@ sudo lshw -short -class volume                        Lots of information about 
                                                          -short               One-liners
                                                          -class disk          Disks only
                                                          -class volume        Formatted volumes
+sudo smartctl -a /dev/sda                             Print all SMART information about the disk
+sudo smartctl -t short /dev/sda                       Run the "short" test (takes about 2 minutes).
+                                                         -a    See the result
 
 lsusb
 
