@@ -44,6 +44,7 @@ git log
 git log -p                                   With diffs
                                                 -D             No diffs for file deletions
                                                 -M             No diffs for renames (moves)
+git log --follow filename                    History of one file, even across renames
 git log --oneline --decorate                 One line per commit, with branch and tag markers
                                                 --all          All branches, not just the current one
                                                 --graph        Branch/merge graph in the left margin
