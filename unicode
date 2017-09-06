@@ -1,4 +1,4 @@
-ctrl-shift-U 1234          1234 = Unicode (hex)
+ctrl-shift-U a3          a3 = Unicode (hex)
 
       Hex  HTML      Vim digraph
    £  a3              Pd
@@ -60,8 +60,4 @@ ctrl-shift-U 1234          1234 = Unicode (hex)
    ↑  2191 &uarr;     -!
    →  2192 &rarr;     ->
    ↓  2193 &darr;     -v
-
-
-
-
 
