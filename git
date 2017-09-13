@@ -46,8 +46,9 @@ git log -p                                   With diffs
                                                 -M             No diffs for renames (moves)
 git log --follow filename                    History of one file, even across renames
 git log --oneline --decorate                 One line per commit, with branch and tag markers
-                                                --all          All branches, not just the current one
                                                 --graph        Branch/merge graph in the left margin
+                                                --all          All branches, not just the current one
+                                                --first-parent Only the current branch, ie. hide other branches
 git log commitsum -- filename                Starting with the given log entry (short object name)
 git log here..there                          Just between the two commits
 git log master..branch                       Commits made only on this branch
