@@ -19,6 +19,11 @@ find . -type f   -perm /220                  Writeable by the owner OR group
 find . -type f ! -perm -200                  Not writeable by the owner
 find . -type f   -perm  664                  Exact permissions
 
+find . -size +10M                            Large files
+                                                +100k
+                                                +1G
+                                                -1M         Smaller than one MB
+
 find . -type f -printf "%TY-%Tm-%Td %TT %p\n" | sort -r | head
                                              Newest files
                                                 %Ta      Day of week as well
