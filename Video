@@ -48,8 +48,6 @@ ffmpeg -i input -acodec copy output.mp3
 gst-launch-1.0 filesrc location=$inputmp4 ! decodebin ! audioconvert ! lamemp3enc target=bitrate bitrate=128 ! id3v2mux ! filesink location=$outputmp3
 
 avconv -f x11grab -r 15 -s 1024x768 -i $DISPLAY output.mp4
-avconv -f x11grab -show_region 1 -r 15 -s 1024x768 -i $DISPLAY+1921,0 output.mp4
-avconv -f pulse -i default -f x11grab -show_region 1 -r 15 -s 1024x768 -i $DISPLAY -strict experimental output.mp4
                                     Screencast
                                        -show_region 1          Displays an outline of the captured region, useful if it's less than full-screen
                                        $DISPLAY+1921,0         Offset the capture region, in this case onto the second monitor
