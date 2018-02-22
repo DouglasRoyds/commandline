@@ -60,7 +60,7 @@ git status
 git add filename                             Stage changes to this file
 git add -p                                   Interactively select which hunks are to be staged
 git diff filename                            Unstaged mods only
-git diff --cached                            Which changes are already staged?
+git diff --staged                            Which changes are already staged?
 git commit                                   Commit staged changes
 git commit -v                                Show diffs in the commit editor
 git commit filename -m"Comment"              Commit changes to this file, whether they are staged or not
