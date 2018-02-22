@@ -53,6 +53,6 @@ avconv -f pulse -i default -f x11grab -show_region 1 -r 15 -s 1024x768 -i $DISPL
                                     Screencast
                                        -show_region 1          Displays an outline of the captured region, useful if it's less than full-screen
                                        $DISPLAY+1921,0         Offset the capture region, in this case onto the second monitor
-                                       -f pulse                Capture sound as well
+                                       -f pulse -i default     Capture sound as well
                                        -strict experimental    AAC support is still experimental
 
