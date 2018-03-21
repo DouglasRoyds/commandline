@@ -145,6 +145,7 @@ git rebase -i commitsum                      Recommit (ie. rebase) all changes a
 
 git tag                                      List all tags
                                                 -n    Also display the first line of annotation
+                                                -n20     ... the first 20 lines
 git tag -a tagname -m"Message"                  -a    Annotated tag, ie. one that has a message
                                                       and that is useful to git describe.
 git push origin tagname                      Tags are not pushed by default git push
