@@ -146,9 +146,11 @@ git rebase -i commitsum                      Recommit (ie. rebase) all changes a
 git tag                                      List all tags
                                                 -n    Also display the first line of annotation
                                                 -n20     ... the first 20 lines
-git tag -a tagname                              -a    Annotated tag, ie. one that has a message and that
+git tag tagname
+                                                -a    Annotated tag, ie. one that has a message and that
                                                       is useful to git describe. Prompt me.
-git tag    tagname -m"Message"                  -m    Here is the message for an annotated tag
+                                                -m    Here is the message for an annotated tag (-a is implied)
+                                                -d    Delete local tag
 git push origin tagname                      Tags are not pushed by default git push
 git push origin --delete tagname
 git rev-list -n1 tagname                     Which commit does the tag point at?
