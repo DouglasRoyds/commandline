@@ -70,7 +70,8 @@ git commit --amend
 git commit --amend -m"Comment"               Change the commit message of the most recent commit
 
 git rm filename                              Delete
-git rm --cached filename                     Delete from staging, but keep the working copy
+git rm --cached filename                     Delete from git, but keep the working copy
+git rm --cached -r dirname
 
 git reset --soft commitsum                   Revert to this commit, but leave local changes staged
 git reset --mixed commitsum                  Revert to this commit, remove from staging, but leave working copy intact
