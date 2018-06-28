@@ -1,0 +1,18 @@
+/etc/ldap/ldap.conf:
+   URI      ldap://ldaphost.host.com:389
+   BASE     dc=host,dc=com
+   BINDDN   uid=addressbook,ou=people,dc=host,dc=com
+
+ldapsearch -xLLL cn=*douglas* uid cn
+ldapsearch -xLLL cn=*royds* uid cn
+ldapsearch -xLLL uid=roydsd memberOf
+ldapsearch -xLLL cn="This Software Team" uniqueMember
+                                       -x    Simple authentication, no SASL
+                                       -LLL  LDIF format, no version, no cruft
+
+for uid in $(ldapsearch -xLLL cn='This Software Team' uniqueMember |
+             grep ^unique |
+             gawk -F'[ ,=]' '{print $3}'); do
+   ldapsearch -xLLL uid=$uid cn
+done | grep ^cn
+                                       Full names of group members
