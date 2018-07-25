@@ -4,8 +4,19 @@ shutdown -r now
 vgdisplay                                 Find the existing volume group name
 vgextend VGNAME /dev/sda3                 Add the pysical volume to this volume group
 pvscan                                    Shows physical volumes on all LVM block devices in the system 
+pvs                                       Shows physical volumes
+                                             --segments     Show contiguous allocations of space
+                                             -v             Show what they're used for
 lvdisplay                                 Find the existing logical volume we want to add to
 lvextend /dev/VGNAME/volname /dev/sda3    Extend the logical volume to take in the new physical volume
+lvextend -L 5G /dev/VGNAME/volname        Extend by 5G within the existing physical volume
+                                             -l +100%FREE   Use all free space (note lower-case l)
 resize2fs /dev/VGNAME/volname             Expand the ext2/3/4 filesystem to fill the partition
-df -h / ~
+
+e2fsck -f /dev/VGNAME/volname             FS check before shrinking
+                                             -f    Force even if it seems clean
+resize2fs /dev/VGNAME/volname 4G          Shrink the fs to 4GB (less than our intended logical volume size)
+lvreduce -L 5G /dev/VGNAME/volname        Reduce volume to 5G
+                                             -5G   Reduce by 5G
+resize2fs /dev/VGNAME/volname             Expand the fs again to fill the partition
 
