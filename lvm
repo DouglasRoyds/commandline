@@ -1,0 +1,11 @@
+lsblk                                     What have we got?
+pvcreate /dev/sda3                        Initialize a partition for use by LVM, then ...
+shutdown -r now
+vgdisplay                                 Find the existing volume group name
+vgextend VGNAME /dev/sda3                 Add the pysical volume to this volume group
+pvscan                                    Shows physical volumes on all LVM block devices in the system 
+lvdisplay                                 Find the existing logical volume we want to add to
+lvextend /dev/VGNAME/volname /dev/sda3    Extend the logical volume to take in the new physical volume
+resize2fs /dev/VGNAME/volname             Expand the ext2/3/4 filesystem to fill the partition
+df -h / ~
+
