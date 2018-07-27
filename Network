@@ -50,3 +50,10 @@ sudo ifconfig eth0 up
    BASE     dc=host,dc=com
    BINDDN   uid=addressbook,ou=people,dc=host,dc=com
 
+netstat -lntu                          List open ports
+                                          -l    Only services which are listening on some port
+                                          -n    Show port number, don't try to resolve the service name
+                                          -t    tcp ports
+                                          -u    udp ports
+                                          -p    Name of the program
+
