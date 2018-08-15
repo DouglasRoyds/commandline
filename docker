@@ -56,9 +56,14 @@ docker rm $(docker ps -aq)                                  Delete the lot
 docker rmi imagename                                        Delete an image from this host (as opposed to a container)
 docker images -f dangling=true -q | xargs -r docker rmi     Delete no-longer used images
 
-docker run --mount volumename:/path/inside/container imagename
-docker volume create volumename                             Docker volumes are stored in the --graph dir.
+docker run --volume volumename:/path/inside/container imagename
+docker run --mount  source=volumename,target=/path/inside/container imagename
+                                                               -v, --volume   Limited notation, takes name:/target/path:options
+                                                               --mount        More extensive notation, eg.
+                                                                                 source=volname,target=/target/path,...
+docker volume create volumename                             Docker volumes are stored in the docker graph dir
                                                             They are created at run time if they don't already exist
 docker volume ls
 docker volume inspect volumename                            Shows the path, amongst other things.
+docker volume inspect $(docker volume ls -q)                Inspect the lot
 
