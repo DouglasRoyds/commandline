@@ -1,0 +1,17 @@
+systemctl daemon-reload                Required after editing a .service file
+systemctl status servicename           Status is your friend
+systemctl start servicename
+systemctl stop servicename
+systemctl enable servicename           Automatically start on boot or when hardware is plugged in
+                                          --now    Start the service as well
+systemctl disable servicename
+
+loginctl list-sessions
+loginctl list-users
+loginctl show-user $USER               Succinct
+loginctl user-status $USER             Verbose
+
+loginctl enable-linger $USER           Allows user to run long-running services (ie. that continue on log-out)
+systemctl start --user servicename     Run a service from ~/.config/systemd/user with user rights
+systemctl enable --user servicename    Automatically start
+
