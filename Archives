@@ -36,3 +36,10 @@ bunzip2 file.bz2
 bzip2 -kd file.bz2                  Unzip
                                        -d          Decompress
                                        -k          Keep, don't delete original file/archive
+
+cpio -t < cpiofile                  Table of contents
+                                       -v          Long listing
+cpio -idmv < cpiofile               Extract
+                                       -d          Create dirs
+                                       -m          Keep modification times
+
