@@ -1,0 +1,9 @@
+pip help
+pip list                   Installed packages and versions
+
+sudo -H pip install packagename     Install
+                                       -H             Set the HOME var, for pip caching
+                                                      (otherwise it complains noisily)
+                                       --upgrade      Upgrade if already installed
+sudo -H pip install --upgrade pip   Upgrade pip itself (to silence its out-of-date complaints)
+
