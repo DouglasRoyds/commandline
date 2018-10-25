@@ -124,6 +124,8 @@ git branch --list -r remote/pattern             -r    Remote branches
 git branch -m oldname newname                Rename (move)
 git branch -m newname                        If you're already on the old branch
 git branch -d branchname                     Delete (locally)
+git branch -dr remotename/branchname         Delete local remote-tracking branch
+                                                -r --remotes
 git push origin --delete branchname          Delete (remote)
 git remote prune origin                      Delete stale remote-tracking branches
 
