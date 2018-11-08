@@ -1,4 +1,7 @@
 systemctl list-unit-files
+systemctl --user list-unit-files
+systemctl --user list-unit-files | grep enabled
+
 systemctl daemon-reload                Required after editing a .service file
 systemctl status servicename           Status is your friend
 systemctl start servicename
