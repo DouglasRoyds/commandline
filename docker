@@ -29,6 +29,8 @@ docker inspect -f '{{ .NetworkSettings.IPAddress }}' container
                                                             Low-level JSON information about the container
                                                                -f    Just this bit (Go template)
 
+docker exec -it container echo "Hello"                      Execute a shell command inside a running container
+
 docker stop container
 docker start container                                      Start it again
 docker restart container                                    Stop and restart it
