@@ -190,6 +190,7 @@ git apply patchfile
 git bisect start
 git bisect bad                               Current revision is bad
 git bisect good commitsum                    This revision is known good
+git bisect skip commitsum                    This revision is broken, eg. known not to compile
 git bisect run script args                   Do the bisection, running this script to test for goodness
 git bisect reset                             All done, clean up
 
