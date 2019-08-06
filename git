@@ -86,8 +86,6 @@ git push --force                             Force the deletion up if you'd alre
                                              if others have pulled it, they will push it back up again. Better to use ...
 git revert commitsum                         Generates the reverse commit
                                                 -n, --no-commit   Just leaves it as local mods
-git show commitsum:filename                  Cat to stdout
-git show branchname:filename
 
 git checkout -- filename                     Revert local mods
 git checkout commitsum filename              Roll file back to this commit
@@ -99,6 +97,9 @@ git checkout master filename                 Roll file forward to the HEAD of th
 git checkout master^ filename                Roll file back to the parent of the HEAD of this branch
                                                 --    Everything after this is a filename,
                                                       just in case there's a branch with this name
+
+git show commitsum:filename                  Cat to stdout
+git show branchname:filename
 
 git stash                                    All local mods, including any staged files.
 git stash list
