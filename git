@@ -89,10 +89,7 @@ git revert commitsum                         Generates the reverse commit
 
 git checkout -- filename                     Revert local mods
 git checkout commitsum filename              Roll file back to this commit
-git checkout HEAD^ filename                  Roll file back to the parent of the HEAD: roll back by one
-git checkout HEAD^2 filename                 Roll file back by two
-git checkout HEAD^^ filename                 Roll file back by two
-git checkout HEAD~2 filename                 Roll file back by two: only different to HEAD^^ when a commit has multiple parents
+git checkout HEAD~2 filename                 Roll file back by two
 git checkout master filename                 Roll file forward to the HEAD of this branch
 git checkout master^ filename                Roll file back to the parent of the HEAD of this branch
                                                 --    Everything after this is a filename,
