@@ -14,9 +14,11 @@ docker port container 5000                                  Which host port is c
 docker ps                                                   List running containers
                                                                -l    Just the last one
                                                                -a    All, even stopped ones
-docker images                                               List images stored on this host (/var/lib/docker/)
+docker image ls                                             List images stored on this host (/var/lib/docker/)
                                                                -f dangling=true  Only no-longer used old layers
                                                                -a                All, including intermediate build layers
+docker image prune                                          Delete no-longer used images
+                                                               -a    All unused images, not just dangling ones
 docker inspect imagename                                    Amongst other things, says where the FS layers are
 
 docker logs container                                       By container ID or name
@@ -56,7 +58,6 @@ docker rm container                                         Delete it (once it's
                                                                -f    Stop it and delete it
 docker rm $(docker ps -aq)                                  Delete the lot
 docker rmi imagename                                        Delete an image from this host (as opposed to a container)
-docker images -f dangling=true -q | xargs -r docker rmi     Delete no-longer used images
 
 docker run --volume volumename:/path/inside/container imagename
 docker run --mount  source=volumename,target=/path/inside/container imagename
