@@ -32,6 +32,9 @@ docker inspect -f '{{ .NetworkSettings.IPAddress }}' container
                                                                -f    Just this bit (Go template)
 docker inspect container | gawk '/Mounts/,/]/{print}'       Human-readable view of the mounts
 
+docker cp container:/path/to/file local/destination         Copy files into or out of running container
+docker cp local/destination container:/path/to/file
+
 docker exec -it container echo "Hello"                      Execute a shell command inside a running container
 
 docker stop container
