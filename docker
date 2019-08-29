@@ -30,6 +30,7 @@ docker inspect container
 docker inspect -f '{{ .NetworkSettings.IPAddress }}' container
                                                             Low-level JSON information about the container
                                                                -f    Just this bit (Go template)
+docker inspect container | gawk '/Mounts/,/]/{print}'       Human-readable view of the mounts
 
 docker exec -it container echo "Hello"                      Execute a shell command inside a running container
 
