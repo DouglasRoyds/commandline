@@ -25,3 +25,7 @@ TZ=America/New_York date --date='TZ="America/Los_Angeles" 09:00'  New York time 
 date --date='TZ="EST" 2pm'
 date --date='TZ="EST5DST" 2pm'                                    See /usr/share/zoneinfo
 
+faketime timestamp command                                        Run the command, faking the time to start at timestamp
+faketime '2019-09-06 17:33:47' date                               Timestamp is specified in date -d format.
+faketime 'last friday' date                                       
+faketime '00:00:00' annotate-output long-running-command          Fake the HH:MM:SS annotation to start at 00:00:00
