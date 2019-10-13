@@ -42,6 +42,9 @@ git log
                                                 --full-diff    When a file or directory name is specified,
                                                                list all files affected by each commit
                                                 --author=name  Filter by name (or part of name)
+                                                --since=date
+                                                --until=date
+                                                --grep=regex   Filter by log message
 git log -p                                   With diffs
                                                 -D             No diffs for file deletions
                                                 -M             No diffs for renames (moves)
