@@ -53,7 +53,7 @@ git log --oneline --decorate                 One line per commit, with branch an
                                                 --graph        Branch/merge graph in the left margin
                                                 --all          All branches, not just the current one
                                                 --first-parent Only the current branch, ie. hide other branches
-git log commitsum -- filename                Starting with the given log entry (short object name)
+git log commitsum -- filename                Starting with the given commit
 git log here..there                          Just between the two commits
 git log master..branch                       Commits made only on this branch
 git log master..                             If we are on the branch
