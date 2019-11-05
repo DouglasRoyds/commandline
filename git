@@ -101,7 +101,7 @@ git checkout master^ filename                Roll file back to the parent of the
                                                       just in case there's a branch with this name
 
 git show commitsum:filename                  Cat to stdout
-git show branchname:filename
+git show branchname:filename                    filename    Fully-qualified
 
 git stash                                    All local mods, including any staged files.
 git stash list
