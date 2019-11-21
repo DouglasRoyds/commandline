@@ -6,8 +6,8 @@ ansible groupname -m ping
 ansible hostname  -m ping
 
 ansible all -m command -a pstree                            Run an ad-hoc command on-target
-ansible all -a pstree                                          -m module         Default is the command module
-ansible all -a 'ls chdir=/etc'                              Pass in optional arguments to the command module
+ansible all -a pstree                                          -m module            Default is the command module
+ansible all -a 'ls chdir=/etc'                                 -a "arg1 arg2=val"   Arguments
 
 ansible all -m setup                                        Giant spew of a whole lot of info
 ansible all -m setup -a'filter=ansible_default_ipv4'        Just a subset
