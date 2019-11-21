@@ -2,7 +2,7 @@ ansible all --list-hosts                                    List hosts in /etc/a
 ansible all --list-hosts -i hostsfile
 
 ansible all -m ping                                         Connect to each host, verify a usable python, return `pong` on success
-ansible groupname -m ping
+ansible groupname -m ping                                   Optionally constrain it to a subset of hosts
 ansible hostname  -m ping
 
 ansible all -m command -a pstree                            Run an ad-hoc command on-target
