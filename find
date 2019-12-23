@@ -1,10 +1,10 @@
 find . -name '*.c'                           Lists all C files below the current directory
-find . -type d -empty -print0 | xargs --null rmdir -p
+find . -type d -empty -print0 | xargs -0 rmdir -p
                                              Delete all empty directories below this one, where:
                                                 -type d = Directories only
                                                 -empty  = Well, duh
                                                 -print0 = Null-terminate each line of output, so that filenames can contain spaces
-                                                --null  = Accept null-terminated filenames
+                                                -0      = Accept null-terminated filenames
                                                 -p      = Delete full directory path, where parent directories are empty. When
                                                          find passes in the last child directory, its parent will go as well
 
