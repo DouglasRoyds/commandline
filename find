@@ -31,3 +31,5 @@ find -type f -printf "%TY-%Tm-%Td %TT %p\n" | sort -r | head
 
 find \( -exec somecommand {} \; -o -exec sh -c "echo Failed: {} >> error.log" \; \)
                                              Log failures
+
+find -xtype l                                Broken symlinks
