@@ -44,7 +44,8 @@ git log
                                                 --author=name  Filter by name (or part of name)
                                                 --since=date
                                                 --until=date
-                                                --grep=regex   Filter by log message
+                                                --grep=regex      Filter by log message
+                                                --diff-filter=D   When was a file deleted?
 git log -p                                   With diffs
                                                 -D             No diffs for file deletions
                                                 -M             No diffs for renames (moves)
@@ -60,7 +61,6 @@ git log here..there                          Just between the two commits
 git log master..branch                       Commits made only on this branch
 git log master..                             If we are on the branch
 git log origin..                             Commits that are yet to be pushed
-git log --diff-filter=D --summary            When was a file deleted?
 
 git status
 git add filename                             Stage changes to this file
