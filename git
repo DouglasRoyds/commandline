@@ -137,6 +137,7 @@ git push origin --delete branchname          Delete (remote)
 git remote prune origin                      Delete stale remote-tracking branches
 
 git rev-parse HEAD                           Parse to a revision: What revision am I on?
+                                                --short              Just 10 characters from the shasum
                                              These options take no commitish:
                                                 --git-dir            Relative or fully-qualified
                                                 --absolute-git-dir   Fully-qualified
