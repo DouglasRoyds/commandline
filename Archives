@@ -31,6 +31,12 @@ unzip zipfile dirname/member           Relative to top of zipfile and cwd
 unzip zipfile 'dirname/*'              Extract entire subdirectory
 unzip -p zipfile member                To stdout
 
+gzip file                           Zips file into file.gz, deleting original file
+gunzip file.gz
+gzip -kd file.gz                    Unzip
+                                       -d          Decompress
+                                       -k          Keep, don't delete original file/archive
+
 bzip2 file                          Zips file into file.bz2, deleting original file
 bunzip2 file.bz2
 bzip2 -kd file.bz2                  Unzip
