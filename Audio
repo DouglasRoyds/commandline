@@ -25,3 +25,12 @@ id3v2 -l file.mp3                         List all ID3 tags
 eyeD3 -v file.mp3
 kid3-cli -c get track.m4a
 
+pacmd                                              Command interface
+man pulse-cli-syntax
+pacmd list-sinks | less
+pacmd list-sinks | egrep 'index:|name:'
+pacmd set-default-sink 3
+pacmd set-default-sink alsa_output.pci-0000_00_1b.0.analog-stereo
+                                                   I failed to get this to work
+pacmd stat
+pacmd stat | grep Default
