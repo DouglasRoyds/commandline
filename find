@@ -24,6 +24,7 @@ find -size +10M                              Large files
                                                 +100k
                                                 +1G
                                                 -1M         Smaller than one MB
+                                                0           Zero-length files
 
 find -type f -printf "%TY-%Tm-%Td %TT %p\n" | sort -r | head
                                              Newest files
