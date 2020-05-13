@@ -10,6 +10,13 @@ convert -resize 800x800 -quality 90 *.jpg output.jpg
                                                          The aspect ratio of the image is maintained.
                                        -quality 90       Compression level
 
+convert -crop 200x200 input.png output.png
+convert -trim input.png output.png
+                                       -crop 200x200        Defaults to top left
+                                       -crop 200x200+20+20  Offset is specified from top left
+                                       -trim                Remove borders
+                                       -fuzz 2              ... allowing for colour noise in the borders
+
 exiftran -d input.jpg               Dump all the exif tags to stdout
 exiftran -ai *.jpg
                                     Automatically rotate all jpg files in-place, leaving the orientation set to Top Left
