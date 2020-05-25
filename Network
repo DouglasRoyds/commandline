@@ -58,3 +58,20 @@ netstat -lntu                          List open ports
                                           -u    udp ports
                                           -p    Name of the program
 
+nmcli                                              ifconfig-type output
+nmcli connection show                              Nice and succinct
+nmcli connection show bridge-br0 | less            Not at all succinct
+nmcli device wifi                                  Find access point name(s) using NetworkManager
+nmcli device wifi connect apname password          Connect
+nmcli connection add type ethernet \
+         connection.id ethernet-fixed \
+         connection.interface-name eno1 \
+         ipv4.method manual \
+         ipv4.address 172.16.11.22/27 \
+         ipv4.gateway 172.16.191.254 \
+         ipv4.dns "172.25.1.1 172.25.1.2" \
+         ipv4.dns-search taitradio.net             New static IP address configuration
+nmcli connection modify ethernet-fixed \
+         ipv4.address 192.168.11.4/24              Change the static IP address
+nmcli connection up ethernet-fixed                 Bring it up (activate it)
+sudo cat /etc/NetworkManager/system-connections/ethernet-fixed
