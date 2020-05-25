@@ -1,5 +1,6 @@
+nslookup google.com
 host www.google.com                    Perform a DNS lookup, returning IP addresses for the named server
-dig www.google.com                     Full DNS records (including the above)
+dig www.google.com                     Full DNS records
 
 arp                                    Display this machines arp table of known Ethernet addresses
 arp -n                                 Don't display hostnames, use IP addresses instead
