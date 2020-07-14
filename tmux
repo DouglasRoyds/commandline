@@ -8,7 +8,7 @@ tmux attach                                     Attach to the most recently used
 
 tmux display
                  Ctrl-A i                       A brief glimpse of the tmux info bar
-                                                I have mapped my prefix key to Ctrl-A
+                                                I have mapped my prefix key to Ctrl-A, as Ctrl-B clashes with Vim
 tmux detach
                         d                       
                         D                       Choose other clients to detach
@@ -18,13 +18,13 @@ tmux ls
                         s                       Select a session interactively
                         ( )                     Previous/next session
 
-tmux list-windows                               
+tmux list-windows                               Each session can have multiple windows
 tmux lsw                                        
                         w                       Select interactively
                         c                       Create
                         n p l                   Next/previous/alternate
 
-tmux list-panes                                 
+tmux list-panes                                 Each window can be split into multiple panes
 tmux lsp                                        
                         %                       Split vertically
                         "                       Split horizontally
