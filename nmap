@@ -1,0 +1,4 @@
+nmap --script ssl-enum-ciphers -p 443 hostname
+
+nmap --script ssh2-enum-algos -p22 hostname           For dropbear, nmap 7.80 does not support dropbear, but must be patched
+                                                      See https://github.com/nmap/nmap/pull/1460/commits/8ff2f959c787a7de890ba93356f48f278d1fa729#
