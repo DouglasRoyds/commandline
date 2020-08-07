@@ -1,0 +1,11 @@
+socat $(tty),rawer,escape=0x1d \
+      /dev/ttyUSB1,b57600,rawer                                rawer = raw,echo=0
+                                                                  I had no joy with -,rawer
+                                                               Escape character is Ctrl-]
+                                                                  Without this, Ctrl-C exits socat
+socat GOPEN:$(tty),rawer,escape=0x1d \
+      GOPEN:/dev/ttyUSB1,rawer                                 Fully-qualified paths are assumed to be GOPEN
+
+socat $(tty),rawer,escape=0x1d \
+      EXEC:"ssh user@hostname \
+         socat - /dev/ttyUSB1,b57600,rawer",pty,setsid,ctty    Serial over ssh
