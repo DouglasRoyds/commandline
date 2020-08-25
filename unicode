@@ -25,6 +25,8 @@ ctrl-shift-U a3          a3 = Unicode (hex)
    —  2014            -M
    ‘  2018            '6 (left single quote)
    ’  2019            '9
+   “  201C            "6 (left double quote)
+   ”  201D            "9
 
    ¼  bc              14 (one quarter)
    ½  bd              12
