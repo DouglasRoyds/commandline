@@ -44,6 +44,8 @@ ansible-playbook playbook.yml -i hostsfile                  Run against hosts li
 ansible-playbook playbook.yml -i hostsfile --list-hosts     That it will run on
 ansible-playbook playbook.yml -i hostsfile --list-tasks     Dry run
 ansible-playbook playbook.yml -i hostsfile -l hostpattern   Further limit it to this subset of the hosts
+ansible-playbook playbook.yml -i hostsfile \                Start here
+                  --step --start-at-task="task name"           Can be usefully combined with -l
 
 ansible hostname -m debug -a "var=varname"                  View host variables
 
