@@ -41,11 +41,11 @@ ansible-doc -s modulename                                   Snippet - a terse, c
 ansible-playbook playbook.yml                               Run against hosts listed in my local /etc/ansible/hosts
                                                                -K       Ask for sudo password, if localhost is included
 ansible-playbook playbook.yml -i hostsfile                  Run against hosts listed in this file
-ansible-playbook playbook.yml -i hostsfile --list-hosts     That it will run on
-ansible-playbook playbook.yml -i hostsfile --list-tasks     Dry run
-ansible-playbook playbook.yml -i hostsfile -l hostpattern   Further limit it to this subset of the hosts
-ansible-playbook playbook.yml -i hostsfile \                Start here
-                  --step --start-at-task="task name"           Can be usefully combined with -l
+                                                               --list-tasks                  Dry run
+                                                               --list-hosts                  That it will run on
+                                                               -l hostpattern                Limit it to this subset of the hosts
+                                                               --start-at-task="task name"   Start here
+                                                               --step                        Ask before each task
 
 ansible hostname -m debug -a "var=varname"                  View host variables
 
