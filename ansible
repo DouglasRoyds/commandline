@@ -41,8 +41,9 @@ ansible-doc -s modulename                                   Snippet - a terse, c
 ansible-playbook playbook.yml                               Run against hosts listed in my local /etc/ansible/hosts
                                                                -K       Ask for sudo password, if localhost is included
 ansible-playbook playbook.yml -i hostsfile                  Run against hosts listed in this file
-                                                               --list-tasks                  Dry run
+                                                               --list-tasks                  The complete list
                                                                --list-hosts                  That it will run on
+                                                               --check                       Dry run
                                                                -l hostpattern                Limit it to this subset of the hosts
                                                                --start-at-task="task name"   Start here
                                                                --step                        Ask before each task
