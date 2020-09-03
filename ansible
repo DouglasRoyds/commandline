@@ -44,6 +44,7 @@ ansible-playbook playbook.yml -i hostsfile                  Run against hosts li
                                                                --list-tasks                  The complete list
                                                                --list-hosts                  That it will run on
                                                                --check                       Dry run
+                                                               --diff                        So what are you actually going to change?
                                                                -l hostpattern                Limit it to this subset of the hosts
                                                                --start-at-task="task name"   Start here
                                                                --step                        Ask before each task
