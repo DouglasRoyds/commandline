@@ -1,3 +1,7 @@
+netstat -anp                                          On-target, what ports do I have open?
+netstat -anp | egrep -v '127.0.0.1|^unix'             Ignore local-only ports and Unix sockets
+
+nmap -A hostname
 nmap --script ssl-enum-ciphers -p 443 hostname
 
 nmap --script ssh2-enum-algos -p22 hostname           For dropbear, nmap 7.80 does not support dropbear, but must be patched
