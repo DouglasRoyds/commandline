@@ -74,3 +74,4 @@ docker volume ls
 docker volume inspect volumename                            Shows the path, amongst other things.
 docker volume inspect $(docker volume ls -q)                Inspect the lot
 
+docker ps --filter volume=var-www
