@@ -8,4 +8,9 @@ smbclient //hostname/dirname
                                                          prompt   Toggle off prompting for each matched file
                                                          mget     Get files matching the following pattern (mask)
 
-nmblookup -A ipaddress     NetBIOS lookup by IP address
+nmblookup -A nn.nn.nn.nn   NetBIOS lookup by IP address
+nbtscan nn.nn.nn.nn
+nbtscan nn.nn.nn.nn/mm
+nbtscan nn.nn.nn.nn-nn     NetBIOS lookup over a range of addresses
+                                 -v       Print all names received from each host
+                                 -h       Human-readable service names
