@@ -52,5 +52,12 @@ rename 's/ //' *                    Strip spaces
 rename 'y/A-Z/a-z/' *               Change multiple filenames to lower case (y/// is the Perl "transliterate" command)
 
 cat /proc/swaps
+grep SwapTotal /proc/meminfo
+sudo swapoff -a
+sudo dd if=/dev/zero of=/swap.img bs=1G count=8
+sudo chmod 600 /swap.img            Create a new swap.img file
+sudo mkswap /swap.img
+sudo swapon /swap.img               Add this line to /etc/fstab:
+                                       /swap.img none swap sw 0 0
 swapon -a                           Make swap devices from /etc/fstab available
 
