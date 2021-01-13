@@ -7,3 +7,5 @@ smbclient //hostname/dirname
                                                          Forward/back slashes don't matter
                                                          prompt   Toggle off prompting for each matched file
                                                          mget     Get files matching the following pattern (mask)
+
+nmblookup -A ipaddress     NetBIOS lookup by IP address
