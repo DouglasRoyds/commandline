@@ -19,6 +19,8 @@ du -ak | grep -i '\.mov\|\.avi\|\.mpg' | sort -nr | head
                                        -a    All files, not just directories
 
 lsblk
+sudo hdparm -I /dev/sda             What's my HDD?
+
 sudo parted -l
 sudo fdisk -l                       Partitions, and what they are used for
                                        -l    List partition table
