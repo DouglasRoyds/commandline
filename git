@@ -23,7 +23,8 @@ git remote -v                                List all remote repositories, compl
 git remote show origin                       Even more detail
 git remote add origin URL                    Hooks this local git repository to the remote repository at URL
 git remote add shortname URL                 Shortname stands in for the URL in later fetches
-                                                -t    Track only this branch
+                                                -t master      Track only this branch
+                                                --no-tags      Don't clutter up my git branch -avv output
 git remote rename thisname thatname
 git remote rm somename
 git remote set-url origin URL                Change the URL (as opposed to adding a new one)
