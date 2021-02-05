@@ -189,6 +189,13 @@ git config status.submodulesummary true      git status will always list changes
 git config diff.submodule log                git diff will always include changes to submodules
 git push --recurse-submodules=check          Check all submodules are pushed properly before pushing the main project
 
+git remote add remotename url
+git fetch remotename
+git subtree add -P relative/path remotename master
+                                                      --squash       Don't commonly want the entire remote history added to this repo
+git fetch remotename                               Get the latest remote changes
+git subtree merge -P relative/path commitish       Merge them into the parent repo
+
 cd repository1
 git log --pretty=email --patch-with-stat --reverse --full-index --binary > ~/history.patch
 cd repository2
