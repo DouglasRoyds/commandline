@@ -60,7 +60,7 @@ netstat -lntu                          List open ports
 
 nmcli                                              ifconfig-type output
 nmcli connection show                              Nice and succinct
-nmcli connection show bridge-br0 | less            Not at all succinct
+nmcli connection show eno1 | less                  Not at all succinct
 nmcli device wifi                                  Find access point name(s) using NetworkManager
 nmcli device wifi connect apname password          Connect
 nmcli connection add type ethernet \
@@ -74,4 +74,4 @@ nmcli connection add type ethernet \
 nmcli connection modify ethernet-fixed \
          ipv4.address 192.168.11.4/24              Change the static IP address
 nmcli connection up ethernet-fixed                 Bring it up (activate it)
-sudo cat /etc/NetworkManager/system-connections/ethernet-fixed
+sudo cat /etc/NetworkManager/system-connections/ethernet-fixed.nmconnection
