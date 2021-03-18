@@ -46,12 +46,13 @@ git log
                                                 --since=date
                                                 --until=date
                                                 --grep=regex      Filter by log message
-                                                --diff-filter=D   When was a file deleted?
 git log -p                                   With diffs
                                                 -D             No diffs for file deletions
                                                 -M             No diffs for renames (moves)
                                                 -S"string"     Commits that introduce or remove a line
                                                 -G"regex"      Commits that introduce, remove, or change a line
+git log --stat --diff-filter=D               Show all file deletions
+git log -- filename                          Show history of a deleted file
 git log --follow filename                    History of one file, even across renames
 git log --oneline --decorate                 One line per commit, with branch and tag markers
                                                 --graph        Branch/merge graph in the left margin
