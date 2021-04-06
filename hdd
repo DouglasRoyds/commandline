@@ -23,6 +23,7 @@ sudo hdparm -I /dev/sda             What's my HDD?
 
 sudo parted -l
 sudo fdisk -l                       Partitions, and what they are used for
+sudo fdisk -l /dev/sdb
                                        -l    List partition table
 sudo file -Ls /dev/sdc1             What file system is on this partition?
                                        -L    Dereference symlinks
