@@ -1,7 +1,12 @@
 socat
 =====
 
-Serial terminal:
+ * [Serial terminal](socat.md#serial-terminal)
+ * [Serial over ssh](socat.md#serial-over-ssh)
+ * [Local pty device](socat.md#local-pty-device)
+
+Serial terminal
+---------------
 
     socat $(tty),rawer,escape=0x1d \
           /dev/ttyUSB0,b57600,rawer
@@ -15,7 +20,9 @@ Fully-qualified paths are assumed to be GOPEN:
     socat GOPEN:$(tty),rawer,escape=0x1d \
           GOPEN:/dev/ttyUSB0,b57600,rawer
 
-Serial over ssh:
+
+Serial over ssh
+---------------
 
     ssh -t user@host \
        'socat $(tty),raw,echo=0,escape=0x1d \
@@ -33,7 +40,9 @@ Serial over ssh the socat way:
  - Single-quotes to ensure that tty is run remotely.
  - Quoting the parameter set seems to be required, not sure why.
 
-Map the remote serial port to a local pty device:
+
+Local pty device
+----------------
 
     socat PTY,link=$HOME/dev/devname,rawer,waitslave \
           EXEC:'ssh -t user@host \
