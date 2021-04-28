@@ -76,3 +76,6 @@ nmcli connection modify ethernet-fixed \
          ipv4.address 192.168.11.4/24              Change the static IP address
 nmcli connection up ethernet-fixed                 Bring it up (activate it)
 sudo cat /etc/NetworkManager/system-connections/ethernet-fixed.nmconnection
+
+printf 'GET / HTTP/1.1\r\nHost: github.com\r\n\r\n' | ncat --ssl github.com 443
+                                                            Net cat can talk ssl
