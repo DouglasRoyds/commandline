@@ -42,9 +42,10 @@ nslookup                               Query nameservers interactively
    > server alien.xtra.co.nz           Use this nameserver for now
    > host.com                          Where does alien.xtra.co.nz think host.com is?
 
-ifconfig
-sudo ifconfig eth0 down                Need to do this after editing /etc/network/interfaces
-sudo ifconfig eth0 up
+ip address show
+ip link show                           Similar, but shows only layer 2 info
+ip link set eno1 up 
+ip link set eno1 down
 
 /etc/ldap/ldap.conf:
    URI      ldap://ldaphost.host.com:389
