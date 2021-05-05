@@ -1,0 +1,5 @@
+swaymsg -t get_outputs
+
+swaymsg -t get_tree                    Properties of all open windows
+swaymsg -t get_tree | grep "app_id"
+
