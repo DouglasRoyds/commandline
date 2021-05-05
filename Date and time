@@ -17,6 +17,9 @@ zdump /usr/share/zoneinfo/Australia/Sydney      Print date and time in the named
                                                 Timezones are named in /usr/share/zoneinfo,
                                                 so tab completion can be used from that location
 
+timedatectl                                     Where am I?
+timedatectl list-timezones
+
 TZ=America/New_York date
 TZ=America/New_York date --date='TZ="America/Los_Angeles" 09:00'  New York time when it's 9:00am in LA
 date --date='TZ="America/Los_Angeles" 09:00'                      Local time when it's 9:00am in LA
