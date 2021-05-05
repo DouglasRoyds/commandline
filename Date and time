@@ -13,17 +13,16 @@ zdump NZ
 zdump GB
 zdump /usr/share/zoneinfo/<Tab>
 zdump /usr/share/zoneinfo/Australia/<Tab>
-zdump /usr/share/zoneinfo/Australia/Sydney
-                              Print date and time in the named time-zone.
-                              Timezones are named in /usr/share/zoneinfo, so tab completion can be used from that location
+zdump /usr/share/zoneinfo/Australia/Sydney      Print date and time in the named time-zone.
+                                                Timezones are named in /usr/share/zoneinfo,
+                                                so tab completion can be used from that location
 
-tree -L 2 /usr/share/zoneinfo
-date --date='TZ="America/Los_Angeles"'                            Yes, you do need the hell quotes
-date --date='TZ="America/Los_Angeles" 09:00'
-date --date='TZ="America/Los_Angeles" 09:00 next Fri'             Local time when it's 9:00am in LA
+TZ=America/New_York date
 TZ=America/New_York date --date='TZ="America/Los_Angeles" 09:00'  New York time when it's 9:00am in LA
+date --date='TZ="America/Los_Angeles" 09:00'                      Local time when it's 9:00am in LA
+date --date='TZ="America/Los_Angeles" 09:00 next Fri'             Yes, you do need the hell quotes
 date --date='TZ="EST" 2pm'
-date --date='TZ="EST5DST" 2pm'                                    See /usr/share/zoneinfo
+date --date='TZ="EST5DST" 2pm'
 
 faketime timestamp command                                        Run the command, faking the time to start at timestamp
 faketime '2019-09-06 17:33:47' date                               Timestamp is specified in date -d format.
