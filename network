@@ -59,6 +59,9 @@ netstat -lntu                          List open ports
                                           -u    udp ports
                                           -p    Name of the program
 
+printf 'GET / HTTP/1.1\r\nHost: github.com\r\n\r\n' | ncat --ssl github.com 443
+                                                                        Net cat can talk ssl
+
 nmcli                                              ifconfig-type output
 nmcli connection show                              Nice and succinct
 nmcli connection show eno1 | less                  Not at all succinct
@@ -76,6 +79,3 @@ nmcli connection modify ethernet-fixed \
          ipv4.address 192.168.11.4/24              Change the static IP address
 nmcli connection up ethernet-fixed                 Bring it up (activate it)
 sudo cat /etc/NetworkManager/system-connections/ethernet-fixed.nmconnection
-
-printf 'GET / HTTP/1.1\r\nHost: github.com\r\n\r\n' | ncat --ssl github.com 443
-                                                            Net cat can talk ssl
