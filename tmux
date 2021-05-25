@@ -20,6 +20,10 @@ tmux ls
                         s                       Select a session interactively
                         ( )                     Previous/next session
 
+tmux kill-session -t session
+tmux kill-session -a                            All, except my current or most recent one.
+                                                Works equally from inside tmux.
+
 tmux list-windows                               Each session can have multiple windows
 tmux lsw                                        
                         w                       Select interactively
