@@ -42,6 +42,12 @@ nslookup                               Query nameservers interactively
    > server alien.xtra.co.nz           Use this nameserver for now
    > host.com                          Where does alien.xtra.co.nz think host.com is?
 
+resolvectl status                            Summary
+resolvectl dns eno1                          View
+resolvectl dns eno1 172.25.1.1 172.25.1.2    Set
+resolvectl domain eno1
+sudo resolvectl domain eno1 taitradio.net
+
 ip address show
 ip link show                           Similar, but shows only layer 2 info
 ip link set eno1 up 
