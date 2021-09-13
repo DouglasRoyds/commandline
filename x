@@ -1,3 +1,5 @@
+xrandr                           Dump the state of all outputs
+
 xprop _NET_WM_WINDOW_TYPE WM_WINDOW_ROLE WM_CLASS WM_NAME   Click on a window to get a display of these properties
 xwininfo                                                    Click on a window to get a display of its geometry
 
