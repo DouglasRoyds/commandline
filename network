@@ -43,6 +43,7 @@ nslookup                               Query nameservers interactively
    > host.com                          Where does alien.xtra.co.nz think host.com is?
 
 resolvectl status                            Summary
+                                                ... or systemd-resolve --status
 resolvectl dns eno1                          View
 resolvectl dns eno1 172.25.1.1 172.25.1.2    Set
 resolvectl domain eno1
