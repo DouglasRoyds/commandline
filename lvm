@@ -7,7 +7,11 @@ pvscan                                    Shows physical volumes on all LVM bloc
 pvs                                       Shows physical volumes
                                              --segments     Show contiguous allocations of space
                                              -v             Show what they're used for
-lvdisplay                                 Find the existing logical volume we want to add to
+
+lvcreate --name volname -L 111G VGNAME    Create a new logical volume (copy the size from vgdisplay)
+mkfs -t ext4 /dev/VGNAME/volname
+
+lvdisplay                                 Find an existing logical volume we want to add to
 lvextend /dev/VGNAME/volname /dev/sda3    Extend the logical volume to take in the new physical volume
 lvextend -L 5G /dev/VGNAME/volname        Extend by 5G within the existing physical volume
                                              -l +100%FREE   Use all free space (note lower-case l)
