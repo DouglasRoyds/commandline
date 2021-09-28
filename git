@@ -192,7 +192,8 @@ git push --recurse-submodules=check          Check all submodules are pushed pro
 
 git remote add remotename url
 git fetch remotename
-git subtree add -P relative/path remotename master
+git subtree add  -P relative/path remotename master
+git subtree pull -P relative/path remotename master
                                                       --squash       Don't commonly want the entire remote history added to this repo
 git fetch remotename                               Get the latest remote changes
 git subtree merge -P relative/path commitish       Merge them into the parent repo
