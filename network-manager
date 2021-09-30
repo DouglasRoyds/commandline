@@ -18,3 +18,4 @@ nmcli connection modify ethernet-fixed \
 nmcli connection up ethernet-fixed                 Bring it up (activate it)
 
 sudo cat /etc/NetworkManager/system-connections/ethernet-fixed.nmconnection
+sudo nmcli connection reload                       From disk
