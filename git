@@ -146,6 +146,7 @@ git rev-parse HEAD                           Parse to a revision: What revision 
                                                 --absolute-git-dir   Fully-qualified
                                                 --is-inside-work-tree
 
+git branch --show-current
 git rev-parse --abbrev-ref HEAD              What branch am I on the HEAD of?
 git branch --contains HEAD                   When I'm rolled back off the head, which branches contain this (local) HEAD?
                                                 -a    Local or remote
