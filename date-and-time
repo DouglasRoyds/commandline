@@ -4,6 +4,7 @@ cal -B2           ... and the 2 months before that as well.
 cal -3            3 months, being last month, this month, and next month
 cal -3B2          ... and the 2 months before that as well.
 cal -y            This year
+cal -yw           This year, with week numbers
 cal -yj           This year, with days numbered 1-366
 cal 1966          1966
 cal 9 1966        September 1966
