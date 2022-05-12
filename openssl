@@ -3,7 +3,16 @@ openssl genrsa -out rsakey.pem 4096                Generate a private key
 openssl rsa -noout -text -in rsakey.pem            Dump the private key
 openssl rsa -pubout -in rsakey.pem                 Print the public key
 
-openssl x509 -noout -text -in root.pem             Dump a certificate to stdout
+openssl req -new -x509 -days 365 -key ca.key -out ca.cert.pem
+                                                   Create a self-signed CA certificate
+                                                      -config openssl.cnf
+openssl x509 -noout -text -in ca.cert.pem          Print a certificate
+
+openssl req -new -key ca.key -out client.csr       Create a certificate signing request
+openssl req -noout -text -in client.csr            Print a certificate signing request
+
+openssl x509 -req -days 365 -in client.csr -CA ca.cert.pem -CAkey ca.key -CAcreateserial -out server.crt
+openssl x509 -noout -text -in root.pem             Create a server certificate, and print it
 
 openssl s_client -tls1_3 -connect hostname:443     Does the host support TLS 1.3?
                                                       -tls1_2
