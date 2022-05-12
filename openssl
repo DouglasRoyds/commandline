@@ -1,7 +1,8 @@
 openssl genrsa -out rsakey.pem 2048                Generate a private key
-openssl rsa -in rsakey.pem -pubout                 Print the public key
+openssl rsa -noout -text -in rsakey.pem            Dump the private key
+openssl rsa -pubout -in rsakey.pem                 Print the public key
 
-openssl x509 -in root.pem -noout -text             Dump a certificate to stdout
+openssl x509 -noout -text -in root.pem             Dump a certificate to stdout
 
 openssl s_client -tls1_3 -connect hostname:443     Does the host support TLS 1.3?
                                                       -tls1_2
