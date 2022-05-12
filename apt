@@ -15,18 +15,12 @@ apt-rdepends -d package | dot -Tpng > pipe & firefox pipe &
                                        -r      Reverse dependencies, ie. upwards
                                        pipe    A pipe previously created using 'mkfifo pipe'
 
-wget http://packages.medibuntu.org/medibuntu-key.gpg
-apt-key add medibuntu-key.gpg
-                                    *Download and add a public key
 gpg --keyserver subkeys.pgp.net --recv-keys CE49EC21
-gpg --export --armor CE49EC21 | sudo apt-key add -
-                                    *Download and add a public key using gpg
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68980A0EA10B4DE8
-                                    *Download and add a public key using the apt-key convenience one-liner,
-                                     where the public key ID is that given by apt-get update when it fails.
-                                     Requires the proxy environment variable to be white-listed in sudoers,
-                                     otherwise use sudo -E
-                                       adv      Pass advanced options in to gpg
+gpg --export CE49EC21 | sudo tee /usr/share/keyrings/EXAMPLE.gpg
+wget -O- https://example.com/EXAMPLE.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/EXAMPLE.gpg
+                                    Download and add a public key
+deb [signed-by=/usr/share/keyrings/EXAMPLE.gpg] https://example.com/apt stable main
+                                    Specify the key in a sources.list.d/ file
 
 apt-get update                      *Download the latest repository information
                                        --show-upgraded       Lists the files that will be upgraded
