@@ -1,0 +1,8 @@
+osslsigncode sign -certs certfile \
+                  -key   keyfile \
+                  -n "My Application" \
+                  -i http://www.mywebsite.com/ \
+                  -t http://timestamp.verisign.com/scripts/timstamp.dll \
+                  -in unsigned-app.exe \
+                  -out  signed-app.exe
+
