@@ -9,15 +9,15 @@ openssl rsa -pubout -in rsa.pem                    Print the public key
                                                       -out public.pem
 
 openssl req -new -x509 -days 365 -key ca.key -out ca.cert.pem
-                                                   Create a self-signed CA certificate
+                                                   Self-signed CA certificate
                                                       -config openssl.cnf
-openssl x509 -noout -text -in ca.cert.pem          Print a certificate
+openssl x509 -noout -text -in ca.cert.pem          Print
 
-openssl req -new -key ca.key -out client.csr       Create a certificate signing request
-openssl req -noout -text -in client.csr            Print a certificate signing request
+openssl req -new -key ca.key -out client.csr       Certificate signing request
+openssl req -noout -text -in client.csr            Print
 
 openssl x509 -req -days 365 -in client.csr -CA ca.cert.pem -CAkey ca.key -CAcreateserial -out server.crt
-openssl x509 -noout -text -in root.pem             Create a server certificate, and print it
+openssl x509 -noout -text -in root.pem             Server certificate
 
 openssl dgst -sha256 -sign   ed25519.pem -out       data.txt.signature data.txt      Generate a signature file
 openssl dgst -sha256 -verify public.pem  -signature data.txt.signature data.txt      Verify against a signature
