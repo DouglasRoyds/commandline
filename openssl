@@ -1,8 +1,8 @@
-openssl genrsa -out rsakey.pem 4096                Generate a private key
+openssl genrsa -out rsa.pem 4096                   Generate a private key
                                                       -aes256     Encrypt the private key
-openssl rsa -noout -text -in rsakey.pem            Print the private key
-openssl rsa -pubout -in rsakey.pem                 Print the public key
-openssl rsa -pubout -in rsakey.pem -outform PEM -out publickey.pem
+openssl rsa -noout -text -in rsa.pem               Print the private key
+openssl rsa -pubout -in rsa.pem                    Print the public key
+openssl rsa -pubout -in rsa.pem -outform PEM -out public.pem
                                                    Output the public key
 
 openssl req -new -x509 -days 365 -key ca.key -out ca.cert.pem
@@ -16,8 +16,8 @@ openssl req -noout -text -in client.csr            Print a certificate signing r
 openssl x509 -req -days 365 -in client.csr -CA ca.cert.pem -CAkey ca.key -CAcreateserial -out server.crt
 openssl x509 -noout -text -in root.pem             Create a server certificate, and print it
 
-openssl dgst -sha256 -sign   rsakey.pem    -out       data.txt.signature data.txt      Generate a signature file
-openssl dgst -sha256 -verify publickey.pem -signature data.txt.signature data.txt      Verify against a signature
+openssl dgst -sha256 -sign   rsa.pem    -out       data.txt.signature data.txt      Generate a signature file
+openssl dgst -sha256 -verify public.pem -signature data.txt.signature data.txt      Verify against a signature
 
 openssl s_client -tls1_3 -connect hostname:443     Does the host support TLS 1.3?
                                                       -tls1_2
