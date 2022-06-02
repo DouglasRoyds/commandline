@@ -3,8 +3,7 @@ openssl genpkey -algorithm rsa -out rsa.pem        Generate a private key
                                                       -aes256     Encrypt the private key
 openssl rsa -noout -text -in rsa.pem               Print the private key
 openssl rsa -pubout -in rsa.pem                    Print the public key
-openssl rsa -pubout -in rsa.pem -outform PEM -out public.pem
-                                                   Output the public key
+                                                      -out public.pem
 
 openssl req -new -x509 -days 365 -key ca.key -out ca.cert.pem
                                                    Create a self-signed CA certificate
