@@ -1,7 +1,6 @@
-openssl genpkey -algorithm ed25519 -out ed25519.pem
-openssl genpkey -algorithm rsa -out rsa.pem        Generate a private key
-                                                      -aes256     Encrypt the private key
-
+openssl genpkey -aes256 -algorithm ed25519 -out ed25519.pem
+openssl genpkey -aes256 -algorithm rsa -out rsa.pem
+                                                   Generate an encrypted private key
 openssl ec  -noout -text -in ed25519.pem
 openssl rsa -noout -text -in rsa.pem               Print the private key
 openssl ec  -pubout -in ed25519.pem
