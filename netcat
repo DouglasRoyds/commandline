@@ -1,0 +1,8 @@
+netcat -l 8888                                        Listen on tcp port 8888
+echo "message 1" | netcat -q0 hostname 8888           Send a message to host port 8888 (eg. localhost)
+                                                         -q    Quit on EOF on stdin
+
+netcat -lU /var/tmp/mysocket                          Create and listen on a unix socket
+echo "message 1" | netcat -q0 -U /var/tmp/mysocket    Send a message to a unix socket
+ls -l /var/tmp/mysocket                               Created if necessary
+
