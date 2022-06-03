@@ -72,3 +72,20 @@ Connect to it:
     bin
     root@K-Band-CH1:~#
     >>>
+
+
+Execute command on received messge
+----------------------------------
+
+    $ cat getmsg
+    #!/bin/sh
+    read command
+    echo "PID: $$"
+    echo "$command"
+
+    $ socat tcp-listen:8888,fork system:./getmsg
+
+Elsewhere:
+
+    $ echo "message 1" | netcat -q0 hostname 8888
+
