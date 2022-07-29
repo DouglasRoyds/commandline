@@ -4,10 +4,8 @@ sed 's#day#night#'  filename
 sed 's#day#night#g' filename              All instances in each line
 sed 's#day#night#' -i filename            Edit the file in-place
 sed '/moon/s#day#night#'                  Only in lines containing "moon"
-
-                                          sed supports POSIX basic regular expressions (not extended).
-                                          In basic regular expressions the characters ?, +, {, |, (, and ) lose their special meaning
-                                          Use the escaped versions \?, \+, \{, \|, \(, and \) instead.
+                                          sed defaults to basic regular expressions
+                                             -E    Use extended regular expressions
 
 sed '/regexp/p' -n                        Grep
 sed '/regexp/d'                           Inverse grep
@@ -19,8 +17,9 @@ sed -n 's#day#night#p'                    Only print the successful lines
 sed '/regexp/=' -n filename               Just print the line-number
 
 sed 's#day#night and &#'                  Ampersand refers to the entire match
-sed 's#\(^Start of line.*up to here\) throwaway part \(keep me$\)#\1 replacement \2#'
-                                          Parentheses have to be escaped
+sed -E 's#(^Start of line.*up to here) throwaway part (keep me$)#\1 replacement \2#'
+                                          Parentheses don't need to be escaped with
+                                             -E       Extended regular expressions
                                              \1, \2   Work as normal
 
 sed 's#\r##' filename                     DOS to Unix
