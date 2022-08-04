@@ -1,3 +1,7 @@
+lpstat                        List available printers
+lpoptions                     List current option settings
+lpoptions -d destination      Set default printer
+
 lpr file                      Print file to the default CUPS printer
                               The default printer is specified in /etc/cups/printers.conf
 lpr -#3 file                  3 copies
