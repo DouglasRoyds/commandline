@@ -106,4 +106,4 @@ dd if=/dev/cdrom bs=2048 count=195167 | md5sum           Calculate an md5sum fro
 dd if=/dev/cdrom of=filename.iso bs=2048 count=195167    Rip a data CD as an ISO
 
 file filename.iso                                        Check that it's a bootable image (ie. has an MBR)
-dd if=filename.iso of=/dev/sdx bs=1M status=progress     Write an iso to USB stick
+dd if=filename.iso of=/dev/sdx bs=1M                     Write an iso to USB stick
