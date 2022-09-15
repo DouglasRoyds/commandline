@@ -20,6 +20,7 @@ du -ak | grep -i '\.mov\|\.avi\|\.mpg' | sort -nr | head
 
 lsblk
 sudo hdparm -I /dev/sda             What's my HDD?
+sudo nvme id-ctrl /dev/nvme0 -H     What's my SSD?
 
 sudo parted -l
 sudo fdisk -l                       Partitions, and what they are used for
