@@ -184,13 +184,8 @@ cd dirname                                   After a normal clone, the submodule
 git clone --recursive toplevelurl            Easier to recursively pull in submodules at clone time
 git submodule status                         Oneline status for each submodule
 git submodule foreach 'git remote -v'        Run a shell command on each submodule
-git submodule update --recursive             Fetch and checkout the correct revision of all submodules
-git submodule update --remote                Fetch and merge the latest heads of all submodules
-git submodule update --remote dirname        ... or just one
+git submodule update --init --recursive      Fetch and checkout the correct revision of all submodules
 git diff --submodule                         What changed?
-git config status.submodulesummary true      git status will always list changes to submodules
-git config diff.submodule log                git diff will always include changes to submodules
-git push --recurse-submodules=check          Check all submodules are pushed properly before pushing the main project
 
 git remote add remotename url
 git fetch remotename
