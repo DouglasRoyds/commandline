@@ -54,3 +54,6 @@ avconv -f x11grab -r 15 -s 1024x768 -i $DISPLAY output.mp4
                                        -f pulse -i default     Capture sound as well
                                        -strict experimental    AAC support is still experimental
 
+pip install --upgrade yt-dlp                                YouTube downloader
+yt-dlp -x https://www.youtube.com/watch?v=15QF2q66NhU       Download audio
+
