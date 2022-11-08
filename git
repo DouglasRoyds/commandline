@@ -165,6 +165,14 @@ git rebase -i commitsum                      Recommit (ie. rebase) all changes a
                                                       See https://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History
 git rebase --onto targetbranch fromhere tohere
 
+git notes add                                Current HEAD commit
+git notes add commitsum                      Edits the existing note, if any
+git notes list                               Note ref and commit ref
+git notes remove commitsum                   Remove notes by commit ref
+git push origin refs/notes/*                 Push 'em up (notes are not pushed by default)
+git config --global --add remote.origin.fetch +refs/notes/*:refs/notes/*
+                                             Fetch notes by default
+
 git tag                                      List all tags
                                                 -n    Also display the first line of annotation
                                                 -n20     ... the first 20 lines
