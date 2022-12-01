@@ -47,6 +47,7 @@ tmux copy-mode
                                 Space           Start selection
                                 Enter           Copy selection, exit copy mode
                                 Esc             Abandon selection
+                                q               Canel/quit
                         ]                       Paste from the most recent paste buffer
                         #                       List all paste buffers
                         =                       Choose a buffer to paste from
