@@ -30,9 +30,11 @@ sed -n  5,10p filename                    middle
 sed -n '5,$p' filename                    tail from a specific line number (have to quote the $)
 
 echo 'Fred and Ginger like to dance' |
+sed '1i Ron and'                          Prepend a line to the beginning of the file
+sed '$a and Rudolph does too'             Append a line to the end of the file
+                                          Whitespace after the 'a' command is stripped
 sed 'a \
 and Rudolph does too'                     Append a line: No trailing spaces after the back-slash.
-                                                         The line to append must be on a new line.
                                                          Leading spaces are included.
 sed '3a \                                 After line 3
 sed '/Fred/a \                            After a line containing Fred
