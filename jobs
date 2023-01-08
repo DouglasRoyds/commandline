@@ -15,8 +15,8 @@ at> DISPLAY=:0 cairo-clock
 at> notify-send "It's 4:45pm"
 at> ^D                              Type ctrl-D to exit
 
-echo notify-send Time to go | at 5:15pm
-echo DISPLAY=$DISPLAY zenity --warning --text=Time | at 5:15pm
+echo "notify-send 'Time to go'" | at 5:15pm
+echo "DISPLAY=$DISPLAY zenity --warning --text=Time" | at 5:15pm
 
 atq                                 List at job queue
 atrm 15                             Delete job 15
