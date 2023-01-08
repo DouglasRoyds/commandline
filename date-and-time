@@ -29,6 +29,10 @@ date --date='TZ="America/Los_Angeles" 09:00 next Fri'             Yes, you do ne
 date -d '27 Oct 2022 23:00:00 EDT'                                Much easier to use timezone names
 TZ=America/New_York date -d '2022-10-28 16:00:00 NZDT'
 
+date -Iseconds                                  ISO 8601 format
+TZ=UTC date -Iseconds                           UTC time now
+TZ=UTC date -Iseconds -d '28 Oct 2022 NZDT'     UTC at 00:00 NZDT, start of the day
+
 faketime timestamp command                                        Run the command, faking the time to start at timestamp
 faketime '2019-09-06 17:33:47' date                               Timestamp is specified in date -d format.
 faketime 'last friday' date                                       
