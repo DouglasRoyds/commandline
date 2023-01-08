@@ -35,5 +35,5 @@ TZ=UTC date -Iseconds -d '28 Oct 2022 NZDT'     UTC at 00:00 NZDT, start of the 
 
 faketime timestamp command                                        Run the command, faking the time to start at timestamp
 faketime '2019-09-06 17:33:47' date                               Timestamp is specified in date -d format.
-faketime 'last friday' date                                       
+faketime 'last friday' date
 faketime '00:00:00' annotate-output long-running-command          Fake the HH:MM:SS annotation to start at 00:00:00
