@@ -21,12 +21,13 @@ zdump /usr/share/zoneinfo/Australia/Sydney      Print date and time in the named
 timedatectl                                     Where am I?
 timedatectl list-timezones
 
+TZ=UTC date
 TZ=America/New_York date
 TZ=America/New_York date --date='TZ="America/Los_Angeles" 09:00'  New York time when it's 9:00am in LA
 date --date='TZ="America/Los_Angeles" 09:00'                      Local time when it's 9:00am in LA
 date --date='TZ="America/Los_Angeles" 09:00 next Fri'             Yes, you do need the hell quotes
-date --date='TZ="EST" 2pm'
-date --date='TZ="EST5DST" 2pm'
+date -d '27 Oct 2022 23:00:00 EDT'                                Much easier to use timezone names
+TZ=America/New_York date -d '2022-10-28 16:00:00 NZDT'
 
 faketime timestamp command                                        Run the command, faking the time to start at timestamp
 faketime '2019-09-06 17:33:47' date                               Timestamp is specified in date -d format.
