@@ -158,8 +158,7 @@ git branch -f master                         Make my (detached) commits the HEAD
 git branch -f master commitish               We can set the master branch to point to anything we like, in practice
 git checkout master
 
-git rebase branchname                        Rebase the current branch off the head of the named branch
-git rebase -i commitsum                      Recommit (ie. rebase) all changes after the given commit
+git rebase commitish                         Rebase the current branch on top of the named branch
                                              Need to git push --force after a rebase
                                                 -i    Interactive, allows us to take an action on each commit as we go.
                                                       See https://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History
