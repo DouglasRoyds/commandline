@@ -54,7 +54,16 @@ trap "kill $pid" INT TERM EXIT      Ensure that a background process exits when 
 cat <<EOF >textfile                 Create a text file from stdin (keyboard). Enter EOF<CR> to finish
 program >logfile 2>&1               Pipe both stderr and stdout to a logfile
 <(program)                          Process substitution - pretends that the output of the program is a file
-$(program)                          Command-line substituion - pretends that the output of the program was entered on the command-line
+$(program)                          Command-line substitution. The output of the program is entered on the command-line
+
+exec 3>filename                     Assign fd 3 for writing to file
+exec 4<filename                     Assign fd 4 for reading from file
+exec 3>&1 1>&2 2>&3                 Swap stdout and stderr:
+                                       Assign fd 3 for writing to the thing referred to by fd 1 = stdout
+                                       Assign fd 1 for writing to the thing referred to by fd 2 = stderr
+                                       Assign fd 2 for writing to the thing referred to by fd 3, which is (now) stdout
+exec 3>&-                           Close the output file on fd 3
+exec 4<&-                           Close the input file on fd 4
 
 ls *.{mpg,avi,mov}                  Curly brackets are entire-word wildcards
 mkdir -p a/{b,c/{d,e,f}}            mkdir can make a hierarchy of directories in one command
