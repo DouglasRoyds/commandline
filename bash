@@ -1,4 +1,3 @@
-
 set -o vim                          Use Vim-style editing. See man readline for the lot:
 
    ESC                                 Exit insert mode, return to command mode:
@@ -6,8 +5,8 @@ set -o vim                          Use Vim-style editing. See man readline for 
    ESC 3_                              Copy the 3rd field (2nd parameter) of the last command
    ESC v                               Vim it - throw the current line into Vim for editing
    ESC #                               Comment - Drop this line into the history as a comment
-   ESC Ctrl-L                          Clear the screen
    ESC Ctrl-K                          Cut to end of line
+   Ctrl-L                              Clear the screen
    Ctrl-U                              Cut to start of line
    Ctrl-W                              Delete WORD left (whitespace delimited)
 
@@ -31,11 +30,13 @@ bind -m vi-insert -P | grep -v "is not bound"
                                     Current keyboard bindings for vi command-mode and vi-insert mode
                                        -m keymap      eg. emacs, vi, vi-move, vi-command, vi-insert
 
-
 history | tail                      View the most recent commands
 !496                                Rerun command 496
-Ctrl-R                              Search command history. Type some characters, then keep pressing Ctrl-R.
-                                    Enter to execute the command. Esc to edit it
+Ctrl-R                              Search command history. Type some characters, then:
+                                       Ctrl-R   Search back again
+                                       Ctrl-S   Search forward
+                                       Enter    Execute the command
+                                       Esc      Edit it
 ^this^that                          Rerun the most recent command, replacing this with that
 !!:s/this/that/g                    Replace this with that globally throughout the most recent command ...
 !-1:s/this/that/g                   ... or the one before it
@@ -47,7 +48,6 @@ bg                                  Background the currently stopped process
 fg                                  Bring it back again
 wait %4 && echo All done            %4 specifies a job number
 wait $(pidof somecommand)
-somecommand & wait $! && notify-send "All done"
 somecommand & pid=$!
 trap "kill $pid" INT TERM EXIT      Ensure that a background process exits when the parent script does.
 
@@ -58,11 +58,6 @@ $(program)                          Command-line substituion - pretends that the
 
 ls *.{mpg,avi,mov}                  Curly brackets are entire-word wildcards
 mkdir -p a/{b,c/{d,e,f}}            mkdir can make a hierarchy of directories in one command
-
-for f in *; do
-   echo "Basename =" $(basename "$f")
-done
-                                    Note the quotes around the "$f", to cope with spaces
 
 complete -p cd                      Print the bash completion for the cd command
 complete -v -F _cd -o nospace pushd
