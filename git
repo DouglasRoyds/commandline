@@ -203,7 +203,7 @@ git fetch remotename                               Get the latest remote changes
 git subtree merge -P relative/path commitish       Merge them into the parent repo
 
 cd repository1
-git log --pretty=email --patch-with-stat --reverse --full-index --binary > ~/history.patch
+git log --pretty=email --patch-with-stat --reverse --full-index --binary --no-color > ~/history.patch
 cd repository2
 git am < ~/history.patch                     Copy with full history from repository1 into repository2
                                                 -- pathname    Named files only
