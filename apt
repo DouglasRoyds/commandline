@@ -1,5 +1,5 @@
 aptoncd                             GUI tool to create a CD from the contents of /var/cache/apt/archives
-apt-cdrom add                       *Add a new CD-ROM to the source.list
+apt-cdrom add                       Add a new CD-ROM to the source.list
 
 apt-cache search pattern1 pattern2  List packages matching regular expression in names or descriptions
                                        --names-only   Search package names, not descriptions
@@ -22,19 +22,19 @@ wget -O- https://example.com/EXAMPLE.gpg | gpg --dearmor | sudo tee /usr/share/k
 deb [signed-by=/usr/share/keyrings/EXAMPLE.gpg] https://example.com/apt stable main
                                     Specify the key in a sources.list.d/ file
 
-apt-get update                      *Download the latest repository information
+apt-get update                      Download the latest repository information
                                        --show-upgraded       Lists the files that will be upgraded
 apt-get upgrade                     Upgrade currently installed packages
                                        --with-new-pkgs       Allow installation of new dependencies,
                                                              to resolve, "The following packages have been kept back"
-apt-get dist-upgrade                *Download and install all upgradeable packages
+apt-get dist-upgrade                Download and install all upgradeable packages
                                        --download-only       To /var/cache/apt/archive
                                        --no-download         I've already got them there
-apt-get install package             *Download and install
-apt-get remove package              *Well, duh
+apt-get install package             Download and install
+apt-get remove package              Well, duh
                                        autoremove            Remove dependent libraries as well
                                        --purge               And take your little config files with you
-apt-get clean                       *Clear /var/cache/apt/archives, or autoclean to only clear
+apt-get clean                       Clear /var/cache/apt/archives, or autoclean to only clear
                                      out the damaged or incomplete ones
 apt-get download package            Download the package file into the current directory (no root privilege required)
 
@@ -58,13 +58,11 @@ dpkg --get-selections > file        Drop a list of all known packages and their 
 dpkg --set-selections < file        Set the desired status of all the named packages
 apt-get dselect-upgrade             Do it - download, install, or remove packages as necessary
 
-                                    * These commands need root rights
-
 tar -czvf lists.tar.gz /var/lib/apt/lists/*gutsy*
                                     Create a tarball of the source lists
 
 rm /var/lib/apt/lists/*_{Packages,Release}*
-                                    *Nuke the lot to defeat Hash Sum mismatch errors
+                                    Nuke the lot to defeat Hash Sum mismatch errors
 
 apt-file update                     Prepare apt-file cache
 apt-file list pattern               List contents of packages containing the string pattern, without downloading them
