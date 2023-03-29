@@ -24,6 +24,9 @@ deb [signed-by=/usr/share/keyrings/EXAMPLE.gpg] https://example.com/apt stable m
 
 apt-get update                      *Download the latest repository information
                                        --show-upgraded       Lists the files that will be upgraded
+apt-get upgrade                     Upgrade currently installed packages
+                                       --with-new-pkgs       Allow installation of new dependencies,
+                                                             to resolve, "The following packages have been kept back"
 apt-get dist-upgrade                *Download and install all upgradeable packages
                                        --download-only       To /var/cache/apt/archive
                                        --no-download         I've already got them there
