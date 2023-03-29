@@ -1,6 +1,3 @@
-aptoncd                             GUI tool to create a CD from the contents of /var/cache/apt/archives
-apt-cdrom add                       Add a new CD-ROM to the source.list
-
 apt-cache search pattern1 pattern2  List packages matching regular expression in names or descriptions
                                        --names-only   Search package names, not descriptions
 apt-cache show package              Description
