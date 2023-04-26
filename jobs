@@ -1,18 +1,19 @@
-sleep 10m; zenity --warning --text="Time to go"
+sleep 10m; notify-send "Time to go"
 sleep 10m; cairo-clock              Execute a command after a certain amount of time (in s,m,h,d)
 
 at 16:45
 at 16:45 + 2 days
-at noon
+at midnight                         Or noon
 at 10am
-at 10am Jul 31
+at 10am Jul 31                      Or 31.07.23 or 23-07-31
 at 10am tomorrow
+at 10am sat
+at next week                        Or month or year
+at now
 at now + 1 min
                                     Enter sh commands.
-                                    `at` jobs are detached from the X window, so you need to specify the display to use
-at> DISPLAY=:0 zenity --warning --text="Time to go"
-at> DISPLAY=:0 cairo-clock
 at> notify-send "It's 4:45pm"
+at> DISPLAY=:0 cairo-clock          `at` jobs are detached from the X window, so you need to specify the display to use
 at> ^D                              Type ctrl-D to exit
 
 echo "notify-send 'Time to go'" | at 5:15pm
