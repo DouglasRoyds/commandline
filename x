@@ -10,3 +10,6 @@ xprop -id 0x121f2ef WM_NAME            Window name for this ID
 
 DISPLAY=:0 xeyes                       But only if the DISPLAY variable is not correctly set in the environment
 
+xdotool search --name "windowname"
+xdotool search --name "windowname" windowsize 300 400
+
