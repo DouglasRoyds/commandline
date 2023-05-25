@@ -1,6 +1,7 @@
 ctrl-shift-U a3          a3 = Unicode (hex)
 
       Hex  HTML      Vim digraph
+      a0              NS (non-breaking space)
    £  a3              Pd
    ©  a9              Co
    °  b0              DG
