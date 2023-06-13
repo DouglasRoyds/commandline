@@ -28,6 +28,7 @@ sed 's#$#\r#' filename                    Unix to DOS
 sed -n  1,5p  filename                    head -5
 sed -n  5,10p filename                    middle
 sed -n '5,$p' filename                    tail from a specific line number (have to quote the $)
+sed -n '$!d'  filename                    tail last line only ($ = last line, !d = delete all others)
 
 echo 'Fred and Ginger like to dance' |
 sed '1i Ron and'                          Prepend a line to the beginning of the file
