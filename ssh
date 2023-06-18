@@ -2,7 +2,7 @@ ssh-keygen
 ssh-keygen -f ~/.ssh/username-on-hostname Generate a public/private key pair
                                           They are normally put into ~/.ssh/id_rsa & id_rsa.pub
                                              -f       Put the key-pair in this file (and filename.pub)
-                                                      I have created an extra key-pair without a pass-phrase
+
 ssh-copy-id user@remote.box
 ssh-copy-id -i publickeyfile user@remote.box
                                           Copy the public key to the target server,
@@ -13,8 +13,8 @@ apt-get install openssh-server            The target server must be runing opens
                                           The first time the ssh server runs, it generates a host key in /etc/ssh/ssh_host_rsa_key
 
 ssh username@172.25.206.14                Login over ssh
-ssh username@hostname.local                   If both machines are running avahi
-ssh -X username@hostname.local
+ssh     username@hostname.local           If both machines are running avahi
+ssh -X  username@hostname.local
 ssh -Xf username@hostname.local firefox
 ssh -Xf username@hostname.local -i ~/.ssh/username-on-hostname firefox
                                              -X       Enable X11 forwarding
