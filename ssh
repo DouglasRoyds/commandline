@@ -12,6 +12,19 @@ ssh-copy-id -i publickeyfile user@remote.box
 apt-get install openssh-server            The target server must be runing openssh-server
                                           The first time the ssh server runs, it generates a host key in /etc/ssh/ssh_host_rsa_key
 
+ssh-add                                   Store all default (unencrypted) ssh keys in the ssh agent, by default the gnome-keyring.
+ssh-add -l                                List
+eval $(ssh-agent)                         Start a new ssh-agent instance, independently of gnome-keyring
+env | grep SSH                            It's listening on a different socket.
+                                          Login to a server requiring an encrypted key, and the password
+                                          will only be stored in this new ssh-agent instance, within this
+                                          shell. The instance will exit when the shell exits, leaving the
+                                          encrypted key effectively locked. This does *not* make the key
+                                          secure within your current user space. An attacker with your user
+                                          rights will be able to use the unlocked key via the socket — but
+                                          it's better than leaving it unlocked for the duration of your
+                                          login session.
+
 ssh username@172.25.206.14                Login over ssh
 ssh     username@hostname.local           If both machines are running avahi
 ssh -X  username@hostname.local
