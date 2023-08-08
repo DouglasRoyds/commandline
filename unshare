@@ -1,0 +1,108 @@
+$ sudo unshare --pid --fork         # Carve off a shell instance (by default) into its own process namespace.
+                                    # A process's PID namespace membership is determined when
+                                    # the process is created and cannot be changed thereafter.
+                                    # We fork the program (in this case bash) as a child process
+                                    # of unshare, and place it in the new PID namespace.
+                                    # See https://stackoverflow.com/a/68706102/2411520
+   # whoami
+   root
+   # echo $$
+   1                                # bash is the top-level process, but ...
+   # ps -A | wc -l
+   361                              # The process tree is still visible in /proc/[pid].
+                                    # It was mounted outside of this process namespace, so we can see the lot.
+
+$ sudo unshare --pid --fork --mount-proc     # Just before running the program, mounts the proc filesystem
+                                             # at (by default) /proc. Creates a new mount namespace to
+                                             # avoid the new /proc mount messing up existing programs on
+                                             # the system. The new proc filesystem is mounted private.
+   # pstree -p
+   bash(1)───pstree(15)                      # Now we can only see our own processes.
+
+$ sudo unshare --pid --fork --mount-proc ./busybox sh    # Optionally specify a program to run.
+   # pstree -p
+   busybox(1)───pstree(2)
+
+$ unshare --user --pid --fork --mount-proc               # From Linux 5.10, all users are allowed to create
+                                                         # user namespaces by default.
+   $ whoami
+   nobody                                                # The machine speaks the truth.
+   $ touch fred
+   $ ls -l fred
+   -rw-rw-r-- 1 nobody nogroup 0 Aug  7 18:01 fred
+
+$ unshare --user --pid --fork --mount-proc ./busybox sh     # Let's examine the namespaces ...
+
+   # From outside the namespaces (ie. in another console)
+   $ ls -l /proc/$$/ns/{user,mnt,pid}                       # This is me
+   lrwxrwxrwx 1 douglas douglas 0 Aug  9 09:49 /proc/687858/ns/mnt -> 'mnt:[4026531841]'
+   lrwxrwxrwx 1 douglas douglas 0 Aug  9 09:49 /proc/687858/ns/pid -> 'pid:[4026531836]'
+   lrwxrwxrwx 1 douglas douglas 0 Aug  9 09:49 /proc/687858/ns/user -> 'user:[4026531837]'
+
+   $ ls -l /proc/$(pgrep busybox)/ns/{user,mnt,pid}         # This is the unshared busybox
+   lrwxrwxrwx 1 douglas douglas 0 Aug  9 09:58 /proc/1421931/ns/mnt -> 'mnt:[4026532994]'
+   lrwxrwxrwx 1 douglas douglas 0 Aug  9 09:58 /proc/1421931/ns/pid -> 'pid:[4026532995]'
+   lrwxrwxrwx 1 douglas douglas 0 Aug  9 09:58 /proc/1421931/ns/user -> 'user:[4026532993]'
+                                                            # We can see that busybox is running in its
+                                                            # own mount, process, and user namespaces.
+
+$ unshare --map-root-user --pid --fork --mount-proc      # Run the program mapped to the superuser and group in the
+                                                         # newly created user namespace. Allows management
+                                                         # of the newly created namespaces (such as
+                                                         # configuring interfaces in the network namespace,
+                                                         # or mounting filesystems in the mount namespace)
+                                                         # even when run unprivileged.
+                                                         # Implies --user.
+   # whoami
+   root
+   # touch fred
+   # ls -l fred
+   -rw-rw-r-- 1 root root 0 Aug  7 18:53 fred
+
+   $ ls -l fred                                          # But outside the namespaces:
+   -rw-rw-r-- 1 douglas douglas 0 Aug  7 18:53 fred
+
+$ unshare --map-root-user chroot lower/ busybox sh       # Enter a chroot in a user namespace
+
+   lower/
+   ├── proc/
+   └── usr/
+       └── bin/
+           ├── busybox*
+           ├── ls -> busybox*
+           └── ps -> busybox*
+
+   # ls -l /usr/bin                                      # This is all, folks:
+   total 1128
+   -rwxrwxr-x    1 0        0          1153296 Aug  9 03:12 busybox
+   lrwxrwxrwx    1 0        0                7 Aug  9 03:13 ls -> busybox
+   lrwxrwxrwx    1 0        0                7 Aug  9 03:13 ps -> busybox
+
+   # ps
+   PID   USER     TIME  COMMAND
+   ps: can't open '/proc': No such file or directory     # I need to mount /proc before invoking chroot ...
+
+$ unshare --map-root-user --pid --fork --mount-proc      # So we unshare bash, entering new
+                                                         # user, pid, and mount namespaces
+
+   # fuse-overlayfs -o lowerdir=lower,upperdir=upper,workdir=work merged
+                                             # Set up our chroot containing only busybox.
+                                             # On Ubuntu, we don't have to use fuse-overlayfs, as they have
+                                             # patched the kernel to enable unprivileged mounts of overlayfs
+   # mount --bind /proc merged/proc          # Mount /proc into it
+   # chroot merged/ busybox sh               # ... and enter the chroot
+
+      # ls -l /usr/bin
+      total 1128
+      -rwxrwxr-x    1 0        0          1153296 Aug  9 03:12 busybox
+      lrwxrwxrwx    1 0        0                7 Aug  9 03:13 ls -> busybox
+      lrwxrwxrwx    1 0        0                7 Aug  9 03:13 ps -> busybox
+
+      # ps -A
+      PID   USER     TIME  COMMAND                       
+          1 0         0:00 -bash
+         67 0         0:00 fuse-overlayfs -o lowerdir=lower,upperdir=upper,workdir=work merged
+         78 0         0:00 busybox sh
+         84 0         0:00 ps -A
+                                             # Tah-dah! We can only see processes within our pid namespace
+
