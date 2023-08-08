@@ -1,0 +1,29 @@
+restic init -r rest:http://restic.mycompany.net:8000/reponame
+
+   #!/bin/sh
+   export RESTIC_REPOSITORY=rest:http://restic.mycompany.net:8000/reponame
+   export RESTIC_PASSWORD=fredandginger
+   /usr/bin/restic "$@"
+                                    # Install me so that you never type your password on the commandline,
+                                    # though the password will still be visible in the root fs.
+
+restic help
+restic help key
+
+restic backup directory/
+         --parent snapshotid        # Use this parent snapshot, by default the last snapshot
+                                    # in the repo that has the same target files/directories.
+restic snapshots
+restic ls latest
+restic ls snapshotid
+restic mount <path>                 # Mount the repository as a fuse mount
+
+restic stats
+restic stats snapshotid
+restic forget --keep-last 2         # Rotate the snapshots, keeping just the last 2
+         --dry-run
+
+restic key list
+restic key add
+restic key remove f4dfe3c3          # But only if the repo is modifiable
+
