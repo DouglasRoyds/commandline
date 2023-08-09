@@ -1,0 +1,22 @@
+mount -t overlay overlay -o lowerdir=/lower,upperdir=/upper,workdir=/work /merged
+
+                              # The workdir is an empty directory on the same filesystem as the upper
+                              # directory, used to prepare files as they are switched between the layers.
+                              # The upper directory is normally writable.
+                              # All changes in the merged directory are reflected in the upper dir.
+
+mount -t overlay overlay -o lowerdir=/lower1:/lower2:/lower3,upperdir=/upper,workdir=/work /merged
+
+                              # The order of lower dirs is leftmost at the top, rightmost at the bottom, eg:
+                              #     /upper
+                              #     /lower1 
+                              #     /lower2
+                              #     /lower3
+
+mount -t overlay overlay -o lowerdir=/lower1:/lower2 /merged
+
+                              # When an upperdir is not specified, the overlay is mounted read-only. 
+
+sudo apt install fuse-overlayfs
+fuse-overlayfs -o lowerdir=/lower,upperdir=/upper,workdir=/work /merged
+
