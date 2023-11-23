@@ -55,10 +55,22 @@ git log -p                                   With diffs
 git log --stat --diff-filter=D               Show all file deletions
 git log -- filename                          Show history of a deleted file
 git log --follow filename                    History of one file, even across renames
+
 git log --oneline --decorate                 One line per commit, with branch and tag markers
                                                 --graph        Branch/merge graph in the left margin
                                                 --all          All branches, not just the current one
                                                 --first-parent Only the current branch, ie. hide other branches
+git log --pretty='format:%C(auto)%h %<(15)%an %d %s'
+                                             Oneline with author name (padded to 15 characters)
+                                                %cs            Commit date (short form)
+                                                %(describe)    In git describe form
+                                                %(describe:match=dmr*)
+                                                %n             New line
+                                                %b             Message body
+                                                %N             Notes
+git config --global pretty.author 'format:%h %<(15)%an %s'
+git log --pretty=author                      A config alias for a pretty format
+
 git log commitsum -- filename                Starting with the given commit
 git log here..there                          Just between the two commits
 git log master..branch                       Commits made only on this branch
