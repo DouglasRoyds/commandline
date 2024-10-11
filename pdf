@@ -1,0 +1,5 @@
+pdftk input.pdf rotate 1-left output output.pdf       Rotate
+                                                         1-left      page 1 to the left
+                                                         1-4left     pages 1-4 to the left
+                                                         1-9oddleft  odd pages only from 1-9 to the left
+
