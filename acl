@@ -1,0 +1,35 @@
+$ getfacl dirname/                     # With no ACLs set, just lists normal user-group-owner permissions.
+user::rwx
+group::rwx
+other::r-x
+
+$ setfacl -m user:douglas:rwX,default:user:douglas:rwX dirname/
+             user:douglas:rwX          # Files or directories created by *anyone* will be readable by douglas.
+                                       # X = Execute permission for directories or files that
+                                       #     already have execute permission for the user. 
+             default:user:douglas:rwX
+                                       # default = ACLs to be inherited by new files and
+                                       #           subdirectories within a directory.
+
+$ ls -ld dirname/
+drwxrwxr-x+ 5 douglas douglas 4096 Aug 11 16:39 dirname/
+          ^ It has ACLs set.
+
+$ getfacl dirname/
+user::rwx
+user:douglas:rwx
+group::rwx
+mask::rwx                              # The mask limits the maximum permissions that can be granted to any
+                                       # user or group by an ACL. Calculated at setfacl time (unless explicitly
+                                       # set) as the union of all ACLs that apply to users and groups.
+other::r-x
+default:user::rwx                      # Default = Inherited ACLs
+default:user:douglas:rwx
+default:group::rwx
+default:mask::rwx
+default:other::r-x
+
+$ setfacl -k dirname/                  # Remove the default ACL
+$ setfacl -x user:douglas dirname/     # Remove this named user ACL
+$ setfacl -x mask: dirname/            # Remove the mask
+
