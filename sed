@@ -10,6 +10,7 @@ sed '/moon/s#day#night#'                  Only in lines containing "moon"
 sed '/regexp/p' -n                        Grep
 sed '/regexp/d'                           Inverse grep
 sed '/regexp/d' -i filename               Delete a line from a file in-place
+sed '12d' -i filename                     Delete line 12 in-place
 sed -n 's#day#night#p'                    Only print the successful lines
                                              -n       Don't output anything
                                              p        Print the line when it matches (print pattern space)
