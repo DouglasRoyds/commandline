@@ -1,4 +1,4 @@
-ctrl-shift-U a3          a3 = Unicode (hex)
+ctrl-shift-U a3          a3 = Unicode (hex0
 
       Hex  HTML      Vim digraph
       a0              NS (non-breaking space)
@@ -15,6 +15,7 @@ ctrl-shift-U a3          a3 = Unicode (hex)
    ÷  f7              -:
    ∑  2211            +Z
    ∙  2219            Sb (Solid bullet)
+   ●  25CF            0M
    √  221A            RT (RooT)
    ≃  2243            ?-
    ≠  2260            !=
