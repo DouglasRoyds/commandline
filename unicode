@@ -56,9 +56,7 @@ ctrl-shift-U a3          a3 = Unicode (hex0
    δ  03B4            d*
    ε  03B5            e*
 
-   ☐  2610
-   ☑  2611
-   ☒  2612
+   ℹ️  2139 + fe0f
    ⛔ 26d4
    ✅ 2705
    ✓  2713            OK
@@ -77,6 +75,7 @@ ctrl-shift-U a3          a3 = Unicode (hex0
    →  2192 &rarr;     ->
    ↓  2193 &darr;     -v
 
-   👍 1F44D
-   👍 1F44D + 1F3FB  Light skin tone
+   👍 1f44d
+   👍 1f44d + 1f3fb  Light skin tone
+   😐 1f610
 
