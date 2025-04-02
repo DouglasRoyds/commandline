@@ -55,6 +55,7 @@ git log -p                                   With diffs
 git log --stat --diff-filter=D               Show all file deletions
 git log -- filename                          Show history of a deleted file
 git log --follow filename                    History of one file, even across renames
+git log --follow --stat -- filename             --             Looking it up by its original filename
 
 git log --oneline --decorate                 One line per commit, with branch and tag markers
                                                 --graph        Branch/merge graph in the left margin
