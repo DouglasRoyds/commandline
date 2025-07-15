@@ -175,7 +175,7 @@ git rebase commitish                         Rebase the current branch on top of
                                              Need to git push --force after a rebase
                                                 -i    Interactive, allows us to take an action on each commit as we go.
                                                       See https://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History
-git rebase --onto targetbranch fromhere tohere
+git rebase --onto target fromhere tohere
 
 git notes add                                Current HEAD commit
 git notes add commitsum                      Edits the existing note, if any
