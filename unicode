@@ -1,6 +1,6 @@
-ctrl-shift-U a3          a3 = Unicode (hex0
+ctrl-shift-U a3 = Unicode (hex)
 
-      Hex  HTML      Vim digraph
+      Hex  HTML      Vim digraph                Windows Alt-code
       a0              NS (non-breaking space)
    £  a3              Pd
    ©  a9              Co
@@ -26,7 +26,7 @@ ctrl-shift-U a3          a3 = Unicode (hex0
    ≫  226B            *>
    ≮  226E            !<
    ≯  226F            !>
-   —  2014            -M
+   —  2014            -M                              0151
    ‘  2018            '6 (left single quote)
    ’  2019            '9
    “  201C            "6 (left double quote)
@@ -56,7 +56,8 @@ ctrl-shift-U a3          a3 = Unicode (hex0
    δ  03B4            d*
    ε  03B5            e*
 
-   ℹ️  2139 + fe0f
+   ℹ️  2139+fe0f
+   ⌛ 231b
    ⛔ 26d4
    ✅ 2705
    ✓  2713            OK
@@ -76,6 +77,6 @@ ctrl-shift-U a3          a3 = Unicode (hex0
    ↓  2193 &darr;     -v
 
    👍 1f44d
-   👍 1f44d + 1f3fb  Light skin tone
+   👍 1f44d+1f3fb    Light skin tone
    😐 1f610
 
