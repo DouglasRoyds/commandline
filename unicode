@@ -55,6 +55,10 @@ ctrl-shift-U a3 = Unicode (hex)
    γ  03B3            g*
    δ  03B4            d*
    ε  03B5            e*
+   θ  03B8            h*
+   λ  03BB            l*
+   μ  03BC            m*
+   π  03C0            p*
 
    ℹ️  2139+fe0f
    ⌛ 231b
