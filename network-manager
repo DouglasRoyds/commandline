@@ -20,3 +20,15 @@ nmcli connection up ethernet-fixed                 Bring it up (activate it)
 
 sudo cat /etc/NetworkManager/system-connections/ethernet-fixed.nmconnection
 sudo nmcli connection reload                       From disk
+
+nmcli connection add type wifi \
+         connection.interface-name enx60a123123123 \
+         connection.id 'Human readable name' \
+         ssid          'SSID from nmcli device wifi' \
+         wifi-sec.key-mgmt  wpa-eap \
+         802-1x.eap         peap \
+         802-1x.phase2-auth mschapv2 \
+         802-1x.identity <username> \
+         802-1x.password <password>
+                                                   Not working yet
+
