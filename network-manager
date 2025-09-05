@@ -2,8 +2,9 @@ nmcli                                              ifconfig-type output
 nmcli connection show                              Nice and succinct
 nmcli connection show eno1 | less                  Not at all succinct
 
-nmcli device wifi                                     Find access point name(s) using NetworkManager
-nmcli device wifi connect <ssid> password <password>  Connect
+nmcli device status                                Devices on this box
+nmcli device wifi                                  Find access point name(s) using NetworkManager
+nmcli --ask device wifi connect <ssid>             Connect, asking for a password
 
 nmcli connection add type ethernet \
          connection.id ethernet-fixed \
