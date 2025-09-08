@@ -19,3 +19,12 @@ loginctl enable-linger $USER           Allows user to run long-running services 
 systemctl start --user servicename     Run a service from ~/.config/systemd/user with user rights
 systemctl enable --user servicename    Automatically start
 
+journalctl                 The lot
+                              -f             Follow
+                              -k             Kernel messages
+                              -p priority    One of emerg, alert, crit, err, warning, notice, info, debug
+                              -r             Reverse order (newest first)
+                              -u ssh         Just for a single service
+                              -xe            Recent logs with details
+                           Group systemd-journal can see all messages
+
