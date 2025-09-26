@@ -15,6 +15,8 @@ lvdisplay                                 Find an existing logical volume we wan
 lvextend /dev/VGNAME/volname /dev/sda3    Extend the logical volume to take in the new physical volume
 lvextend -L 5G /dev/VGNAME/volname        Extend by 5G within the existing physical volume
                                              -l +100%FREE   Use all free space (note lower-case l)
+                                             -r             Resize FS at the same time
+                                                            (required for mounted root volume)
 resize2fs /dev/VGNAME/volname             Expand the ext2/3/4 filesystem to fill the partition
 
 e2fsck -f /dev/VGNAME/volname             FS check before shrinking
