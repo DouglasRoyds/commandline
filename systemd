@@ -2,6 +2,7 @@ systemctl list-unit-files
 systemctl --user list-unit-files
 systemctl --user list-unit-files | grep enabled
 
+systemctl edit servicename             Edit the /etc/systemd/system/servicename.service.d/override.conf file
 systemctl daemon-reload                Required after editing a .service file
 systemctl status servicename           Status is your friend
 systemctl start servicename
