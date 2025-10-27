@@ -5,13 +5,13 @@ Ctrl-D
 
 echo "Hello world" | sendmail user@host.com
                                                          No subject line, undisclosed recipients
-echo "Subject: Hello world
-   Sent from the command line" | sendmail user@host.com
+{ echo "Subject: Hello world"
+  echo "Sent from the command line"; } | sendmail user@host.com
                                                          Undisclosed recipients
-(echo   "Subject: Hello world";
-   echo "To: user@host.com";
-   echo "content-type: text/html";
-   cat  file.html)             | sendmail -t
+{ echo   "Subject: Hello world"
+  echo "To: user@host.com"
+  echo "content-type: text/html"
+  cat  file.html; }              | sendmail -t
 
 uuencode file.txt myfile.txt | sendmail user@host.com
                                                          Attach 'file.txt' as 'myfile.txt':
