@@ -10,6 +10,7 @@ $ setfacl -m user:douglas:rwX,default:user:douglas:rwX dirname/
              default:user:douglas:rwX
                                        # default = ACLs to be inherited by new files and
                                        #           subdirectories within a directory.
+                                       # -m --modify
 
 $ ls -ld dirname/
 drwxrwxr-x+ 5 douglas douglas 4096 Aug 11 16:39 dirname/
