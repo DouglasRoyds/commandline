@@ -11,6 +11,9 @@ systemctl enable servicename           Automatically start on boot or when hardw
                                           --now    Start the service as well
 systemctl disable servicename
 
+systemctl list-units --type help
+systemctl list-units --type mount      systemd generates a .mount file for each entry in /etc/fstab
+
 loginctl list-sessions
 loginctl list-users
 loginctl show-user $USER               Succinct
