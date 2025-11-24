@@ -32,6 +32,9 @@ id3v2 -l file.mp3                         List all ID3 tags
 eyeD3 -v file.mp3
 kid3-cli -c get track.m4a
 
+aplay -l                                  ALSA player
+                                             --list-devices    Lists all audio devices
+
 pacmd                                              Command interface
 man pulse-cli-syntax
 pacmd list-sinks | less
