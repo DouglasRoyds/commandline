@@ -36,6 +36,7 @@ gunzip file.gz
 gzip -kd file.gz                    Unzip
                                        -d          Decompress
                                        -k          Keep, don't delete original file/archive
+                                       -c          To stdout
 
 bzip2 file                          Zips file into file.bz2, deleting original file
 bunzip2 file.bz2
