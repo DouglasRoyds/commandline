@@ -34,6 +34,13 @@ kid3-cli -c get track.m4a
 
 aplay -l                                  ALSA player
                                              --list-devices    Lists all audio devices
+arecord -D hw:2,0 -f S16_LE -d 5 filename.wav
+                                             -D, --device      From devices listed by aplay -l
+                                             -f, --format      S16_LE = 16 bit little endian
+                                             -r, --rate        Default 8Khz
+                                             -d, --duration
+                                             -i, --interactive Pause and restart with spacebar or Enter
+aplay filename.wav
 
 pacmd                                              Command interface
 man pulse-cli-syntax
