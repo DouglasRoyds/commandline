@@ -1,0 +1,11 @@
+sudo checkinstall tar -xzf ollama-linux-amd64.tgz -C /usr/local
+dpkg -L ollama
+
+ollama serve
+ollama -v
+ls -lh .ollama/
+
+ollama pull gpt-oss:20b
+ollama run gpt-oss:20b
+ollama list
+ollama show --modelfile gpt-oss:20b
