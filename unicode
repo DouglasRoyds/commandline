@@ -32,6 +32,7 @@ ctrl-shift-U a3 = Unicode (hex)
    ’  2019            '9
    “  201C            "6 (left double quote)
    ”  201D            "9
+   €  20AC            Eu
 
    ¼  bc              14 (one quarter)
    ½  bd              12
